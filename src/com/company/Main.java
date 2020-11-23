@@ -23,7 +23,7 @@ public class Main extends Application {
         // ResourceBundle avec ressource xml
         ResourceBundle bundle = ResourceBundle.getBundle("labels", new XMLResourceBundleControl());
         System.out.println("gameBtn_text: " + bundle.getString("gameBtn_text"));*/
-        
+        int b;
         launch(args);
     }
 
