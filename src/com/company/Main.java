@@ -29,8 +29,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
-
+        int a=36;
+        System.out.println(a);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/view/menuView.fxml")); // url brute
         Parent root = loader.load();
