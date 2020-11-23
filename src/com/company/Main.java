@@ -11,12 +11,8 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         // write your code here
-        launch(args);
-    }
 
-    @Override
-    public void start(Stage stage) throws Exception {
-/*        // Properties avec ressource xml
+        /*        // Properties avec ressource xml
         try( InputStream inputstream = PropertiesXml.class.getClass().getResourceAsStream("/labels_fr.xml"); ) {
             Properties props = new Properties();
             props.loadFromXML(inputstream);
@@ -27,6 +23,13 @@ public class Main extends Application {
         // ResourceBundle avec ressource xml
         ResourceBundle bundle = ResourceBundle.getBundle("labels", new XMLResourceBundleControl());
         System.out.println("gameBtn_text: " + bundle.getString("gameBtn_text"));*/
+        
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/view/menuView.fxml")); // url brute
