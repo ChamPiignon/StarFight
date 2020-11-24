@@ -6,31 +6,23 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 
 public class Main extends Application {
 
     public static void main(String[] args) {
         // write your code here
 
-        /*        // Properties avec ressource xml
-        try( InputStream inputstream = PropertiesXml.class.getClass().getResourceAsStream("/labels_fr.xml"); ) {
-            Properties props = new Properties();
-            props.loadFromXML(inputstream);
-            System.out.println("maCle1: " + props.getProperty("maCle1"));
-        }
-
-
-        // ResourceBundle avec ressource xml
-        ResourceBundle bundle = ResourceBundle.getBundle("labels", new XMLResourceBundleControl());
-        System.out.println("gameBtn_text: " + bundle.getString("gameBtn_text"));*/
-        int b;
+        ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue", Locale.ENGLISH);
+        System.out.println(bundle.getString("test"));
         launch(args);
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        int a=36;
-        System.out.println(a);
+
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/view/menuView.fxml")); // url brute
         Parent root = loader.load();
