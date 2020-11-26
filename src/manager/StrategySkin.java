@@ -1,27 +1,36 @@
 package manager;
 
+import character.Fighter;
+
 public class StrategySkin {
-    private void jump() {
+    public void jump(Fighter fighter) 
+    {
+        
     }
 
-    private void primaryAttack() {
+    public void primaryAttack(Fighter fighter) {
     }
 
-    private void secondaryAttack() {
+    public void secondaryAttack(Fighter fighter) {
     }
 
-    private void run() {
+    public void run(Fighter fighter) {
     }
 
-    private void fall() {
+    public void fall(Fighter fighter)
+    {
     }
 
-    private void takeHit() {
+    public void takeHit(Fighter fighter)
+    {
+
     }
 
-    private void idle() {
+    public void idle(Fighter fighter) {
     }
 
-    private void death() {
+    public void death(Fighter fighter)
+    {
+
     }
 }
