@@ -12,16 +12,16 @@ import java.util.ResourceBundle;
 
 public class Main extends Application {
 
-    public static void main(String[] args) {
-        // write your code here
-
+    public static void main(String[] args)
+    {
         ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue", Locale.ENGLISH);
         System.out.println(bundle.getString("test"));
         launch(args);
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) throws Exception
+    {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/view/menuView.fxml")); // url brute

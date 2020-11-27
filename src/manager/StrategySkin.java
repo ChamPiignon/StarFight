@@ -2,7 +2,8 @@ package manager;
 
 import character.Fighter;
 
-public class StrategySkin {
+public class StrategySkin
+{
     public void jump(Fighter fighter) 
     {
         
@@ -19,6 +20,7 @@ public class StrategySkin {
 
     public void fall(Fighter fighter)
     {
+
     }
 
     public void takeHit(Fighter fighter)
