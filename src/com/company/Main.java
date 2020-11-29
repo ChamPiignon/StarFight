@@ -16,10 +16,6 @@ public class Main extends Application {
     {
         ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue", Locale.ENGLISH);
         System.out.println(bundle.getString("test"));
-
-        GamePadCommand gamepad1 = new GamePadCommand();
-        gamepad1.gamePadInit();
-
         launch(args);
     }
 
@@ -28,14 +24,12 @@ public class Main extends Application {
     {
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/menuView.fxml"));
+        loader.setLocation(getClass().getResource("/view/chooseCharacter.fxml"));
         Parent root = loader.load();
 
         stage.setTitle("StarFight"); // text brute
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setMinWidth(250);
-        stage.setMinHeight(150);
         stage.show();
 
     }
