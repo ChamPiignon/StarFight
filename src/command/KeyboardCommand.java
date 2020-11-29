@@ -1,4 +1,4 @@
 package command;
 
-public class KeyboardCommand {
+public class KeyboardCommand extends Command {
 }

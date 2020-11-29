@@ -9,13 +9,16 @@ import javafx.stage.Stage;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-
 public class Main extends Application {
 
     public static void main(String[] args)
     {
         ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue", Locale.ENGLISH);
         System.out.println(bundle.getString("test"));
+
+//        GamePadCommand gamepad1 = new GamePadCommand();
+//        gamepad1.gamePadInit();
+
         launch(args);
     }
 
@@ -24,7 +27,7 @@ public class Main extends Application {
     {
 
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/menuView.fxml")); // url brute
+        loader.setLocation(getClass().getResource("/view/menuView.fxml"));
         Parent root = loader.load();
 
         stage.setTitle("StarFight"); // text brute
@@ -35,4 +38,6 @@ public class Main extends Application {
         stage.show();
 
     }
+
+
 }
