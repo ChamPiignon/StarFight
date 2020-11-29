@@ -1,5 +1,6 @@
 package com.company;
 
+import command.GamePadCommand;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,8 +17,8 @@ public class Main extends Application {
         ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue", Locale.ENGLISH);
         System.out.println(bundle.getString("test"));
 
-//        GamePadCommand gamepad1 = new GamePadCommand();
-//        gamepad1.gamePadInit();
+        GamePadCommand gamepad1 = new GamePadCommand();
+        gamepad1.gamePadInit();
 
         launch(args);
     }
