@@ -1,4 +1,6 @@
 package controllers;
 
-public class GamePage {
+public class GamePage
+{
+
 }
