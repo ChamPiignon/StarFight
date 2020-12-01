@@ -13,7 +13,7 @@ public class Skin extends Pane
 
     private int xPosition;
     private int yPosition;
-    private Map<String,ImageView> images;
+    public Map<String,ImageView> images;
     private Rectangle hitbox;
     public SkinAnimation skinAnimation;
     public ImageView imageView;
@@ -25,7 +25,13 @@ public class Skin extends Pane
     public Skin(Map<String,ImageView> allSkins)
     {
         images = allSkins;
-        imageView = allSkins.get("Idle");
+        imageView = images.get("Idle");
+        skinAnimation = new SkinAnimation(imageView);
+        getChildren().addAll(imageView);
+    }
+
+    public void refreshAnimation()
+    {
         skinAnimation = new SkinAnimation(imageView);
         getChildren().addAll(imageView);
     }

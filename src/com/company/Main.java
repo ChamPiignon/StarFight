@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import manager.ManagerFighter;
 
 import java.awt.*;
 import java.io.FileInputStream;
@@ -32,14 +33,13 @@ public class Main extends Application {
     {
 
         try {
-            Image img = new Image("/images/Fighters/Ninja/choose.png");
+            ManagerFighter mF= new ManagerFighter();
+            Fighter ninja = new Fighter("Ninja");
+            mF.st.fall(ninja);
 
-        //AJOUT PERSONNAGE
-        Fighter ninja = new Fighter(100,"Samourai");
-        ninja.getSkin().skinAnimation.play();
-
-        stage.setScene(new Scene(new Group(ninja.getSkin().imageView)));
-        stage.show();
+            stage.setTitle("Test Sprite");
+            stage.setScene(new Scene(new Group(ninja.getSkin().imageView)));
+            stage.show();
 
         }
         catch(Exception ex){

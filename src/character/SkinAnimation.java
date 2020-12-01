@@ -25,7 +25,7 @@ public class SkinAnimation extends Transition {
         COUNT = COLUMNS*ROWS;
 
         setCycleDuration(DURATION);
-        setCycleCount(Animation.INDEFINITE);
+        setIndefiniteCycle();
         setInterpolator(Interpolator.LINEAR);
 
         this.image.setViewport(new Rectangle2D(offSetX,offSetY,WIDTH,HEIGHT));
@@ -39,12 +39,15 @@ public class SkinAnimation extends Transition {
         this.offSetY = offSetY;
     }
 
+    public void setIndefiniteCycle(){setCycleCount(Animation.INDEFINITE);}
+    public void setNCycle(int n){setCycleCount(n);}
+
     @Override
     protected void interpolate(double v)
     {
         int index = Math.min((int)Math.floor(COUNT*v),COUNT-1);
         int xIndex=(index%COLUMNS)*WIDTH+offSetX;
-        int yIndex=(index/COLUMNS)*HEIGHT+offSetX;
+        int yIndex=0;
         image.setViewport(new Rectangle2D(xIndex,yIndex,WIDTH,HEIGHT));
     }
 }

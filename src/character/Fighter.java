@@ -12,9 +12,8 @@ public class Fighter extends Character
 {
     private Skin skin;
 
-    public Fighter(int hP, String name) {
-
-        super(hP, name);
+    public Fighter(String name) {
+        super(100, name);
         try {
             Map<String,ImageView> skinsMap = new TreeMap<String,ImageView>();
             skinsMap.put("Attack1",new ImageView("/images/Fighters/"+this.getName()+"/Attack1.png"));
