@@ -5,7 +5,7 @@ import net.java.games.input.*;
 
 public class GamePadCommand extends Command {
     public void gamePadInit(){
-            Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
+        Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
 
         Controller gamepad = null;
         Controller stick = null;

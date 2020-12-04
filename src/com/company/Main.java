@@ -1,34 +1,20 @@
 package com.company;
 
 import character.Fighter;
-import character.Skin;
-import command.GamePadCommand;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import manager.ManagerFighter;
 import world.World;
-import net.java.games.input.Controller;
 
-import javax.swing.*;
-import javax.imageio.IIOException;
-import java.awt.*;
-import java.io.FileInputStream;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Main extends Application {
 
     public static void main(String[] args)
     {
-        ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue", Locale.ENGLISH);
+        ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue");
         launch(args);
     }
 
@@ -50,6 +36,7 @@ public class Main extends Application {
 
 /*        GamePadCommand gamepad = new GamePadCommand();
         gamepad.gamePadInit();*/
+
 
     }
 
