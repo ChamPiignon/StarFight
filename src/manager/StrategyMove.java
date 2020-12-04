@@ -1,11 +1,19 @@
 package manager;
 
 import character.Fighter;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+
+import javafx.util.Duration;
+
 
 public class StrategyMove {
-    StrategySkin skin;
+    private final Duration TIMER_JUMP=Duration.millis(10000);
+    private static StrategySkin skin;
+
     public void jump(Fighter fighter)
     {
+
         //tant que le saut monte
         skin.jump(fighter);
         //fighter.setYPosition();
@@ -31,4 +39,20 @@ public class StrategyMove {
         skin.run(fighter);
         //fighter.setXPosition();
     }
+
+    public void CharacterEventOnKeyPressed(Fighter fighter,KeyEvent keyEvent) {
+        switch (keyEvent.getCode())
+        {
+            case Q:
+                moveLeft(fighter);
+                break;
+            case D:
+                moveRight(fighter);
+                break;
+            case Z:
+                jump(fighter);
+                break;
+        }
+    }
+
 }

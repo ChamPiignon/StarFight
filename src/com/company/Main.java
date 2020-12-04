@@ -14,7 +14,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import manager.ManagerFighter;
+import world.World;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.FileInputStream;
 import java.util.Locale;
@@ -29,18 +31,16 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception
-    {
+    public void start(Stage stage) throws Exception {
 
         try {
             ManagerFighter mF= new ManagerFighter();
             Fighter ninja = new Fighter("Ninja");
-            mF.st.fall(ninja);
 
             stage.setTitle("Test Sprite");
-            stage.setScene(new Scene(new Group(ninja.getSkin().imageView)));
-            stage.show();
 
+            World world = new World("images/background.gif");
+            Pane root = FXMLLoader.load(getClass().getResource("/view/gamePage.fxml"));
         }
         catch(Exception ex){
             System.out.println(ex.getMessage());
