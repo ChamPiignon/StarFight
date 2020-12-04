@@ -15,8 +15,10 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import manager.ManagerFighter;
 import world.World;
+import net.java.games.input.Controller;
 
 import javax.swing.*;
+import javax.imageio.IIOException;
 import java.awt.*;
 import java.io.FileInputStream;
 import java.util.Locale;
@@ -45,6 +47,10 @@ public class Main extends Application {
         catch(Exception ex){
             System.out.println(ex.getMessage());
         }
+
+/*        GamePadCommand gamepad = new GamePadCommand();
+        gamepad.gamePadInit();*/
+
     }
 
 

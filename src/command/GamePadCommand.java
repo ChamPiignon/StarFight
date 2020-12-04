@@ -2,9 +2,11 @@ package command;
 
 import net.java.games.input.*;
 
+
 public class GamePadCommand extends Command {
-    public void gamePadInit() {
-        Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
+    public void gamePadInit(){
+            Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
+
         Controller gamepad = null;
         Controller stick = null;
         for (int i = 0; i < controllers.length; i++) {
@@ -36,8 +38,7 @@ public class GamePadCommand extends Command {
 
         EventQueue eventQueue = gamepad.getEventQueue();
         Event event = new Event();
-        Boolean stopped = false;
-        while (!stopped) {
+        while (true) {
             gamepad.poll();
             eventQueue.getNextEvent(event);
 
@@ -50,43 +51,18 @@ public class GamePadCommand extends Command {
                     System.out.println("0");
                     btn_0 = true;
                 }
-                if (identifier == Component.Identifier.Button._1) {
-                    System.out.println("1");
-                    btn_1 = true;
-                }
-                if (identifier == Component.Identifier.Button._2) {
-                    System.out.println("2");
-                    btn_2 = true;
-                }
-                if (identifier == Component.Identifier.Button._3) {
-                    System.out.println("3");
-                    btn_3 = true;
-                }
+
                 if (identifier == Component.Identifier.Axis.X) {
                     if (data < 0)
-                        System.out.println("down" + data);
+                        System.out.println("down");
                     if (data > 0)
-                        System.out.println("up" + data);
+                        System.out.println("up");
+                    if (data == 0)
+                        System.out.println("null");
                 }
-                if (identifier == Component.Identifier.Axis.Y) {
-                    if (data < 0)
-                        System.out.println("left" + data);
-                    if (data > 0)
-                        System.out.println("right" + data);
-                }
-                if (identifier == Component.Identifier.Button.LEFT_THUMB || identifier == Component.Identifier.Button.LEFT_THUMB2 || identifier == Component.Identifier.Button.LEFT_THUMB3) {
-                    System.out.println("left thumb" + data);
-                }
-                if (identifier == Component.Identifier.Button.RIGHT_THUMB) {
-                    System.out.println("right thumb" + data);
-                }
-                if (identifier == Component.Identifier.Button.THUMB) {
-                    System.out.println("thumb 1" + data);
-                }
-                if (identifier == Component.Identifier.Button.THUMB2) {
-                    System.out.println("thumb 2" + data);
-                }
+
             }
         }
     }
+
 }
