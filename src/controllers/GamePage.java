@@ -10,11 +10,28 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import manager.ManagerFighter;
+import world.World;
 
 public class GamePage
 {
     private static final int MAX_WIDHT=960;
     private static final int MAX_Height=640;
+    private final World world = new World("/images/background.gif");
+
+    @FXML
+    AnchorPane root;
+    @FXML
+    ImageView background;
+
+    @FXML
+    public void initialize()
+    {
+
+        Image img = new Image("/images/background.gif");
+        background.setImage(img);
+        root.getChildren().add(world.ninja.getSkin().imageView);
+    }
+    /*
     private static Scene scene;
     private Stage stage;
 
@@ -33,5 +50,6 @@ public class GamePage
         stage.setScene(scene);
         stage.show();
     }
+*/
 
 }

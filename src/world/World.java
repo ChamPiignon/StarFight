@@ -1,5 +1,6 @@
 package world;
 
+import character.Fighter;
 import character.Player;
 import command.Command;
 import controllers.GamePage;
@@ -18,17 +19,11 @@ import java.util.ArrayList;
 public class World {
     public ImageView map;
     public Command command;
-    public ArrayList<Player> listJoueurs;
+    //public ArrayList<Player> listJoueurs;
+    public Fighter ninja = new Fighter("Ninja");
     public ManagerFighter managerFighter;
-    public GamePage gamePageCtrl = new GamePage();
-    public World(ImageView map, Command command, ArrayList<Player> listJoueurs, ManagerFighter managerFighter, GamePage gamePageCtrl)
-    {
-        this.map = map;
-        this.command = command;
-        this.listJoueurs = listJoueurs;
-        this.managerFighter = managerFighter;
-        this.gamePageCtrl = gamePageCtrl;
-    }
+
+
     public World(String urlMap)
     {
         this.map = new ImageView(urlMap);

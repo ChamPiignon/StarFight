@@ -22,8 +22,8 @@ public class GamePadCommand extends Command {
             }
 
 
-/*            System.out.println(controllers[i]);
-            System.out.println(controllers[i].getType());*/
+            System.out.println(controllers[i]);
+            System.out.println(controllers[i].getType());
         }
 
 //        Component[] gamepadComponents = gamepad.getComponents();
