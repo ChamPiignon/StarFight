@@ -1,7 +1,5 @@
 package character;
 
-import java.awt.Rectangle;
-
 public abstract class Character
 {
 
@@ -10,6 +8,8 @@ public abstract class Character
 
     public Character(int hP, String name)
     {
+        name = name.toLowerCase();
+        name = name.substring(0,1).toUpperCase()+name.substring(1);
         this.hP = hP;
         this.name = name;
     }

@@ -1,12 +1,12 @@
 package controllers;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
+//import javafx.event.ActionEvent;
+//import javafx.fxml.FXML;
+//import javafx.scene.control.Button;
+//import javafx.stage.Stage;
 
 public class MenuViewController {
-    @FXML
+   /* @FXML
     Button gameBtn, settingBtn, exitBtn;
 
     public void startGame(ActionEvent actionEvent) {
@@ -20,6 +20,6 @@ public class MenuViewController {
     public void exitMenu(ActionEvent actionEvent) {
         Stage stage = (Stage) exitBtn.getScene().getWindow();
         stage.close();
-    }
+    }*/
 }
 // bundle.getObject('gameBtn_text')

@@ -20,7 +20,7 @@ public class World {
     public ImageView map;
     public Command command;
     //public ArrayList<Player> listJoueurs;
-    public Fighter ninja = new Fighter("Ninja");
+    public Fighter ninja = new Fighter("NiNja");
     public ManagerFighter managerFighter;
 
 
