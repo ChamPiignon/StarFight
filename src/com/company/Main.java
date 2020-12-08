@@ -17,10 +17,10 @@ import world.World;
 import java.util.ResourceBundle;
 
 public class Main extends Application {
+    public static ResourceBundle BUNDLE = ResourceBundle.getBundle("domaine/properties/langue");
 
     public static void main(String[] args)
     {
-        ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue");
         launch(args);
     }
 
@@ -43,7 +43,7 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/view/gamePage.fxml"));
             Parent root = loader.load();
-            stage.setTitle("StarFight"); // text brute
+            stage.setTitle(BUNDLE.getString("GameTitle"));
             Scene scene = new Scene(root);
             stage.setScene(scene);
 
