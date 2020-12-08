@@ -16,7 +16,7 @@ public class Skin extends Pane
     public Map<String,ImageView> images;
     private Rectangle hitbox;
     public SkinAnimation skinAnimation;
-    public ImageView imageView;
+    private ImageView imageView;
 
     private int width=200;
     private int height=200;
@@ -37,11 +37,14 @@ public class Skin extends Pane
     }
 
 
+    public ImageView getImageView() { return imageView; }
 
+    public void setImageView(ImageView imageView) {this.imageView = imageView;}
     public void setXPosition(int xPosition) { this.xPosition = xPosition;}
     public void setYPosition(int yPosition) {this.yPosition = yPosition;}
     public int getXPosition() { return xPosition;}
     public int getYPosition() { return yPosition;}
     public Rectangle getHitbox() {return hitbox;}
     public void setHitbox(javafx.scene.shape.Rectangle hitbox) { this.hitbox = hitbox; }
+    public ImageView getSpriteName(String spriteName){return images.get(spriteName);}
 }

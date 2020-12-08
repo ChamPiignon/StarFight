@@ -26,11 +26,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage){
+
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/view/gamePage.fxml"));
             Parent root = loader.load();
-            stage.setTitle("StarFight"); // text brute
+            stage.setTitle("StarFight");
             Scene scene = new Scene(root);
             stage.setScene(scene);
 
@@ -39,8 +40,5 @@ public class Main extends Application {
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
-
     }
-
-
 }

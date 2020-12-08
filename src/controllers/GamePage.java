@@ -1,6 +1,7 @@
 package controllers;
 
 import character.Fighter;
+import character.SkinAnimation;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -10,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import manager.ManagerFighter;
+import manager.StrategySkin;
 import world.World;
 
 public class GamePage
@@ -26,30 +28,28 @@ public class GamePage
     @FXML
     public void initialize()
     {
+        background.setImage(world.getMap());
+        root.getChildren().addAll(world.ninja.getSkin());
 
-        Image img = new Image("/images/background.gif");
-        background.setImage(img);
-        root.getChildren().add(world.ninja.getSkin().imageView);
+        AnimationTimer gamethread = new AnimationTimer() {
+
+            @Override
+            public void handle(long timeGame) {
+                System.out.println(timeGame);
+                //moving player
+
+                //attack player
+
+                //collision player
+
+                //heath actualisation
+
+            }
+        };
+
+        gamethread.start();
+
     }
-    /*
-    private static Scene scene;
-    private Stage stage;
 
-    @FXML
-    private Pane root;
-
-    ManagerFighter managerFighter = new ManagerFighter();
-    Fighter fighter1;
-
-
-    @FXML
-    private void initialize()
-    {
-        scene = new Scene(root,MAX_WIDHT,MAX_Height);
-        root.getChildren().addAll(fighter1.getSkin().imageView);
-        stage.setScene(scene);
-        stage.show();
-    }
-*/
 
 }

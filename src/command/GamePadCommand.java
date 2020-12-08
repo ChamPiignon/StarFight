@@ -11,7 +11,7 @@ public class GamePadCommand extends Command {
         Controller stick = null;
         for (int i = 0; i < controllers.length; i++) {
 
-            if (controllers[i].getType() == Controller.Type.GAMEPAD) {
+            if (controllers[i].getType() == Controller.Type.KEYBOARD) {
                 gamepad = controllers[i];
                 System.out.println(gamepad);
             }
@@ -47,7 +47,7 @@ public class GamePadCommand extends Command {
             if (component != null) {
                 Component.Identifier identifier = component.getIdentifier();
                 float data = component.getPollData();
-                if (identifier == Component.Identifier.Button._0) {
+                if (identifier == Component.Identifier.Key.A) {
                     System.out.println("0");
                     btn_0 = true;
                 }

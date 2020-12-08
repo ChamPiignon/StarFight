@@ -4,6 +4,7 @@ import character.Fighter;
 import javafx.animation.Animation;
 import javafx.animation.Transition;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.io.FileInputStream;
@@ -54,9 +55,16 @@ public class StrategySkin
         updateAnimation(fighter,1,"Death");
     }
 
-    public void updateAnimation(Fighter fighter,int n,String skinName)
+    public ImageView getSprite(Fighter fighter){ return fighter.getSkin().getImageView(); }
+
+    private void setSprite(Fighter fighter,ImageView sprite){fighter.getSkin().setImageView(sprite);}
+
+    private void setSpriteName(Fighter fighter,String skinName){
+        setSprite(fighter,fighter.getSkin().getSpriteName(skinName));
+    }
+        private void updateAnimation(Fighter fighter,int n,String spriteName)
     {
-        fighter.getSkin().imageView = fighter.getSkin().images.get(skinName);
+        setSpriteName(fighter,spriteName);
         fighter.getSkin().refreshAnimation();
         if(n == -1) {
             fighter.getSkin().skinAnimation.setIndefiniteCycle();
@@ -66,5 +74,7 @@ public class StrategySkin
         }
         fighter.getSkin().skinAnimation.play();
     }
+
+
 
 }

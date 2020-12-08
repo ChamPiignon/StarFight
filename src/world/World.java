@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import manager.ManagerFighter;
+import manager.StrategySkin;
 
 import javax.imageio.stream.FileImageInputStream;
 import java.io.FileInputStream;
@@ -17,17 +18,18 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class World {
-    public ImageView map;
-    public Command command;
-    //public ArrayList<Player> listJoueurs;
-    public Fighter ninja = new Fighter("NiNja");
-    public ManagerFighter managerFighter;
+    private final Image map;
+    public Fighter ninja = new Fighter("Ninja");
+    private ManagerFighter managerFighter;
+    public StrategySkin sS;
 
 
     public World(String urlMap)
     {
-        this.map = new ImageView(urlMap);
+        this.map = new Image(urlMap);
     }
 
-
+    public Image getMap() {
+        return map;
+    }
 }
