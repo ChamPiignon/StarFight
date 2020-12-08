@@ -26,19 +26,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage){
-
-/*        try {
-            ManagerFighter mF= new ManagerFighter();
-            Fighter ninja = new Fighter("Ninja");
-
-            stage.setTitle("Test Sprite");
-
-            World world = new World("images/background.gif");
-            Pane root = FXMLLoader.load(getClass().getResource("/view/gamePage.fxml"));
-        }
-        catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }*/
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("/view/gamePage.fxml"));
@@ -52,9 +39,6 @@ public class Main extends Application {
         }catch (Exception ex){
             System.out.println(ex.getMessage());
         }
-/*        GamePadCommand gamepad = new GamePadCommand();
-        gamepad.gamePadInit();*/
-
 
     }
 
