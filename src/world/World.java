@@ -27,6 +27,7 @@ public class World {
     public World(String urlMap)
     {
         this.map = new Image(urlMap);
+        ninja.getSkin().skinAnimation.play();
     }
 
     public Image getMap() {
