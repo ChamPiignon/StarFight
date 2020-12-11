@@ -29,4 +29,9 @@ public class KeyboardCommand implements Control {
     public boolean isRequestingRight() {
         return input.isPressed(KeyEvent.VK_RIGHT);
     }
+
+    @Override
+    public boolean isRequestingPrimAtk() {
+        return input.isPressed(KeyEvent.VK_NUMPAD0);
+    }
 }

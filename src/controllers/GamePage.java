@@ -33,13 +33,16 @@ public class GamePage
     public void initialize()
     {
         background.setImage(world.getMap());
-        root.getChildren().addAll(world.ninja.getSkin());
+//        root.getChildren().addAll(world.ninja.getSkin());
+        root.getChildren().addAll(world.player.getHisFighter().getSkin());
 
         AnimationTimer gameThread = new AnimationTimer() {
 
             @Override
             public void handle(long Gametimer) {
                 //moving player
+                // c'est ici pour update les mouvement ???
+                world.update();
 
                 //attack player
 

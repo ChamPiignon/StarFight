@@ -52,23 +52,25 @@ public class Player
         int deltaY = 0;
 
         if(control.isRequestingUp()) {
+            System.out.println("up");
             deltaY--;
         }
 
         if(control.isRequestingDown()) {
+            System.out.println("down");
             deltaY++;
         }
 
         if(control.isRequestingLeft()) {
+            System.out.println("left");
             deltaX--;
         }
 
         if(control.isRequestingRight()) {
+            System.out.println("right");
             deltaX++;
         }
 
-        hisFighter.getSkin().setXPosition( hisFighter.getSkin().getXPosition() + deltaX);
-        hisFighter.getSkin().setXPosition( hisFighter.getSkin().getYPosition() + deltaY);
-        // position = new Position(position.getX() + deltaX, position.getY() + deltaY);
+        hisFighter.getSkin().setPosition(new Position(hisFighter.getSkin().getPosition().getX() + deltaX, hisFighter.getSkin().getPosition().getY() + deltaY));
     }
 }
