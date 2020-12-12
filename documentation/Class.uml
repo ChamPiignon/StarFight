@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="939.5718749999999" y="1126.0">manager.CollideManager</node>
+    <node x="718.7009375" y="858.0">character.Fighter</node>
+    <node x="549.9259375" y="391.0">character.Skin</node>
+    <node x="74.52562499999988" y="1641.0">command.KeyboardCommand</node>
+    <node x="1316.0718749999999" y="0.0">com.company.Main</node>
+    <node x="645.35625" y="0.0">character.SkinAnimation</node>
+    <node x="7.025624999999877" y="1362.0">command.Input</node>
+    <node x="797.9259375" y="512.0">character.Character</node>
+    <node x="513.35625" y="110.0">character.Position</node>
+    <node x="653.7015624999999" y="1685.5">manager.ManagerFighter</node>
+    <node x="569.321875" y="1005.0">manager.StrategySkin</node>
+    <node x="17.5" y="2180.0">controllers.GamePage</node>
+    <node x="225.02562499999988" y="1362.5">command.Control</node>
+    <node x="710.5718749999999" y="1351.0">manager.StrategyFight</node>
+    <node x="354.0256249999999" y="1586.0">character.Player</node>
+    <node x="0.0" y="2439.0">controllers.LaunchPage</node>
+    <node x="508.821875" y="1362.0">manager.StrategyMove</node>
+    <node x="1954.0256249999998" y="1921.0">world.World</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="command.KeyboardCommand" target="command.Control">
+      <point x="71.0" y="-82.5" />
+      <point x="252.02562499999988" y="1566.0" />
+      <point x="260.5256249999999" y="1566.0" />
+      <point x="-71.0" y="71.0" />
+    </edge>
+    <edge source="character.Skin" target="character.Position">
+      <point x="-91.19999999999993" y="-203.5" />
+      <point x="572.7259375000001" y="371.0" />
+      <point x="555.35625" y="371.0" />
+      <point x="-14.0" y="60.5" />
+    </edge>
+    <edge source="character.Player" target="character.Position">
+      <point x="5.6843418860808015E-14" y="-137.5" />
+      <point x="448.5256249999999" y="371.0" />
+      <point x="527.35625" y="371.0" />
+      <point x="-42.0" y="60.5" />
+    </edge>
+    <edge source="manager.ManagerFighter" target="manager.StrategyMove">
+      <point x="-40.0" y="-38.0" />
+      <point x="693.7015624999999" y="1566.0" />
+      <point x="597.821875" y="1566.0" />
+      <point x="0.0" y="71.5" />
+    </edge>
+    <edge source="manager.CollideManager" target="character.Fighter">
+      <point x="0.0" y="-27.0" />
+      <point x="1087.0718749999999" y="965.0" />
+      <point x="817.0134375" y="965.0" />
+      <point x="37.8125" y="38.5" />
+    </edge>
+    <edge source="character.Skin" target="character.SkinAnimation">
+      <point x="45.60000000000002" y="-203.5" />
+      <point x="709.5259375" y="371.0" />
+      <point x="689.60625" y="371.0" />
+      <point x="-44.25" y="170.5" />
+    </edge>
+    <edge source="world.World" target="manager.ManagerFighter">
+      <point x="41.25" y="-104.5" />
+      <point x="521.2756249999999" y="1881.0" />
+      <point x="733.7015624999999" y="1881.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="controllers.GamePage" target="command.Input">
+      <point x="-69.60000000000002" y="-104.5" />
+      <point x="34.89999999999998" y="2160.0" />
+      <point x="31.025624999999877" y="2160.0" />
+      <point x="31.025624999999877" y="1566.0" />
+      <point x="23.525624999999877" y="1566.0" />
+      <point x="-82.5" y="71.5" />
+    </edge>
+    <edge source="manager.StrategySkin" target="character.Fighter">
+      <point x="0.0" y="-148.0" />
+      <point x="704.321875" y="985.0" />
+      <point x="771.6384375" y="985.0" />
+      <point x="-7.5625" y="38.5" />
+    </edge>
+    <edge source="manager.StrategyMove" target="manager.StrategySkin">
+      <point x="44.5" y="-71.5" />
+      <point x="642.321875" y="1326.0" />
+      <point x="636.821875" y="1326.0" />
+      <point x="-67.5" y="148.0" />
+    </edge>
+    <edge source="world.World" target="character.Fighter">
+      <point x="68.75" y="-104.5" />
+      <point x="548.7756249999999" y="1891.0" />
+      <point x="929.0718749999999" y="1891.0" />
+      <point x="929.0718749999999" y="975.0" />
+      <point x="801.8884375" y="975.0" />
+      <point x="22.6875" y="38.5" />
+    </edge>
+    <edge source="manager.StrategyFight" target="character.Fighter">
+      <point x="52.000000000000114" y="-82.5" />
+      <point x="866.5718750000001" y="1326.0" />
+      <point x="853.5718750000001" y="1326.0" />
+      <point x="853.5718750000001" y="985.0" />
+      <point x="786.7634375" y="985.0" />
+      <point x="7.5625" y="38.5" />
+    </edge>
+    <edge source="character.Player" target="command.Control">
+      <point x="-75.59999999999997" y="-137.5" />
+      <point x="372.92562499999985" y="1566.0" />
+      <point x="331.5256249999999" y="1566.0" />
+      <point x="0.0" y="71.0" />
+    </edge>
+    <edge source="world.World" target="command.Input">
+      <point x="-96.25" y="-104.5" />
+      <point x="383.7756249999999" y="1901.0" />
+      <point x="64.02562499999988" y="1901.0" />
+      <point x="64.02562499999988" y="1556.0" />
+      <point x="122.52562499999988" y="1556.0" />
+      <point x="16.5" y="71.5" />
+    </edge>
+    <edge source="controllers.GamePage" target="world.World">
+      <point x="34.80000000000001" y="-104.5" />
+      <point x="139.3" y="2150.0" />
+      <point x="425.0256249999999" y="2150.0" />
+      <point x="-55.0" y="104.5" />
+    </edge>
+    <edge source="manager.ManagerFighter" target="manager.StrategyFight">
+      <point x="40.0" y="-38.0" />
+      <point x="773.7015624999999" y="1566.0" />
+      <point x="814.5718749999999" y="1566.0" />
+      <point x="0.0" y="82.5" />
+    </edge>
+    <edge source="character.Fighter" target="character.Character">
+      <point x="24.200000000000045" y="-38.5" />
+      <point x="803.4009375" y="828.0" />
+      <point x="838.1759375" y="828.0" />
+      <point x="-40.25" y="82.5" />
+    </edge>
+    <edge source="controllers.LaunchPage" target="controllers.GamePage">
+      <point x="0.0" y="-38.5" />
+      <point x="0.0" y="104.5" />
+    </edge>
+    <edge source="manager.StrategyFight" target="manager.StrategySkin">
+      <point x="-51.999999999999886" y="-82.5" />
+      <point x="762.5718750000001" y="1326.0" />
+      <point x="771.821875" y="1326.0" />
+      <point x="67.5" y="148.0" />
+    </edge>
+    <edge source="character.Player" target="character.Fighter">
+      <point x="37.80000000000007" y="-137.5" />
+      <point x="487.321875" y="955.0" />
+      <point x="726.2634375" y="955.0" />
+      <point x="-52.9375" y="38.5" />
+    </edge>
+    <edge source="character.Fighter" target="character.Skin">
+      <point x="-48.39999999999998" y="-38.5" />
+      <point x="730.8009375000001" y="838.0" />
+      <point x="587.9259375" y="838.0" />
+      <point x="-76.0" y="203.5" />
+    </edge>
+    <edge source="command.KeyboardCommand" target="command.Input">
+      <point x="-71.0" y="-82.5" />
+      <point x="110.02562499999988" y="1566.0" />
+      <point x="155.52562499999988" y="1566.0" />
+      <point x="49.5" y="71.5" />
+    </edge>
+    <edge source="world.World" target="character.Player">
+      <point x="-41.25" y="-104.5" />
+      <point x="438.7756249999999" y="1881.0" />
+      <point x="385.5256249999999" y="1881.0" />
+      <point x="-63.0" y="137.5" />
+    </edge>
+    <edge source="manager.StrategyMove" target="character.Fighter">
+      <point x="-44.5" y="-71.5" />
+      <point x="553.321875" y="1326.0" />
+      <point x="558.821875" y="1326.0" />
+      <point x="558.821875" y="975.0" />
+      <point x="756.5134375" y="975.0" />
+      <point x="-22.6875" y="38.5" />
+    </edge>
+    <edge source="world.World" target="command.KeyboardCommand">
+      <point x="-68.75" y="-104.5" />
+      <point x="411.2756249999999" y="1891.0" />
+      <point x="181.02562499999988" y="1891.0" />
+      <point x="0.0" y="82.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5" x="911.6844544344549" y="1971.0" />
+  <SelectedNodes>
+    <node>world.World</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
