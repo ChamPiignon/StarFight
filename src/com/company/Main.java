@@ -29,7 +29,7 @@ public class Main extends Application {
 
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/view/gamePage.fxml"));
+            loader.setLocation(getClass().getResource("/view/launchPage.fxml"));
             Parent root = loader.load();
             stage.setTitle("StarFight");
             Scene scene = new Scene(root);

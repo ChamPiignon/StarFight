@@ -4,8 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.GamePage"
-            prefHeight="400.0" prefWidth="600.0" fx:id="root" onKeyPressed="#handleKeyPressed">
+            prefHeight="400.0" prefWidth="600.0" fx:id="root" >
     <children>
         <ImageView fx:id="background">
             <image></image>
