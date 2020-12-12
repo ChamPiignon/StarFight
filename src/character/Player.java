@@ -61,14 +61,18 @@ public class Player
             deltaY++;
         }
 
-        if(control.isRequestingLeft()) {
+        if (control.isRequestingLeft()) {
             System.out.println("left");
             deltaX--;
         }
 
-        if(control.isRequestingRight()) {
+        if (control.isRequestingRight()) {
             System.out.println("right");
             deltaX++;
+        }
+
+        if (control.isRequestingPrimAtk()) {
+            System.out.println("primAtk");
         }
 
         hisFighter.getSkin().setPosition(new Position(hisFighter.getSkin().getPosition().getX() + deltaX, hisFighter.getSkin().getPosition().getY() + deltaY));

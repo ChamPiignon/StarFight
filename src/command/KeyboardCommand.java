@@ -1,7 +1,7 @@
 package command;
 
 
-import java.awt.event.KeyEvent;
+import javafx.scene.input.KeyCode;
 
 public class KeyboardCommand implements Control {
     private final Input input;
@@ -12,26 +12,26 @@ public class KeyboardCommand implements Control {
 
     @Override
     public boolean isRequestingUp() {
-        return input.isPressed(KeyEvent.VK_UP);
+        return input.isPressed(KeyCode.UP);
     }
 
     @Override
     public boolean isRequestingDown() {
-        return input.isPressed(KeyEvent.VK_DOWN);
+        return input.isPressed(KeyCode.DOWN);
     }
 
     @Override
     public boolean isRequestingLeft() {
-        return input.isPressed(KeyEvent.VK_LEFT);
+        return input.isPressed(KeyCode.LEFT);
     }
 
     @Override
     public boolean isRequestingRight() {
-        return input.isPressed(KeyEvent.VK_RIGHT);
+        return input.isPressed(KeyCode.RIGHT);
     }
 
     @Override
     public boolean isRequestingPrimAtk() {
-        return input.isPressed(KeyEvent.VK_NUMPAD0);
+        return input.isPressed(KeyCode.NUMPAD0);
     }
 }

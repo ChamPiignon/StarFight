@@ -1,31 +1,29 @@
 package command;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
-public class Input implements KeyListener {
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
-    private final boolean[] pressed;
+public class Input {
+
+    private static boolean[] pressed;
 
     public Input() {
         pressed = new boolean[255];
     }
 
-    public boolean isPressed(int keyCode) {
-        return pressed[keyCode];
+    public static void keyPressed(KeyEvent e) {
+        pressed[e.getCode().getCode()] = true;
     }
 
-    @Override
+    public static void keyReleased(KeyEvent e) {
+        pressed[e.getCode().getCode()] = false;
+    }
+
+    public boolean isPressed(KeyCode keyCode) {
+        return pressed[keyCode.getCode()];
+    }
+
     public void keyTyped(KeyEvent e) {
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        pressed[e.getKeyCode()] = true;
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        pressed[e.getKeyCode()] = false;
     }
 }
