@@ -8,7 +8,6 @@ public class CollideManager
 {
     public ArrayList<Fighter> CollideWithFighter(Fighter fighter)
     {
-
         return null;
     }
 }

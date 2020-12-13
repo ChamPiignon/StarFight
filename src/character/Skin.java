@@ -13,7 +13,7 @@ public class Skin extends Pane
 //    private int yPosition;
 private Position position;
 
-    public Map<String, ImageView> images;
+    public Map<StatMove, ImageView> images;
     private Rectangle hitbox;
     public SkinAnimation skinAnimation;
     private ImageView imageView;
@@ -25,10 +25,11 @@ private Position position;
     private final int yInit = 350;
 
 
-    public Skin(Map<String, ImageView> allSkins) {
+    public Skin(Map<StatMove, ImageView> allSkins) {
         position = new Position(xInit, yInit);
         images = allSkins;
-        imageView = images.get("Idle");
+        imageView = new ImageView();
+        imageView.setImage(images.get(StatMove.IDLE).getImage());
         skinAnimation = new SkinAnimation(imageView);
         getChildren().addAll(imageView);
     }
@@ -36,7 +37,6 @@ private Position position;
     public void refreshAnimation()
     {
         skinAnimation = new SkinAnimation(imageView);
-        getChildren().addAll(imageView);
     }
 
 
@@ -48,5 +48,5 @@ private Position position;
 
     public Rectangle getHitbox() {return hitbox;}
     public void setHitbox(javafx.scene.shape.Rectangle hitbox) { this.hitbox = hitbox; }
-    public ImageView getSpriteName(String spriteName){return images.get(spriteName);}
+    public ImageView getSpriteName(StatMove spriteName){return images.get(spriteName);}
 }

@@ -5,6 +5,7 @@ import javafx.animation.Interpolator;
 import javafx.animation.Transition;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 public class SkinAnimation extends Transition {
@@ -39,6 +40,9 @@ public class SkinAnimation extends Transition {
         this.offSetY = offSetY;
     }
 
+    public Duration getDURATION() {
+        return DURATION;
+    }
     public void setIndefiniteCycle(){setCycleCount(Animation.INDEFINITE);}
     public void setNCycle(int n){setCycleCount(n);}
 

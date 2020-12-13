@@ -49,34 +49,7 @@ public class Player
         this.score = score;
     }
 
-    public void update() {
-        int deltaX = 0;
-        int deltaY = 0;
-
-        if(control.isRequestingUp()) {
-            deltaY++;
-            managerFighter.move.jump(hisFighter, deltaY);
-            deltaY--;
-        }
-
-        if (control.isRequestingLeft()) {
-            deltaX--;
-            managerFighter.move.moveLeft(hisFighter, deltaX);
-        }
-
-        if (control.isRequestingRight()) {
-            deltaX++;
-            managerFighter.move.moveRight(hisFighter, deltaX);
-        }
-
-        if (control.isRequestingPrimAtk()) {
-            System.out.println("primAtk");
-            managerFighter.fight.primaryAttack(hisFighter);
-        }
-
-        if (control.isRequestingSndAtk()) {
-            System.out.println("sndAtk");
-            managerFighter.fight.secondaryAttack(hisFighter);
-        }
+    public Control getControl() {
+        return control;
     }
 }

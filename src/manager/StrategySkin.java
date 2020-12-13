@@ -1,6 +1,7 @@
 package manager;
 
 import character.Fighter;
+import character.StatMove;
 import javafx.animation.Animation;
 import javafx.animation.Transition;
 import javafx.scene.image.Image;
@@ -17,52 +18,62 @@ public class StrategySkin
 {
     public void jump(Fighter fighter)
     {
-        updateAnimation(fighter,-1,"Jump");
+        updateAnimation(fighter,-1, StatMove.JUMP);
+        fighter.setStatMove(StatMove.JUMP);
     }
 
     public void primaryAttack(Fighter fighter)
     {
-        updateAnimation(fighter,1,"Attack1");
+        updateAnimation(fighter,1,StatMove.ATTACK1);
+        fighter.setStatMove(StatMove.ATTACK1);
     }
 
     public void secondaryAttack(Fighter fighter)
     {
-        updateAnimation(fighter,1,"Attack2");
+        updateAnimation(fighter,1,StatMove.ATTACK2);
+        fighter.setStatMove(StatMove.ATTACK2);
     }
 
     public void run(Fighter fighter)
     {
-        updateAnimation(fighter,1,"Run");
+        updateAnimation(fighter,1,StatMove.RUN);
+        fighter.setStatMove(StatMove.RUN);
     }
 
     public void fall(Fighter fighter)
     {
-        updateAnimation(fighter,-1,"Fall");
+        updateAnimation(fighter,-1,StatMove.FALL);
+        fighter.setStatMove(StatMove.FALL);
     }
 
     public void takeHit(Fighter fighter)
     {
-        updateAnimation(fighter,-1,"Take hit");
+        updateAnimation(fighter,-1,StatMove.TAKEHIT);
+        fighter.setStatMove(StatMove.TAKEHIT);
     }
 
     public void idle(Fighter fighter)
     {
-        updateAnimation(fighter,-1,"Idle");
+        updateAnimation(fighter,-1,StatMove.IDLE);
+        fighter.setStatMove(StatMove.IDLE);
     }
 
     public void death(Fighter fighter)
     {
-        updateAnimation(fighter,1,"Death");
+        updateAnimation(fighter,1,StatMove.DEATH);
+        fighter.setStatMove(StatMove.DEATH);
     }
 
     public ImageView getSprite(Fighter fighter){ return fighter.getSkin().getImageView(); }
 
-    private void setSprite(Fighter fighter,ImageView sprite){fighter.getSkin().setImageView(sprite);}
-
-    private void setSpriteName(Fighter fighter,String skinName){
-        setSprite(fighter,fighter.getSkin().getSpriteName(skinName));
+    private void setSprite(Fighter fighter,ImageView sprite){
+        fighter.getSkin().getImageView().setImage(sprite.getImage());
     }
-        private void updateAnimation(Fighter fighter,int n,String spriteName)
+
+    private void setSpriteName(Fighter fighter,StatMove skinName) {
+        setSprite(fighter, fighter.getSkin().getSpriteName(skinName));
+    }
+    private void updateAnimation(Fighter fighter,int n,StatMove spriteName)
     {
         setSpriteName(fighter,spriteName);
         fighter.getSkin().refreshAnimation();
@@ -74,6 +85,8 @@ public class StrategySkin
         }
         fighter.getSkin().skinAnimation.play();
     }
+
+
 
 
 

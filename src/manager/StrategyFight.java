@@ -3,8 +3,10 @@ package manager;
 import character.Fighter;
 import java.util.ArrayList;
 
+import static java.lang.Thread.sleep;
+
 public class StrategyFight {
-    private StrategySkin skin;
+    private StrategySkin skin = new StrategySkin();
 
 
 
@@ -20,6 +22,10 @@ public class StrategyFight {
                 receiveAttack(fighterHit);
             }
         }*/
+
+        fighter.getSkin().skinAnimation.setOnFinished( event -> {
+            skin.idle(fighter);
+        });
     }
 
     public void secondaryAttack(Fighter fighter)
@@ -34,6 +40,9 @@ public class StrategyFight {
                 receiveAttack(fighterHit);
             }
         }*/
+        fighter.getSkin().skinAnimation.setOnFinished( event -> {
+            skin.idle(fighter);
+        });
     }
 
     private void receiveAttack(Fighter fighter)
@@ -47,6 +56,9 @@ public class StrategyFight {
         {
             skin.death(fighter);
         }
+        fighter.getSkin().skinAnimation.setOnFinished( event -> {
+            skin.idle(fighter);
+        });
     }
 
     private void receiveDamage(Fighter fighter)
