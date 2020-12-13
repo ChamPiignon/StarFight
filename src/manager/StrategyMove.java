@@ -1,9 +1,7 @@
 package manager;
 
 import character.Fighter;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-
+import character.Position;
 import javafx.util.Duration;
 
 
@@ -11,48 +9,35 @@ public class StrategyMove {
     private final Duration TIMER_JUMP=Duration.millis(10000);
     private static StrategySkin skin;
 
-    public void jump(Fighter fighter)
-    {
-
+    public void jump(Fighter fighter, int deltaY) {
+        if (deltaY != 1) {
+            return;
+        }
+        int jumpHeight = 50;
         //tant que le saut monte
         skin.jump(fighter);
-        //fighter.setYPosition();
+        for (int i = 0; i <= jumpHeight; i++)
+            fighter.getSkin().setPosition(new Position(fighter.getSkin().getPosition().getX(), fighter.getSkin().getPosition().getY() + i));
 
         //tant que le saut descend
         skin.fall(fighter);
-        //fighter.setYPosition();
+        for (int i = jumpHeight; i >= 0; i--) {
+            fighter.getSkin().setPosition(new Position(fighter.getSkin().getPosition().getX(), fighter.getSkin().getPosition().getY() - i));
+        }
 
         //quand il touche le sol
         skin.idle(fighter);
     }
 
-    public void moveLeft(Fighter fighter)
-    {
+    public void moveLeft(Fighter fighter, int deltaX) {
         //skin.mirror(fighter) retourne le skin sur l'axe y
         skin.run(fighter);
-        //fighter.setXPosition();
+        fighter.getSkin().setPosition(new Position(fighter.getSkin().getPosition().getX() - deltaX, fighter.getSkin().getPosition().getY()));
     }
 
-    public void moveRight(Fighter fighter)
-    {
+    public void moveRight(Fighter fighter, int deltaX) {
         //skin.mirror(fighter) retourne le skin sur l'axe y
         skin.run(fighter);
-        //fighter.setXPosition();
+        fighter.getSkin().setPosition(new Position(fighter.getSkin().getPosition().getX() + deltaX, fighter.getSkin().getPosition().getY()));
     }
-
-    public void CharacterEventOnKeyPressed(Fighter fighter,KeyEvent keyEvent) {
-        switch (keyEvent.getCode())
-        {
-            case Q:
-                moveLeft(fighter);
-                break;
-            case D:
-                moveRight(fighter);
-                break;
-            case Z:
-                jump(fighter);
-                break;
-        }
-    }
-
 }

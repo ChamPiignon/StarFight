@@ -28,7 +28,6 @@ public class GamePage {
     public void initialize() {
         input = new Input();
         world = new World("images/background.gif", input);
-//        stage.getScene().setOnKeyPressed(Input::keyPressed);
         background.setImage(world.getMap());
         root.getChildren().addAll(world.player.getHisFighter().getSkin());
 

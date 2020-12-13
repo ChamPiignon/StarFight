@@ -3,9 +3,9 @@ package world;
 import character.Fighter;
 import character.Player;
 import command.Input;
-import command.KeyboardCommand;
+import command.KeyboardCommandPlayer1;
+import command.KeyboardCommandPlayer2;
 import javafx.scene.image.Image;
-import manager.ManagerFighter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,16 +17,15 @@ public class World {
 
     private final String name = "test";
     public List<Player> listPlayers = new ArrayList<>();
-    public Player player;
-
-    private ManagerFighter managerFighter;
-
+    public Player player1, player2;
 
     public World(String urlMap, Input input) {
-        this.player = new Player(ninja, name, 0, new KeyboardCommand(input));
-        listPlayers.add(this.player);
+        this.player1 = new Player(ninja, name, 0, new KeyboardCommandPlayer1(input));
+        this.player2 = new Player(ninja, name, 0, new KeyboardCommandPlayer2(input));
+        listPlayers.add(this.player1);
+        listPlayers.add(this.player2);
         this.map = new Image(urlMap);
-        this.player.getHisFighter().getSkin().skinAnimation.play();
+        this.player1.getHisFighter().getSkin().skinAnimation.play();
     }
 
     public Image getMap() {
@@ -34,6 +33,6 @@ public class World {
     }
 
     public void update() {
-        listPlayers.forEach(listPlayers -> player.update());
+        listPlayers.forEach(Player::update);
     }
 }

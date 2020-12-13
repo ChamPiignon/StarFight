@@ -1,6 +1,7 @@
 package character;
 
 import command.Control;
+import manager.ManagerFighter;
 
 public class Player
 {
@@ -8,6 +9,7 @@ public class Player
     private String name;
     private int score;
     private final Control control;
+    private ManagerFighter managerFighter;
 
     public Player(Fighter hisFighter, String name, int score, Control control)
     {
@@ -52,29 +54,29 @@ public class Player
         int deltaY = 0;
 
         if(control.isRequestingUp()) {
-            System.out.println("up");
+            deltaY++;
+            managerFighter.move.jump(hisFighter, deltaY);
             deltaY--;
         }
 
-        if(control.isRequestingDown()) {
-            System.out.println("down");
-            deltaY++;
-        }
-
         if (control.isRequestingLeft()) {
-            System.out.println("left");
             deltaX--;
+            managerFighter.move.moveLeft(hisFighter, deltaX);
         }
 
         if (control.isRequestingRight()) {
-            System.out.println("right");
             deltaX++;
+            managerFighter.move.moveRight(hisFighter, deltaX);
         }
 
         if (control.isRequestingPrimAtk()) {
             System.out.println("primAtk");
+            managerFighter.fight.primaryAttack(hisFighter);
         }
 
-        hisFighter.getSkin().setPosition(new Position(hisFighter.getSkin().getPosition().getX() + deltaX, hisFighter.getSkin().getPosition().getY() + deltaY));
+        if (control.isRequestingSndAtk()) {
+            System.out.println("sndAtk");
+            managerFighter.fight.secondaryAttack(hisFighter);
+        }
     }
 }
