@@ -2,9 +2,7 @@ package world;
 
 import character.Fighter;
 import character.Player;
-import command.Input;
-import command.KeyboardCommandPlayer1;
-import command.KeyboardCommandPlayer2;
+import command.KeyboardCommand;
 import javafx.scene.image.Image;
 import manager.ManagerFighter;
 
@@ -22,9 +20,9 @@ public class World {
     public Player player1, player2;
     private final ManagerFighter managerFighter = new ManagerFighter();
 
-    public World(String urlMap, Input input) {
-        this.player1 = new Player(ninja, name, 0, new KeyboardCommandPlayer1(input));
-        this.player2 = new Player(samourai, name, 0, new KeyboardCommandPlayer2(input));
+    public World(String urlMap) throws Exception {
+        this.player1 = new Player(ninja, name, 0, new KeyboardCommand(1));
+        this.player2 = new Player(samourai, name, 0, new KeyboardCommand(2));
         listPlayers.add(this.player1);
         listPlayers.add(this.player2);
         this.map = new Image(urlMap);

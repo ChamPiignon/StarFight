@@ -35,15 +35,14 @@ public class GamePage {
     }
 
     @FXML
-    public void initialize() {
-        input = new Input();
-        world = new World("images/background.gif", input);
+    public void initialize() throws Exception {
+        world = new World("images/background.gif");
         background.setImage(world.getMap());
 
-        root.getChildren().addAll(world.player1.getHisFighter().getSkin(),world.player2.getHisFighter().getSkin());
-        scale(world.player1.getHisFighter().getSkin(),SIZE_FIGHTER);
-        scale(world.player2.getHisFighter().getSkin(),SIZE_FIGHTER);
-        initializePositionFight(world.player1,world.player2);
+        root.getChildren().addAll(world.player1.getHisFighter().getSkin(), world.player2.getHisFighter().getSkin());
+        scale(world.player1.getHisFighter().getSkin(), SIZE_FIGHTER);
+        scale(world.player2.getHisFighter().getSkin(), SIZE_FIGHTER);
+        initializePositionFight(world.player1, world.player2);
         AnimationTimer gameThread = new AnimationTimer() {
 
             @Override

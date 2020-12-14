@@ -3,13 +3,13 @@ package command;
 
 import javafx.scene.input.KeyCode;
 
-public class KeyboardCommandPlayer1 implements Control {
+public class KeyboardCommand implements Control {
     private final Input input;
-    private KeyCode jump = KeyCode.UP;
-    private KeyCode left = KeyCode.LEFT;
-    private KeyCode right = KeyCode.RIGHT;
-    private KeyCode primAtk = KeyCode.NUMPAD0;
-    private KeyCode sndAtk = KeyCode.NUMPAD1;
+    private KeyCode jump;
+    private KeyCode left;
+    private KeyCode right;
+    private KeyCode primAtk;
+    private KeyCode sndAtk;
 
     public KeyCode getJump() {
         return jump;
@@ -51,32 +51,53 @@ public class KeyboardCommandPlayer1 implements Control {
         this.sndAtk = sndAtk;
     }
 
-    public KeyboardCommandPlayer1(Input input) {
-        this.input = input;
+    public KeyboardCommand(int player) throws Exception {
+        this.input = new Input();
+        if (player == 1) {
+            setPlayer1();
+        } else if (player == 2) {
+            setPlayer2();
+        } else throw new Exception("error player number");
+    }
+
+    public void setPlayer1() {
+        this.setJump(KeyCode.Z);
+        this.setLeft(KeyCode.Q);
+        this.setRight(KeyCode.D);
+        this.setPrimAtk(KeyCode.V);
+        this.setSndAtk(KeyCode.B);
+    }
+
+    public void setPlayer2() {
+        this.setJump(KeyCode.UP);
+        this.setLeft(KeyCode.LEFT);
+        this.setRight(KeyCode.RIGHT);
+        this.setPrimAtk(KeyCode.NUMPAD0);
+        this.setSndAtk(KeyCode.NUMPAD1);
     }
 
     @Override
     public boolean isRequestingJump() {
-        return input.isPressed(KeyCode.UP);
+        return input.isPressed(jump);
     }
 
     @Override
     public boolean isRequestingLeft() {
-        return input.isPressed(KeyCode.LEFT);
+        return input.isPressed(left);
     }
 
     @Override
     public boolean isRequestingRight() {
-        return input.isPressed(KeyCode.RIGHT);
+        return input.isPressed(right);
     }
 
     @Override
     public boolean isRequestingPrimAtk() {
-        return input.isPressed(KeyCode.NUMPAD0);
+        return input.isPressed(primAtk);
     }
 
     @Override
     public boolean isRequestingSndAtk() {
-        return input.isPressed(KeyCode.NUMPAD1);
+        return input.isPressed(sndAtk);
     }
 }
