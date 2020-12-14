@@ -54,8 +54,8 @@
             </HBox>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.halignment="CENTER"><Image url="/images/Fighters/Ninja/choose.png"/></ImageView>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.halignment="CENTER"><Image url="/images/Fighters/Samourai/choose.png"/></ImageView>
-            <Button mnemonicParsing="false" text="Prêt ?" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.halignment="CENTER" onAction="#setReadyPlayer2"/>
-            <Button mnemonicParsing="false" text="Prêt ?" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.halignment="CENTER" onAction="#setReadyPlayer1"/>
+            <Button mnemonicParsing="false" text="Prêt ?" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.halignment="CENTER" onAction="#setReadyPlayer1"/>
+            <Button mnemonicParsing="false" text="Prêt ?" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.halignment="CENTER" onAction="#setReadyPlayer2"/>
         </children>
     </GridPane>
 </children>

@@ -15,7 +15,7 @@ public class ChooseCharacter
 {
     public ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue");
     boolean player1IsReady = false;
-    boolean player2IsReady = true;
+    boolean player2IsReady = false;
     private Player player1;
     private Player player2;
     private Stage myStage;
