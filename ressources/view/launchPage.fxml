@@ -2,8 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
+<?import javafx.scene.text.Font?>
 <AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LaunchPage">
     <children>
         <GridPane layoutX="6.0" layoutY="6.0" prefHeight="236.0" prefWidth="492.0">
@@ -18,21 +17,23 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="70.0" text="Starfight" textAlignment="CENTER" GridPane.columnSpan="3">
-               <font>
-                  <Font size="21.0" />
-               </font></Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="70.0" text="Starfight"
+                       textAlignment="CENTER" GridPane.columnSpan="3">
+                    <font>
+                        <Font size="21.0"/>
+                    </font>
+                </Label>
                 <TableView prefHeight="79.0" prefWidth="351.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
                     <columns>
-                        <TableColumn prefWidth="75.0" text="Name Player" />
-                        <TableColumn prefWidth="75.0" text="Nombre de match" />
-                        <TableColumn prefWidth="75.0" text="Taux de victoire" />
-                        <TableColumn prefWidth="75.0" text="meilleure temps" />
+                        <TableColumn prefWidth="75.0" fx:id="playerColumn"/>
+                        <TableColumn prefWidth="75.0" fx:id="numberColumn"/>
+                        <TableColumn prefWidth="75.0" fx:id="statColumn"/>
+                        <TableColumn prefWidth="75.0" fx:id="bestColumn"/>
                     </columns>
                 </TableView>
-                <Button mnemonicParsing="false" text="Play" GridPane.rowIndex="2" onAction="#onClickPlay"/>
-                <Button mnemonicParsing="false" text="Exit" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <Button mnemonicParsing="false" fx:id="btn_play" GridPane.rowIndex="2" onAction="#onClickPlay"/>
+                <Button mnemonicParsing="false" fx:id="btn_exit" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
             </children>
         </GridPane>
     </children>
