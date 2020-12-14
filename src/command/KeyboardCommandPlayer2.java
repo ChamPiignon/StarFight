@@ -11,7 +11,7 @@ public class KeyboardCommandPlayer2 implements Control {
     }
 
     @Override
-    public boolean isRequestingUp() {
+    public boolean isRequestingJump() {
         return input.isPressed(KeyCode.Z);
     }
 

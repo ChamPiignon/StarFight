@@ -1,9 +1,12 @@
 package command;
 
 public interface Control {
-    boolean isRequestingUp();
+    boolean isRequestingJump();
+
     boolean isRequestingLeft();
+
     boolean isRequestingRight();
+
     boolean isRequestingPrimAtk();
 
     boolean isRequestingSndAtk();

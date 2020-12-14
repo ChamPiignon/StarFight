@@ -1,6 +1,8 @@
 package controllers;
 
-import character.*;
+import character.Player;
+import character.Skin;
+import character.StatMove;
 import command.Input;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
@@ -27,8 +29,6 @@ public class GamePage {
     private final Stage stage;
     private World world;
     private Input input;
-    private long timeLastDiplacement1;
-    private long timeLastDiplacement2;
 
     public GamePage(Stage stage) {
         this.stage = stage;
@@ -69,26 +69,14 @@ public class GamePage {
         skin.getImageView().setFitWidth(taille);
     }
 
-    private void updatePlayerPosition(Player player)
-    {
+    private void updatePlayerPosition(Player player) {
         int deltaX = 0;
-        int deltaY = 0;
-        if(player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove()== StatMove.RUN)
-        {
-            if (player.getControl().isRequestingUp()) {
-                System.out.println("up");
-                deltaY += SPEED_INCREMENTATTION_POSITION_Y;
+        if (player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove() == StatMove.RUN) {
+            if (player.getControl().isRequestingJump()) {
+                System.out.println("jump");
                 System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.jump(player.getHisFighter(), deltaY);
+                world.getManagerFighter().move.jump(player.getHisFighter());
             }
-
-            if (deltaY != 0) {
-                System.out.println("down");
-                deltaY += SPEED_INCREMENTATTION_POSITION_Y;
-                System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.down(player.getHisFighter(), deltaY);
-            }
-
 
             if (player.getControl().isRequestingLeft()) {
                 System.out.println("left");

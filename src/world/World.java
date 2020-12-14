@@ -6,6 +6,7 @@ import command.Input;
 import command.KeyboardCommandPlayer1;
 import command.KeyboardCommandPlayer2;
 import javafx.scene.image.Image;
+import manager.ManagerFighter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class World {
     private final String name = "test";
     public List<Player> listPlayers = new ArrayList<>();
     public Player player1, player2;
-    private ManagerFighter managerFighter = new ManagerFighter();
+    private final ManagerFighter managerFighter = new ManagerFighter();
 
     public World(String urlMap, Input input) {
         this.player1 = new Player(ninja, name, 0, new KeyboardCommandPlayer1(input));
