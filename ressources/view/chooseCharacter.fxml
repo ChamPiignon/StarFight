@@ -11,7 +11,6 @@
 <?import javafx.scene.image.Image?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.ChooseCharacter"
             prefHeight="500.0" prefWidth="1000.0">
 <children>
     <GridPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
@@ -55,8 +54,8 @@
             </HBox>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.halignment="CENTER"><Image url="/images/Fighters/Ninja/choose.png"/></ImageView>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.halignment="CENTER"><Image url="/images/Fighters/Samourai/choose.png"/></ImageView>
-            <Button mnemonicParsing="false" text="Prêt ?" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.halignment="CENTER"/>
-            <Button mnemonicParsing="false" text="Prêt ?" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.halignment="CENTER"/>
+            <Button mnemonicParsing="false" text="Prêt ?" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.halignment="CENTER" onAction="#setReadyPlayer2"/>
+            <Button mnemonicParsing="false" text="Prêt ?" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.halignment="CENTER" onAction="#setReadyPlayer1"/>
         </children>
     </GridPane>
 </children>

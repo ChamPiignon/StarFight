@@ -16,16 +16,11 @@ public class LaunchPage {
     public void onClickPlay(ActionEvent actionEvent) throws IOException {
         Stage primaryStage = new Stage();
         primaryStage.initModality(Modality.APPLICATION_MODAL);
-
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/GamePage.fxml"));
-
-        loader.setController(new GamePage(primaryStage));
-
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/chooseCharacter.fxml"));
+        loader.setController(new ChooseCharacter(primaryStage));
         Parent root = loader.load();
-
         Scene gameScene= new Scene(root);
         primaryStage.setTitle(bundle.getString("GameTitleGame"));
-
         primaryStage.setScene(gameScene);
         primaryStage.show();
     }
