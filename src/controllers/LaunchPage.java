@@ -45,4 +45,9 @@ public class LaunchPage {
         primaryStage.getIcons().add(new Image("images/tux.png"));
         primaryStage.show();
     }
+
+    public void onClickExit(ActionEvent actionEvent) {
+        Stage stage = (Stage) btn_exit.getScene().getWindow();
+        stage.close();
+    }
 }

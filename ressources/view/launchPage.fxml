@@ -32,7 +32,8 @@
                     </columns>
                 </TableView>
                 <Button mnemonicParsing="false" fx:id="btn_play" GridPane.rowIndex="2" onAction="#onClickPlay"/>
-                <Button mnemonicParsing="false" fx:id="btn_exit" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                <Button mnemonicParsing="false" fx:id="btn_exit" GridPane.columnIndex="2" GridPane.rowIndex="2"
+                        onAction="#onClickExit"/>
                 <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
             </children>
         </GridPane>
