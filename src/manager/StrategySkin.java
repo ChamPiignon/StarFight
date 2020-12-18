@@ -6,6 +6,7 @@ import javafx.animation.Animation;
 import javafx.animation.Transition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 import java.io.FileInputStream;
@@ -64,6 +65,11 @@ public class StrategySkin
         fighter.setStatMove(StatMove.DEATH);
     }
 
+    public void mirror(Fighter fighter,int xOrientation)
+    {
+        //method rotate skin
+    }
+
     public ImageView getSprite(Fighter fighter){ return fighter.getSkin().getImageView(); }
 
     private void setSprite(Fighter fighter,ImageView sprite){
@@ -88,6 +94,19 @@ public class StrategySkin
 
 
 
-
+/*
+        private void updateAnimation(Fighter fighter,int n,String spriteName)
+    {
+        setSpriteName(fighter,spriteName);
+        fighter.getSkin().refreshAnimation();
+        if(n == -1) {
+            fighter.getSkin().skinAnimation.setIndefiniteCycle();
+        }
+        else {
+            fighter.getSkin().skinAnimation.setNCycle(n);
+        }
+        fighter.getSkin().skinAnimation.play();
+    }
+ */
 
 }

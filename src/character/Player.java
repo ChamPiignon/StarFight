@@ -1,7 +1,6 @@
 package character;
 
 import command.Control;
-import manager.ManagerFighter;
 
 public class Player
 {
@@ -9,7 +8,7 @@ public class Player
     private String name;
     private int score;
     private final Control control;
-    private ManagerFighter managerFighter;
+
 
     public Player(Fighter hisFighter, String name, int score, Control control)
     {

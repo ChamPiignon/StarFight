@@ -24,6 +24,8 @@ private Position position;
     private final int xInit = 350;
     private final int yInit = 350;
 
+    private String orientation="right";
+
 
     public Skin(Map<StatMove, ImageView> allSkins) {
         position = new Position(xInit, yInit);
@@ -49,4 +51,12 @@ private Position position;
     public Rectangle getHitbox() {return hitbox;}
     public void setHitbox(javafx.scene.shape.Rectangle hitbox) { this.hitbox = hitbox; }
     public ImageView getSpriteName(StatMove spriteName){return images.get(spriteName);}
+
+    public String getOrientation() {
+        return orientation;
+    }
+
+    public void setOrientation(String orientation) {
+        this.orientation = orientation;
+    }
 }

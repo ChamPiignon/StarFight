@@ -44,17 +44,25 @@ public class GamePage {
         scale(world.player2.getHisFighter().getSkin(), SIZE_FIGHTER);
         initializePositionFight(world.player1, world.player2);
         AnimationTimer gameThread = new AnimationTimer() {
+            long duration = 0;
 
             @Override
             public void handle(long gameTimer) {
+                duration = gameTimer;
                 stage.getScene().setOnKeyPressed(Input::keyPressed);
-                //moving player / attack player
-                updatePlayerPosition(world.player1);
-                updatePlayerPosition(world.player2);
-                //collision player
-
-                //heath actualisation
                 stage.getScene().setOnKeyReleased(Input::keyReleased);
+                //moving player / attack player
+                try {
+                    updatePlayerPosition(world.player1);
+                    updatePlayerPosition(world.player2);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+                //collision player
+                //heath actualisation
+                System.out.println(gameTimer - duration);
+                ;
+
             }
         };
 
@@ -62,13 +70,12 @@ public class GamePage {
 
     }
 
-    private void scale(Skin skin, int taille)
-    {
+    private void scale(Skin skin, int taille) {
         skin.getImageView().setFitHeight(taille);
         skin.getImageView().setFitWidth(taille);
     }
 
-    private void updatePlayerPosition(Player player) {
+    private void updatePlayerPosition(Player player) throws Exception {
         int deltaX = 0;
         if (player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove() == StatMove.RUN) {
             if (player.getControl().isRequestingJump()) {
@@ -106,8 +113,7 @@ public class GamePage {
 //        world.getManagerFighter().move.noMove(player.getHisFighter());
     }
 
-    private void initializePositionFight(Player player1, Player player2)
-    {
+    private void initializePositionFight(Player player1, Player player2) {
         player1.getHisFighter().getSkin().getImageView().setX(POS_X_PLAYER_1);
         player1.getHisFighter().getSkin().getImageView().setY(POS_Y_PLAYER_1);
         player2.getHisFighter().getSkin().getImageView().setX(POS_X_PLAYER_2);
