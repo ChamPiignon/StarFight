@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -23,6 +25,9 @@ public class ChooseCharacter {
 
     @FXML
     Text namePlayer1, namePlayer2;
+
+    @FXML
+    TextField nameInputPlayer1, nameInputPlayer2;
 
     @FXML
     Button btn_left, btn_right;
@@ -58,6 +63,7 @@ public class ChooseCharacter {
         Parent root = loader.load();
         Scene gameScene= new Scene(root);
         myStage.setTitle(bundle.getString("GameTitleGame"));
+        myStage.getIcons().add(new Image("images/tux.png"));
         myStage.setScene(gameScene);
     }
 }

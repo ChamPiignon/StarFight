@@ -8,27 +8,14 @@ import javafx.animation.AnimationTimer;
 public class StrategyMove {
     private static final StrategySkin skin = new StrategySkin();
     private final int jumpSize = 20;
+    private final double maxY = 275.0;
 
-    public void jump(Fighter fighter) {
+    public void jump(Fighter fighter, int deltaX, int yOrigin) {
+
         skin.jump(fighter);
-//        final double oldY = fighter.getSkin().getImageView().getY();
-//        int gravity = 0;
-//        while(oldY >= fighter.getSkin().getImageView().getY())
-//        {
-//            fighter.getSkin().getImageView().setY(fighter.getSkin().getImageView().getY() - jumpSize + gravity);
-//            gravity = gravity + 1;
-//            System.out.println(gravity);
-//
-//            if (oldY <= fighter.getSkin().getImageView().getY()) {
-//                skin.idle(fighter);
-//                gravity = 0;
-//                fighter.getSkin().getImageView().setY(oldY);
-//            }
-//
-//            if (gravity == jumpSize) {
-//                skin.fall(fighter);
-//            }
-//        }
+        if (deltaX != 0) {
+            fighter.getSkin().getImageView().setX(fighter.getSkin().getImageView().getX() + deltaX);
+        }
         AnimationTimer jumpTimer = new AnimationTimer() {
             final double oldY = fighter.getSkin().getImageView().getY();
             int gravity = 0;
@@ -36,8 +23,13 @@ public class StrategyMove {
             @Override
             public void handle(long now) {
                 fighter.getSkin().getImageView().setY(fighter.getSkin().getImageView().getY() - jumpSize + gravity);
-                gravity = gravity + 1;
-                System.out.println(gravity);
+                gravity += 1;
+                System.out.println(fighter.getSkin().getImageView().getX() + " " + fighter.getSkin().getImageView().getY());
+
+                // try to reset the Y position of a fighter if Y < yOrigin - maxY
+                if (fighter.getSkin().getImageView().getY() < yOrigin - maxY) {
+                    fighter.getSkin().getImageView().setY(yOrigin);
+                }
                 if (gravity == jumpSize) {
                     skin.fall(fighter);
                 }
@@ -48,36 +40,45 @@ public class StrategyMove {
                     this.stop();
                 }
             }
-
-
         };
         jumpTimer.start();
     }
 
-    public void down(Fighter fighter, int deltaY) {
-//        if (deltaY != 1) {
-//            return;
-//        }
-        int jumpHeight = 5;
-        //tant que le saut descend
+    public void moveDown(Fighter fighter, int yOrigin) {
         skin.fall(fighter);
-        for (int i = jumpHeight; i >= 0; i--) {
-            fighter.getSkin().getImageView().setY(fighter.getSkin().getImageView().getY()+i);;
-        }
+        AnimationTimer fallTimer = new AnimationTimer() {
+            int gravity = 0;
+
+            @Override
+            public void handle(long now) {
+                fighter.getSkin().getImageView().setY(fighter.getSkin().getImageView().getY() + gravity);
+                gravity += 1;
+                System.out.println(fighter.getSkin().getImageView().getX() + " " + fighter.getSkin().getImageView().getY());
+
+                if (yOrigin <= fighter.getSkin().getImageView().getY()) {
+                    skin.idle(fighter);
+                    gravity = 0;
+                    fighter.getSkin().getImageView().setY(yOrigin);
+                    this.stop();
+                }
+            }
+        };
+        fallTimer.start();
     }
-    public void moveLeft(Fighter fighter, int deltaX) throws Exception{
-        flipVertical(fighter,"left");
-        if(fighter.getStatMove() != StatMove.RUN) {
+
+    public void moveLeft(Fighter fighter, int deltaX) {
+        //skin.mirror(fighter) retourne le skin sur l'axe y
+        if (fighter.getStatMove() != StatMove.RUN) {
             skin.run(fighter);
         }
-        fighter.getSkin().getImageView().setX(fighter.getSkin().getImageView().getX()+deltaX);
-        fighter.getSkin().skinAnimation.setOnFinished( event -> {
+        fighter.getSkin().getImageView().setX(fighter.getSkin().getImageView().getX() + deltaX);
+        fighter.getSkin().skinAnimation.setOnFinished(event -> {
             skin.idle(fighter);
         });
     }
 
-    public void moveRight(Fighter fighter, int deltaX) throws Exception {
-        flipVertical(fighter,"right");
+    public void moveRight(Fighter fighter, int deltaX) {
+        //skin.mirror(fighter) retourne le skin sur l'axe y
         if(fighter.getStatMove() != StatMove.RUN) {
             skin.run(fighter);
         }
@@ -88,25 +89,10 @@ public class StrategyMove {
     }
 
     public void noMove(Fighter fighter) {
+        //skin.mirror(fighter) retourne le skin sur l'axe y
         if(fighter.getStatMove() != StatMove.IDLE) {
             skin.idle(fighter);
         }
         fighter.getSkin().getImageView().setX(fighter.getSkin().getImageView().getX());
-    }
-
-    private void flipVertical(Fighter fighter,String orientation) throws Exception {
-        if("right" == orientation)
-        {
-            skin.mirror(fighter,1);
-        }
-        else if("left" == orientation)
-        {
-            skin.mirror(fighter,-1);
-        }
-        else
-        {
-            throw new Exception("Orientation character: "+orientation+" not available.");
-        }
-        fighter.getSkin().setOrientation(orientation);
     }
 }

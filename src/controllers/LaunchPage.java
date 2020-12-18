@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -41,6 +42,12 @@ public class LaunchPage {
         Scene gameScene = new Scene(root);
         primaryStage.setTitle(bundle.getString("GameTitleGame"));
         primaryStage.setScene(gameScene);
+        primaryStage.getIcons().add(new Image("images/tux.png"));
         primaryStage.show();
+    }
+
+    public void onClickExit(ActionEvent actionEvent) {
+        Stage stage = (Stage) btn_exit.getScene().getWindow();
+        stage.close();
     }
 }
