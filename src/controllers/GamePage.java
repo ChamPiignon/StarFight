@@ -24,7 +24,6 @@ public class GamePage {
     private static final int POS_X_PLAYER_2 = 780;
     private static final int POS_Y_PLAYER_2 = 485;
     private static final int SPEED_INCREMENTATTION_POSITION_X = 6;
-    private static final int SPEED_INCREMENTATTION_POSITION_Y = 4;
     private static final int SIZE_FIGHTER = 450;
     private final Stage stage;
     private World world;
@@ -71,7 +70,7 @@ public class GamePage {
     private void updatePlayerPosition(Player player) {
         int deltaX = 0;
         if (player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove() == StatMove.RUN) {
-            if (player.getControl().isRequestingJump()) {
+            if (player.getControl().isRequestingJump() && !player.getControl().isRequestingPrimAtk() && !player.getControl().isRequestingSndAtk()) {
                 System.out.println("jump");
                 System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
                 world.getManagerFighter().move.jump(player.getHisFighter());
@@ -102,8 +101,6 @@ public class GamePage {
             }
 
         }
-//        System.out.println("noMove");
-//        world.getManagerFighter().move.noMove(player.getHisFighter());
     }
 
     private void initializePositionFight(Player player1, Player player2)

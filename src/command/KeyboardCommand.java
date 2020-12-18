@@ -60,6 +60,9 @@ public class KeyboardCommand implements Control {
         } else throw new Exception("error player number");
     }
 
+    /*
+    default command for player 1
+     */
     public void setPlayer1() {
         this.setJump(KeyCode.Z);
         this.setLeft(KeyCode.Q);
@@ -68,6 +71,9 @@ public class KeyboardCommand implements Control {
         this.setSndAtk(KeyCode.B);
     }
 
+    /*
+    default command for player 2
+    */
     public void setPlayer2() {
         this.setJump(KeyCode.UP);
         this.setLeft(KeyCode.LEFT);

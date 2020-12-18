@@ -23,7 +23,4 @@ public class Input {
     public boolean isPressed(KeyCode keyCode) {
         return pressed[keyCode.getCode()];
     }
-
-    public void keyTyped(KeyEvent e) {
-    }
 }
