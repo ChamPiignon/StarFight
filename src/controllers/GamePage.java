@@ -25,9 +25,9 @@ public class GamePage {
     private static final int POS_Y_PLAYER_2 = 485;
     private static final int SPEED_INCREMENTATTION_POSITION_X = 6;
     private static final int SIZE_FIGHTER = 450;
+    private final double maxY = 275.0;
     private final Stage stage;
     private World world;
-    private Input input;
 
     public GamePage(Stage stage) {
         this.stage = stage;
@@ -69,11 +69,25 @@ public class GamePage {
 
     private void updatePlayerPosition(Player player) {
         int deltaX = 0;
+
+        if (player.getControl().isRequestingDown()) {
+            world.getManagerFighter().move.moveDown(player.getHisFighter(), POS_Y_PLAYER_1);
+        }
+
         if (player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove() == StatMove.RUN) {
+
             if (player.getControl().isRequestingJump() && !player.getControl().isRequestingPrimAtk() && !player.getControl().isRequestingSndAtk()) {
                 System.out.println("jump");
+                if (player.getControl().isRequestingLeft()) {
+                    System.out.println("jump-left");
+                    deltaX -= SPEED_INCREMENTATTION_POSITION_X;
+                }
+                if (player.getControl().isRequestingRight()) {
+                    System.out.println("jump-right");
+                    deltaX += SPEED_INCREMENTATTION_POSITION_X;
+                }
                 System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.jump(player.getHisFighter());
+                world.getManagerFighter().move.jump(player.getHisFighter(), deltaX, POS_Y_PLAYER_1);
             }
 
             if (player.getControl().isRequestingLeft()) {
