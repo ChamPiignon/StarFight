@@ -98,7 +98,7 @@ public class GamePage {
                     deltaX += SPEED_INCREMENTATTION_POSITION_X;
                 }
                 System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.jump(player.getHisFighter(), deltaX, POS_Y_PLAYER_1);
+                world.getManagerFighter().move.jump(player, deltaX, POS_Y_PLAYER_1);
             }
 
             if (player.getControl().isRequestingLeft()) {

@@ -1,6 +1,7 @@
 package manager;
 
 import character.Fighter;
+import character.Player;
 import character.StatMove;
 import javafx.animation.AnimationTimer;
 
@@ -11,33 +12,38 @@ public class StrategyMove {
     private final double maxY = 275.0;
     int jumpStrength = 100;
 
-    public void jump(Fighter fighter, int deltaX, int yOrigin) {
+    public void jump(Player player, int deltaX, int yOrigin) {
+        Fighter fighter = player.getHisFighter();
+        if (!player.isFalling){
+            player.isJumping = true;
+        }
 
         skin.jump(fighter);
         if (deltaX != 0) {
             fighter.getSkin().getImageView().setX(fighter.getSkin().getImageView().getX() + deltaX);
         }
         AnimationTimer jumpTimer = new AnimationTimer() {
-            final double oldY = fighter.getSkin().getImageView().getY();
+//            final double oldY = fighter.getSkin().getImageView().getY();
             int gravity = 0;
 
             @Override
             public void handle(long now) {
-                fighter.getSkin().getImageView().setY(fighter.getSkin().getImageView().getY() - jumpSize + gravity);
-                gravity += 1;
                 System.out.println(fighter.getSkin().getImageView().getX() + " " + fighter.getSkin().getImageView().getY());
 
-                // try to reset the Y position of a fighter if Y < yOrigin - maxY
-                if (fighter.getSkin().getImageView().getY() < yOrigin - maxY) {
-                    fighter.getSkin().getImageView().setY(yOrigin);
-                }
+                fighter.getSkin().getImageView().setY(fighter.getSkin().getImageView().getY() - jumpSize + gravity);
+                gravity += 1;
+
                 if (gravity == jumpSize) {
                     skin.fall(fighter);
+                    player.isJumping = false;
+                    player.isFalling = true;
                 }
-                if (oldY <= fighter.getSkin().getImageView().getY()) {
-                    skin.idle(fighter);
+                if (yOrigin <= fighter.getSkin().getImageView().getY()) {
+                    player.isFalling = false;
+                    player.isJumping = false;
                     gravity = 0;
-                    fighter.getSkin().getImageView().setY(oldY);
+                    fighter.getSkin().getImageView().setY(yOrigin);
+                    skin.idle(fighter);
                     this.stop();
                 }
             }

@@ -7,6 +7,8 @@ public class Player
     private Fighter hisFighter;
     private String name;
     private int score;
+    public boolean isJumping = false;
+    public boolean isFalling = false;
     private final Control control;
 
 
