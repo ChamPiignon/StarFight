@@ -85,26 +85,26 @@ public class GamePage {
             world.getManagerFighter().move.moveDown(player.getHisFighter(), POS_Y_PLAYER_1);
         }
 
-        if (player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove() == StatMove.RUN || player.isFalling || player.isJumping) {
+        if (player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove() == StatMove.RUN || player.getHisFighter().isFalling || player.getHisFighter().isJumping) {
 
-            if ((player.isJumping || player.isFalling ) || player.getControl().isRequestingJump() && !player.getControl().isRequestingPrimAtk() && !player.getControl().isRequestingSndAtk()) {
+            if ((player.getHisFighter().isJumping || player.getHisFighter().isFalling ) || player.getControl().isRequestingJump() && !player.getControl().isRequestingPrimAtk() && !player.getControl().isRequestingSndAtk()) {
                 System.out.println("jump");
                 System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.jump(player, POS_Y_PLAYER_1);
+                world.getManagerFighter().move.jump(player.getHisFighter(), POS_Y_PLAYER_1);
             }
 
             if (player.getControl().isRequestingLeft()) {
                 System.out.println("left");
                 deltaX -= SPEED_INCREMENTATTION_POSITION_X;
                 System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.moveLeft(player, deltaX);
+                world.getManagerFighter().move.moveLeft(player.getHisFighter(), deltaX);
             }
 
             if (player.getControl().isRequestingRight()) {
                 System.out.println("right");
                 deltaX += SPEED_INCREMENTATTION_POSITION_X;
                 System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.moveRight(player, deltaX);
+                world.getManagerFighter().move.moveRight(player.getHisFighter(), deltaX);
             }
 
             if (player.getControl().isRequestingPrimAtk()) {

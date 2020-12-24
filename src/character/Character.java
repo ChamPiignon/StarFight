@@ -8,6 +8,10 @@ public abstract class Character
     private IntegerProperty currentHP;
     private String name;
 
+    public boolean isJumping = false;
+    public boolean isFalling = false;
+    public int gravity = 0;
+
     public Character(IntegerProperty hP, String name)
     {
         name = name.toLowerCase();
