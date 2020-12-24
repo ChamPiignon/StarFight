@@ -48,14 +48,14 @@
                 </VBox>
                 <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1" alignment="CENTER">
                     <children>
-                        <Button>
+                        <Button onAction="#selectSamouraiP1">
                             <graphic>
                                 <ImageView pickOnBounds="true" preserveRatio="true">
                                     <Image url="/images/Fighters/Samourai/choose.png"/>
                                 </ImageView>
                             </graphic>
                         </Button>
-                        <Button>
+                        <Button onAction="#selectNinjaP1">
                             <graphic>
                                 <ImageView pickOnBounds="true" preserveRatio="true">
                                     <Image url="/images/Fighters/Ninja/choose.png"/>
@@ -66,14 +66,14 @@
                 </HBox>
                 <HBox GridPane.columnIndex="2" GridPane.rowIndex="1" alignment="CENTER">
                     <children>
-                        <Button>
+                        <Button onAction="#selectSamouraiP2">
                             <graphic>
                                 <ImageView pickOnBounds="true" preserveRatio="true">
                                     <Image url="/images/Fighters/Samourai/choose.png"/>
                                 </ImageView>
                             </graphic>
                         </Button>
-                        <Button>
+                        <Button onAction="#selectNinjaP2">
                             <graphic>
                                 <ImageView pickOnBounds="true" preserveRatio="true">
                                     <Image url="/images/Fighters/Ninja/choose.png"/>
@@ -82,12 +82,12 @@
                         </Button>
                     </children>
                 </HBox>
-                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+                <ImageView fx:id="selectionP1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
                            GridPane.rowIndex="2"
                            GridPane.valignment="CENTER" GridPane.halignment="CENTER">
                     <Image url="/images/Fighters/Ninja/choose.png"/>
                 </ImageView>
-                <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+                <ImageView fx:id="selectionP2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
                            GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER"
                            GridPane.halignment="CENTER">
                     <Image url="/images/Fighters/Samourai/choose.png"/>

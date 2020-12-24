@@ -41,9 +41,9 @@ public class GamePage {
     private final Stage stage;
     private World world;
 
-    public GamePage(Stage stage) throws Exception {
+    public GamePage(Stage stage, String player1Name, String player1Character, String player2Name, String player2Character) throws Exception {
         this.stage = stage;
-        world = new World("images/background.gif");
+        world = new World("images/background.gif",player1Name, player1Character, player2Name, player2Character);
     }
 
     @FXML
