@@ -4,61 +4,39 @@ import character.Fighter;
 import character.Player;
 import character.StatMove;
 import javafx.animation.AnimationTimer;
+import javafx.scene.transform.Translate;
 
 
 public class StrategyMove {
     private static final StrategySkin skin = new StrategySkin();
     private final int jumpSize = 20;
-    private final double maxY = 275.0;
+    private final double maxY = 40.0;
     int jumpStrength = 100;
 
-    public void jump(Player player, int deltaX, int yOrigin) {
+
+    public void jump(Player player, int yOrigin) {
         Fighter fighter = player.getHisFighter();
-        if (!player.isFalling){
+
+        if (!player.isFalling) {
             player.isJumping = true;
+            skin.jump(fighter);
         }
 
-        skin.jump(fighter);
-        if (deltaX != 0) {
-            fighter.getSkin().getImageView().setX(fighter.getSkin().getImageView().getX() + deltaX);
+        fighter.getSkin().getImageView().setY(fighter.getSkin().getImageView().getY() - jumpSize + player.gravity);
+        player.gravity += 1;
+
+        if ((player.isJumping && fighter.getSkin().getImageView().getY() <= maxY) || (player.gravity == jumpSize && player.isJumping)) {
+            skin.fall(fighter);
+            player.isJumping = false;
+            player.isFalling = true;
         }
-        AnimationTimer jumpTimer = new AnimationTimer() {
-//            final double oldY = fighter.getSkin().getImageView().getY();
-            int gravity = 0;
 
-            @Override
-            public void handle(long now) {
-                System.out.println(fighter.getSkin().getImageView().getX() + " " + fighter.getSkin().getImageView().getY());
-
-                fighter.getSkin().getImageView().setY(fighter.getSkin().getImageView().getY() - jumpSize + gravity);
-                gravity += 1;
-
-                if (gravity == jumpSize) {
-                    skin.fall(fighter);
-                    player.isJumping = false;
-                    player.isFalling = true;
-                }
-                if (yOrigin <= fighter.getSkin().getImageView().getY()) {
-                    player.isFalling = false;
-                    player.isJumping = false;
-                    gravity = 0;
-                    fighter.getSkin().getImageView().setY(yOrigin);
-                    skin.idle(fighter);
-                    this.stop();
-                }
-            }
-        };
-        jumpTimer.start();
-
-//            skin.jump(fighter);
-//            fighter.getSkin().getImageView().setY(fighter.getSkin().getImageView().getY() - jumpSize );
-//            jumpStrength -= 1;
-//            if(fighter.getSkin().getImageView().getY()>= yOrigin+jumpSize)
-//            {
-//                skin.fall(fighter);
-//                jumpStrength=100;
-//            }
-
+        if (player.isFalling && yOrigin <= fighter.getSkin().getImageView().getY()) {
+            player.isFalling = false;
+            player.gravity = 0;
+            fighter.getSkin().getImageView().setY(yOrigin);
+            skin.idle(fighter);
+        }
 
     }
 
@@ -84,32 +62,39 @@ public class StrategyMove {
         fallTimer.start();
     }
 
-    public void moveLeft(Fighter fighter, int deltaX) {
-        skin.mirror(fighter,-1);
-        if (fighter.getStatMove() != StatMove.RUN) {
-            skin.run(fighter);
-        }
+    public void moveLeft(Player player, int deltaX) {
+        Fighter fighter = player.getHisFighter();
+        skin.mirror(fighter, -1);
+        canRun(player);
         fighter.getSkin().getImageView().setX(fighter.getSkin().getImageView().getX() + deltaX);
-        fighter.getSkin().skinAnimation.setOnFinished(event -> {
-            skin.idle(fighter);
-        });
-    }
-
-    public void moveRight(Fighter fighter, int deltaX) {
-        skin.mirror(fighter,1);
-        if(fighter.getStatMove() != StatMove.RUN) {
-            skin.run(fighter);
+        if (!player.isJumping || !player.isFalling) {
+            fighter.getSkin().skinAnimation.setOnFinished(event -> {
+                skin.idle(fighter);
+            });
         }
-        fighter.getSkin().getImageView().setX(fighter.getSkin().getImageView().getX()+deltaX);
-        fighter.getSkin().skinAnimation.setOnFinished( event -> {
-            skin.idle(fighter);
-        });
     }
 
+    public void moveRight(Player player, int deltaX) {
+        Fighter fighter = player.getHisFighter();
+        skin.mirror(fighter, 1);
+        canRun(player);
+        fighter.getSkin().getImageView().setX(fighter.getSkin().getImageView().getX() + deltaX);
+        if (!player.isJumping || !player.isFalling) {
+            fighter.getSkin().skinAnimation.setOnFinished(event -> {
+                skin.idle(fighter);
+            });
+        }
+    }
+
+    private void canRun(Player player) {
+        if (player.getHisFighter().getStatMove() != StatMove.RUN && (!player.isJumping || !player.isFalling)) {
+            skin.run(player.getHisFighter());
+        }
+    }
 
     public void noMove(Fighter fighter) {
         //skin.mirror(fighter) retourne le skin sur l'axe y
-        if(fighter.getStatMove() != StatMove.IDLE) {
+        if (fighter.getStatMove() != StatMove.IDLE) {
             skin.idle(fighter);
         }
         fighter.getSkin().getImageView().setX(fighter.getSkin().getImageView().getX());

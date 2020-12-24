@@ -85,34 +85,26 @@ public class GamePage {
             world.getManagerFighter().move.moveDown(player.getHisFighter(), POS_Y_PLAYER_1);
         }
 
-        if (player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove() == StatMove.RUN) {
+        if (player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove() == StatMove.RUN || player.isFalling || player.isJumping) {
 
-            if (player.getControl().isRequestingJump() && !player.getControl().isRequestingPrimAtk() && !player.getControl().isRequestingSndAtk()) {
+            if ((player.isJumping || player.isFalling ) || player.getControl().isRequestingJump() && !player.getControl().isRequestingPrimAtk() && !player.getControl().isRequestingSndAtk()) {
                 System.out.println("jump");
-                if (player.getControl().isRequestingLeft()) {
-                    System.out.println("jump-left");
-                    deltaX -= SPEED_INCREMENTATTION_POSITION_X;
-                }
-                if (player.getControl().isRequestingRight()) {
-                    System.out.println("jump-right");
-                    deltaX += SPEED_INCREMENTATTION_POSITION_X;
-                }
                 System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.jump(player, deltaX, POS_Y_PLAYER_1);
+                world.getManagerFighter().move.jump(player, POS_Y_PLAYER_1);
             }
 
             if (player.getControl().isRequestingLeft()) {
                 System.out.println("left");
                 deltaX -= SPEED_INCREMENTATTION_POSITION_X;
                 System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.moveLeft(player.getHisFighter(), deltaX);
+                world.getManagerFighter().move.moveLeft(player, deltaX);
             }
 
             if (player.getControl().isRequestingRight()) {
                 System.out.println("right");
                 deltaX += SPEED_INCREMENTATTION_POSITION_X;
                 System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.moveRight(player.getHisFighter(), deltaX);
+                world.getManagerFighter().move.moveRight(player, deltaX);
             }
 
             if (player.getControl().isRequestingPrimAtk()) {
