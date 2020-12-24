@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.ResourceBundle;
 
 public class ChooseCharacter {
-    public ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue");
+    public ResourceBundle bundle;
     boolean player1IsReady = false;
     boolean player2IsReady = false;
     private String player1Character, player2Character, player1Name, player2Name;
@@ -48,8 +48,9 @@ public class ChooseCharacter {
         player1Character = "Ninja";
     }
 
-    public ChooseCharacter(Stage myStage) {
+    public ChooseCharacter(Stage myStage, ResourceBundle bundle) {
         this.myStage = myStage;
+        this.bundle = bundle;
     }
 
     public void setReadyPlayer2(ActionEvent actionEvent) throws Exception {
@@ -90,7 +91,7 @@ public class ChooseCharacter {
 
     private void launchGame() throws Exception {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/GamePage.fxml"));
-        loader.setController(new GamePage(myStage,player1Name, player1Character, player2Name, player2Character));
+        loader.setController(new GamePage(myStage,player1Name, player1Character, player2Name, player2Character, bundle));
         Parent root = loader.load();
         Scene gameScene= new Scene(root);
         myStage.setTitle(bundle.getString("GameTitleGame"));

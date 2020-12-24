@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import world.World;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 public class GamePage {
     @FXML
@@ -40,10 +41,12 @@ public class GamePage {
     private final double maxY = 275.0;
     private final Stage stage;
     private World world;
+    private ResourceBundle bundle;
 
-    public GamePage(Stage stage, String player1Name, String player1Character, String player2Name, String player2Character) throws Exception {
+    public GamePage(Stage stage, String player1Name, String player1Character, String player2Name, String player2Character, ResourceBundle bundle) throws Exception {
         this.stage = stage;
-        world = new World("images/background.gif",player1Name, player1Character, player2Name, player2Character);
+        this.bundle = bundle;
+        world = new World("images/background.gif",player1Name, player1Character, player2Name, player2Character, bundle);
     }
 
     @FXML

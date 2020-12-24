@@ -14,17 +14,19 @@ import manager.ManagerFighter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 
 public class World {
     private final Image map;
     private ManagerFighter managerFighter = new ManagerFighter();
+    private ResourceBundle bundle;
     public List<Player> listPlayers = new ArrayList<>();
     public Player player1, player2;
     public HealthBarController barHpPlayer1;
     public HealthBarController barHpPlayer2;
 
-    public World(String urlMap, String player1Name, String player1Character, String player2Name, String player2Character) throws Exception {
+    public World(String urlMap, String player1Name, String player1Character, String player2Name, String player2Character, ResourceBundle bundle) throws Exception {
         this.player1 = new Player(new Fighter(player1Character), player1Name, 0, new KeyboardCommand(1));
         this.player2 = new Player(new Fighter(player2Character), player2Name, 0, new KeyboardCommand(2));
         listPlayers.add(this.player1);
@@ -32,6 +34,8 @@ public class World {
         this.map = new Image(urlMap);
         this.player1.getHisFighter().getSkin().skinAnimation.play();
         this.player2.getHisFighter().getSkin().skinAnimation.play();
+
+        this.bundle = bundle;
 
         barHpPlayer1 = new HealthBarController(player1);
         barHpPlayer2 = new HealthBarController(player2);
