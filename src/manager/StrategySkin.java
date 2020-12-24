@@ -67,7 +67,7 @@ public class StrategySkin
 
     public void mirror(Fighter fighter,int xOrientation)
     {
-        //method rotate skin
+        fighter.getSkin().getImageView().setScaleX(xOrientation);
     }
 
     public ImageView getSprite(Fighter fighter){ return fighter.getSkin().getImageView(); }

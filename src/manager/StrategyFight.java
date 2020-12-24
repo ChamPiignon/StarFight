@@ -1,7 +1,6 @@
 package manager;
 
 import character.Fighter;
-import java.util.ArrayList;
 
 import static java.lang.Thread.sleep;
 
@@ -63,15 +62,15 @@ public class StrategyFight {
 
     private void receiveDamage(Fighter fighter)
     {
-        fighter.setHP(fighter.getHP()-1);
+        //fighter.setCurrentHP(fighter.getCurrentHP()-1);
     }
 
     private boolean isDead(Fighter fighter)
     {
-        if(fighter.getHP()==0)
-        {
-            return true;
-        }
-        return false;
+//        if(fighter.getCurrentHP()==0)
+//        {
+//            return true;
+//        }
+       return false;
     }
 }

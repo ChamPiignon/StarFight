@@ -9,6 +9,7 @@ public class StrategyMove {
     private static final StrategySkin skin = new StrategySkin();
     private final int jumpSize = 20;
     private final double maxY = 275.0;
+    int jumpStrength = 100;
 
     public void jump(Fighter fighter, int deltaX, int yOrigin) {
 
@@ -42,6 +43,17 @@ public class StrategyMove {
             }
         };
         jumpTimer.start();
+
+//            skin.jump(fighter);
+//            fighter.getSkin().getImageView().setY(fighter.getSkin().getImageView().getY() - jumpSize );
+//            jumpStrength -= 1;
+//            if(fighter.getSkin().getImageView().getY()>= yOrigin+jumpSize)
+//            {
+//                skin.fall(fighter);
+//                jumpStrength=100;
+//            }
+
+
     }
 
     public void moveDown(Fighter fighter, int yOrigin) {
@@ -67,7 +79,7 @@ public class StrategyMove {
     }
 
     public void moveLeft(Fighter fighter, int deltaX) {
-        //skin.mirror(fighter) retourne le skin sur l'axe y
+        skin.mirror(fighter,-1);
         if (fighter.getStatMove() != StatMove.RUN) {
             skin.run(fighter);
         }
@@ -78,7 +90,7 @@ public class StrategyMove {
     }
 
     public void moveRight(Fighter fighter, int deltaX) {
-        //skin.mirror(fighter) retourne le skin sur l'axe y
+        skin.mirror(fighter,1);
         if(fighter.getStatMove() != StatMove.RUN) {
             skin.run(fighter);
         }
@@ -87,6 +99,7 @@ public class StrategyMove {
             skin.idle(fighter);
         });
     }
+
 
     public void noMove(Fighter fighter) {
         //skin.mirror(fighter) retourne le skin sur l'axe y

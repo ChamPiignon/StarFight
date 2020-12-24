@@ -1,6 +1,7 @@
 package character;
 
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.image.ImageView;
 import java.util.Map;
 import java.util.TreeMap;
@@ -10,7 +11,7 @@ public class Fighter extends Character {
     private StatMove statMove;
 
     public Fighter(String name) {
-        super(100,name);
+        super(new SimpleIntegerProperty(100),name);
         try {
             Map<StatMove,ImageView> skinsMap = new TreeMap<StatMove,ImageView>();
             skinsMap.put(StatMove.ATTACK1,new ImageView("/images/Fighters/"+getName()+"/Attack1.png"));

@@ -3,176 +3,166 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="10.5" y="1184.0">manager.CollideManager</node>
-    <node x="479.0625" y="870.0">character.Fighter</node>
-    <node x="337.87500000000006" y="413.0">character.Skin</node>
-    <node x="456.20000000000005" y="0.0">character.SkinAnimation</node>
-    <node x="1141.4195945945944" y="0.0">com.company.Main</node>
-    <node x="604.875" y="534.0">character.Character</node>
-    <node x="898.4195945945943" y="1712.0">command.Input</node>
-    <node x="324.20000000000005" y="121.0">character.Position</node>
-    <node x="718.4195945945943" y="1745.5">manager.ManagerFighter</node>
-    <node x="658.2034695409693" y="1063.0">manager.StrategySkin</node>
-    <node x="500.4195945945943" y="2304.0">controllers.GamePage</node>
-    <node x="326.5" y="1431.5">command.Control</node>
-    <node x="812.0625000000001" y="1420.0">manager.StrategyFight</node>
-    <node x="338.5" y="1646.0">character.Player</node>
-    <node x="535.4195945945943" y="2827.0">controllers.LaunchPage</node>
-    <node x="594.0625000000001" y="1409.0">manager.StrategyMove</node>
-    <node x="457.1402992277991" y="1991.0">world.World</node>
+    <node x="522.4375" y="946.0">character.Fighter</node>
+    <node x="394.9375" y="1291.0">manager.CollideManager</node>
+    <node x="642.7500000000001" y="413.0">character.Skin</node>
+    <node x="571.1218434343434" y="0.0">character.SkinAnimation</node>
+    <node x="1486.5" y="0.0">com.company.Main</node>
+    <node x="386.7500000000001" y="567.0">character.Character</node>
+    <node x="989.5" y="2220.0">command.Input</node>
+    <node x="772.1218434343434" y="121.0">character.Position</node>
+    <node x="134.13686868686875" y="1907.5">manager.ManagerFighter</node>
+    <node x="67.08333333333337" y="1159.0">manager.StrategySkin</node>
+    <node x="720.0426767676768" y="2468.0">controllers.GamePage</node>
+    <node x="721.9375" y="1560.5">command.Control</node>
+    <node x="221.0" y="1560.0">manager.StrategyFight</node>
+    <node x="771.3125" y="1808.0">character.Player</node>
+    <node x="1232.5" y="0.0">controllers.LaunchPage</node>
+    <node x="0.0" y="1527.0">manager.StrategyMove</node>
+    <node x="569.0118686868688" y="2143.0">world.World</node>
   </nodes>
   <notes />
   <edges>
+    <edge source="world.World" target="character.Fighter">
+      <point x="15.3125" y="-137.5" />
+      <point x="706.8243686868688" y="2123.0" />
+      <point x="711.4375" y="2123.0" />
+      <point x="711.4375" y="1129.0" />
+      <point x="658.5625" y="1129.0" />
+      <point x="37.125" y="71.5" />
+    </edge>
     <edge source="character.Skin" target="character.Position">
-      <point x="-98.80000000000001" y="-203.5" />
-      <point x="362.57500000000005" y="388.0" />
-      <point x="342.86666666666673" y="388.0" />
+      <point x="0.0" y="-236.5" />
+      <point x="766.2500000000001" y="388.0" />
+      <point x="790.7885101010102" y="388.0" />
       <point x="-37.333333333333314" y="60.5" />
     </edge>
+    <edge source="manager.StrategyFight" target="character.Fighter">
+      <point x="69.33333333333331" y="-82.5" />
+      <point x="394.3333333333333" y="1502.0" />
+      <point x="384.4375" y="1502.0" />
+      <point x="384.4375" y="1129.0" />
+      <point x="584.3125" y="1129.0" />
+      <point x="-37.125" y="71.5" />
+    </edge>
+    <edge source="controllers.GamePage" target="character.Skin">
+      <point x="78.79999999999995" y="-280.5" />
+      <point x="995.8426767676767" y="2448.0" />
+      <point x="979.0" y="2448.0" />
+      <point x="979.0" y="926.0" />
+      <point x="858.8750000000001" y="926.0" />
+      <point x="92.625" y="236.5" />
+    </edge>
+    <edge source="character.Player" target="command.Control">
+      <point x="-70.875" y="-137.5" />
+      <point x="794.9375" y="1788.0" />
+      <point x="775.1875" y="1788.0" />
+      <point x="-53.25" y="82.0" />
+    </edge>
     <edge source="controllers.GamePage" target="character.Player">
-      <point x="-79.71428571428567" y="-236.5" />
-      <point x="560.2053088803086" y="2274.0" />
-      <point x="365.4820945945943" y="2274.0" />
-      <point x="365.4820945945943" y="1971.0" />
-      <point x="362.125" y="1971.0" />
-      <point x="-70.875" y="137.5" />
+      <point x="0.0" y="-280.5" />
+      <point x="917.0426767676768" y="2448.0" />
+      <point x="935.5926767676767" y="2448.0" />
+      <point x="935.5926767676767" y="2123.0" />
+      <point x="936.6875" y="2123.0" />
+      <point x="70.875" y="137.5" />
     </edge>
     <edge source="manager.ManagerFighter" target="manager.StrategyMove">
-      <point x="-60.00000000000006" y="-38.0" />
-      <point x="738.4195945945942" y="1626.0" />
-      <point x="643.5625000000001" y="1626.0" />
-      <point x="-49.5" y="93.5" />
+      <point x="-60.0" y="-38.0" />
+      <point x="154.13686868686875" y="1788.0" />
+      <point x="50.25" y="1788.0" />
+      <point x="-50.25" y="115.5" />
+    </edge>
+    <edge source="controllers.GamePage" target="world.World">
+      <point x="-157.60000000000008" y="-280.5" />
+      <point x="759.4426767676766" y="2448.0" />
+      <point x="630.2618686868688" y="2448.0" />
+      <point x="-61.25" y="137.5" />
+    </edge>
+    <edge source="manager.ManagerFighter" target="manager.StrategyFight">
+      <point x="20.0" y="-38.0" />
+      <point x="234.13686868686875" y="1778.0" />
+      <point x="273.0" y="1778.0" />
+      <point x="-52.0" y="82.5" />
     </edge>
     <edge source="manager.CollideManager" target="character.Fighter">
       <point x="0.0" y="-27.0" />
-      <point x="158.0" y="1033.0" />
-      <point x="491.4375" y="1033.0" />
-      <point x="-86.625" y="71.5" />
+      <point x="542.4375" y="1139.0" />
+      <point x="609.0625" y="1139.0" />
+      <point x="-12.375" y="71.5" />
     </edge>
     <edge source="character.Skin" target="character.SkinAnimation">
-      <point x="49.400000000000034" y="-203.5" />
-      <point x="510.7750000000001" y="388.0" />
-      <point x="501.45000000000005" y="388.0" />
+      <point x="-98.80000000000007" y="-236.5" />
+      <point x="667.45" y="388.0" />
+      <point x="616.3718434343434" y="388.0" />
       <point x="-45.25" y="181.5" />
     </edge>
     <edge source="world.World" target="manager.ManagerFighter">
-      <point x="27.22222222222223" y="-126.5" />
-      <point x="606.8625214500213" y="1941.0" />
-      <point x="745.0862612612609" y="1941.0" />
-      <point x="-53.333333333333314" y="38.0" />
-    </edge>
-    <edge source="manager.StrategySkin" target="character.Fighter">
-      <point x="0.0" y="-148.0" />
-      <point x="802.7034695409693" y="1043.0" />
-      <point x="639.9375" y="1043.0" />
-      <point x="61.875" y="71.5" />
-    </edge>
-    <edge source="controllers.GamePage" target="command.Input">
-      <point x="79.71428571428567" y="-236.5" />
-      <point x="719.63388030888" y="2274.0" />
-      <point x="1022.1695945945943" y="2274.0" />
-      <point x="24.75" y="71.5" />
-    </edge>
-    <edge source="manager.StrategyMove" target="manager.StrategySkin">
-      <point x="0.0" y="-93.5" />
-      <point x="693.0625000000001" y="1384.0" />
-      <point x="694.3284695409693" y="1384.0" />
-      <point x="-108.375" y="148.0" />
-    </edge>
-    <edge source="world.World" target="character.Fighter">
-      <point x="-27.22222222222223" y="-126.5" />
-      <point x="552.4180770055768" y="1971.0" />
-      <point x="572.5625" y="1971.0" />
-      <point x="572.5625" y="1043.0" />
-      <point x="565.6875" y="1043.0" />
-      <point x="-12.375" y="71.5" />
-    </edge>
-    <edge source="manager.StrategyFight" target="character.Fighter">
-      <point x="69.33333333333337" y="-82.5" />
-      <point x="985.3958333333335" y="1384.0" />
-      <point x="975.307636207636" y="1384.0" />
-      <point x="975.307636207636" y="1033.0" />
-      <point x="664.6875" y="1033.0" />
-      <point x="86.625" y="71.5" />
-    </edge>
-    <edge source="controllers.GamePage" target="character.Skin">
-      <point x="-119.57142857142856" y="-236.5" />
-      <point x="520.3481660231657" y="2284.0" />
-      <point x="0.0" y="2284.0" />
-      <point x="0.0" y="850.0" />
-      <point x="368.75000000000006" y="850.0" />
-      <point x="-92.625" y="203.5" />
-    </edge>
-    <edge source="character.Player" target="command.Control">
-      <point x="-23.625" y="-137.5" />
-      <point x="409.375" y="1626.0" />
-      <point x="379.75" y="1626.0" />
-      <point x="-53.25" y="71.0" />
-    </edge>
-    <edge source="world.World" target="command.Input">
-      <point x="108.88888888888886" y="-126.5" />
-      <point x="688.5291881166879" y="1971.0" />
-      <point x="923.1695945945943" y="1971.0" />
-      <point x="-74.25" y="71.5" />
-    </edge>
-    <edge source="controllers.GamePage" target="world.World">
-      <point x="-39.85714285714289" y="-236.5" />
-      <point x="600.0624517374514" y="2264.0" />
-      <point x="518.3902992277991" y="2264.0" />
-      <point x="-61.25" y="126.5" />
-    </edge>
-    <edge source="manager.ManagerFighter" target="manager.StrategyFight">
-      <point x="19.999999999999943" y="-38.0" />
-      <point x="818.4195945945942" y="1616.0" />
-      <point x="864.0625000000001" y="1616.0" />
-      <point x="-52.0" y="82.5" />
+      <point x="-107.1875" y="-137.5" />
+      <point x="584.3243686868688" y="2123.0" />
+      <point x="160.80353535353538" y="2123.0" />
+      <point x="-53.33333333333334" y="38.0" />
     </edge>
     <edge source="character.Fighter" target="character.Character">
-      <point x="79.19999999999999" y="-71.5" />
-      <point x="657.2625" y="850.0" />
-      <point x="725.625" y="850.0" />
-      <point x="40.25" y="82.5" />
+      <point x="-39.59999999999991" y="-71.5" />
+      <point x="581.8375000000001" y="926.0" />
+      <point x="563.7500000000001" y="926.0" />
+      <point x="59.0" y="82.5" />
     </edge>
     <edge source="manager.StrategyFight" target="manager.StrategySkin">
-      <point x="-69.33333333333337" y="-82.5" />
-      <point x="846.7291666666667" y="1384.0" />
-      <point x="838.8284695409693" y="1384.0" />
-      <point x="36.125" y="148.0" />
-    </edge>
-    <edge source="controllers.LaunchPage" target="controllers.GamePage">
-      <point x="0.0" y="-38.5" />
-      <point x="0.0" y="236.5" />
+      <point x="-69.33333333333331" y="-82.5" />
+      <point x="255.66666666666669" y="1502.0" />
+      <point x="247.70833333333337" y="1502.0" />
+      <point x="36.125" y="159.0" />
     </edge>
     <edge source="character.Player" target="character.Fighter">
       <point x="70.875" y="-137.5" />
-      <point x="503.875" y="1626.0" />
-      <point x="552.278625053625" y="1626.0" />
-      <point x="552.278625053625" y="1043.0" />
-      <point x="540.9375" y="1043.0" />
-      <point x="-37.125" y="71.5" />
-    </edge>
-    <edge source="character.Fighter" target="character.Skin">
-      <point x="-79.19999999999996" y="-71.5" />
-      <point x="498.86250000000007" y="850.0" />
-      <point x="430.50000000000006" y="850.0" />
-      <point x="-30.875" y="203.5" />
+      <point x="936.6875" y="1788.0" />
+      <point x="959.3074494949497" y="1788.0" />
+      <point x="959.3074494949497" y="1109.0" />
+      <point x="708.0625000000001" y="1109.0" />
+      <point x="86.62500000000006" y="71.5" />
     </edge>
     <edge source="world.World" target="character.Player">
-      <point x="-108.88888888888891" y="-126.5" />
-      <point x="470.7514103389102" y="1971.0" />
-      <point x="409.375" y="1971.0" />
-      <point x="-23.625" y="137.5" />
+      <point x="45.9375" y="-137.5" />
+      <point x="737.4493686868688" y="2103.0" />
+      <point x="794.9375" y="2103.0" />
+      <point x="-70.875" y="137.5" />
+    </edge>
+    <edge source="character.Fighter" target="character.Skin">
+      <point x="5.6843418860808015E-14" y="-71.5" />
+      <point x="621.4375000000001" y="906.0" />
+      <point x="673.6250000000001" y="906.0" />
+      <point x="-92.625" y="236.5" />
     </edge>
     <edge source="manager.StrategyMove" target="character.Fighter">
-      <point x="-66.0" y="-93.5" />
-      <point x="627.0625000000001" y="1384.0" />
-      <point x="621.7659695409693" y="1384.0" />
-      <point x="621.7659695409693" y="1043.0" />
-      <point x="615.1875" y="1043.0" />
-      <point x="37.125" y="71.5" />
+      <point x="-67.0" y="-115.5" />
+      <point x="33.5" y="1502.0" />
+      <point x="41.0625" y="1502.0" />
+      <point x="41.0625" y="1109.0" />
+      <point x="534.8125" y="1109.0" />
+      <point x="-86.625" y="71.5" />
+    </edge>
+    <edge source="controllers.GamePage" target="command.Input">
+      <point x="157.60000000000002" y="-280.5" />
+      <point x="1074.6426767676767" y="2448.0" />
+      <point x="1088.5" y="2448.0" />
+      <point x="0.0" y="60.5" />
+    </edge>
+    <edge source="manager.StrategySkin" target="character.Fighter">
+      <point x="0.0" y="-159.0" />
+      <point x="211.58333333333337" y="1119.0" />
+      <point x="559.5625" y="1119.0" />
+      <point x="-61.875" y="71.5" />
+    </edge>
+    <edge source="manager.StrategyMove" target="manager.StrategySkin">
+      <point x="0.0" y="-115.5" />
+      <point x="100.5" y="1502.0" />
+      <point x="103.20833333333337" y="1502.0" />
+      <point x="-108.375" y="159.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.8" x="1614.285714285714" y="1398.1428571428576" />
+  <settings layout="Hierarchic Group" zoom="0.7000000000000001" x="1965.0833333333335" y="628.1666666666666" />
   <SelectedNodes>
     <node>character.Skin</node>
   </SelectedNodes>

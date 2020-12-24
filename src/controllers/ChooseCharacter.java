@@ -44,20 +44,20 @@ public class ChooseCharacter {
         this.myStage = myStage;
     }
 
-    public void setReadyPlayer2(ActionEvent actionEvent) throws IOException {
+    public void setReadyPlayer2(ActionEvent actionEvent) throws Exception {
         player2IsReady = true;
         if (player1IsReady && player2IsReady)
             launchGame();
     }
 
-    public void setReadyPlayer1(ActionEvent actionEvent) throws IOException {
+    public void setReadyPlayer1(ActionEvent actionEvent) throws Exception {
         player1IsReady = true;
         if(player1IsReady && player2IsReady)
             launchGame();
     }
 
 
-    private void launchGame() throws IOException {
+    private void launchGame() throws Exception {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/GamePage.fxml"));
         loader.setController(new GamePage(myStage));
         Parent root = loader.load();

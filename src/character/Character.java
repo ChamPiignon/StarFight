@@ -1,32 +1,42 @@
 package character;
 
+import javafx.beans.property.IntegerProperty;
+
 public abstract class Character
 {
 
-    private int hP;
+    private IntegerProperty currentHP;
     private String name;
 
-    public Character(int hP, String name)
+    public Character(IntegerProperty hP, String name)
     {
         name = name.toLowerCase();
         name = name.substring(0,1).toUpperCase()+name.substring(1);
-        this.hP = hP;
+        this.currentHP = hP;
+        this.name = name;
+    }
+    public Character(IntegerProperty hP, int maxHP, String name)
+    {
+        name = name.toLowerCase();
+        name = name.substring(0,1).toUpperCase()+name.substring(1);
+        this.currentHP = hP;
         this.name = name;
     }
 
 
 
-    public int getHP()
+
+    public IntegerProperty getCurrentHP()
     {
-        return hP;
+        return currentHP;
     }
     public String getName()
     {
         return name;
     }
-    public void setHP(int hP)
+    public void setCurrentHP(IntegerProperty hP)
     {
-        this.hP = hP;
+        this.currentHP = hP;
     }
     public void setName(String name)
     {
