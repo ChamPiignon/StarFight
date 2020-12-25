@@ -9,7 +9,6 @@ public class StrategyMove {
     private static final StrategySkin skin = new StrategySkin();
     private final int jumpSize = 20;
     private final double maxY = 40.0;
-    int jumpStrength = 100;
 
 
     public void jump(Fighter fighter, int yOrigin) {        

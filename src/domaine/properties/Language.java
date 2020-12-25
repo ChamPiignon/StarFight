@@ -6,6 +6,11 @@ public class Language {
     private String name;
     private Locale language;
 
+    /**
+     *
+     * @param name
+     * @param language
+     */
     public Language(String name, Locale language) {
         this.name = name;
         this.language = language;

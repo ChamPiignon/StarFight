@@ -4,14 +4,8 @@ import character.Fighter;
 import character.Player;
 import command.KeyboardCommand;
 import controllers.HealthBarController;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import manager.ManagerFighter;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -26,6 +20,16 @@ public class World {
     public HealthBarController barHpPlayer1;
     public HealthBarController barHpPlayer2;
 
+    /**
+     *
+     * @param urlMap
+     * @param player1Name
+     * @param player1Character
+     * @param player2Name
+     * @param player2Character
+     * @param bundle
+     * @throws Exception
+     */
     public World(String urlMap, String player1Name, String player1Character, String player2Name, String player2Character, ResourceBundle bundle) throws Exception {
         this.player1 = new Player(new Fighter(player1Character), player1Name, 0, new KeyboardCommand(1));
         this.player2 = new Player(new Fighter(player2Character), player2Name, 0, new KeyboardCommand(2));

@@ -6,17 +6,11 @@ import character.StatMove;
 import command.Input;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import world.World;
-
-import java.io.IOException;
 import java.util.ResourceBundle;
 
 public class GamePage {
@@ -38,11 +32,20 @@ public class GamePage {
     private static final int POS_Y_PLAYER_2 = 300;
     private static final int SPEED_INCREMENTATTION_POSITION_X = 6;
     private static final int SIZE_FIGHTER = 450;
-    private final double maxY = 275.0;
     private final Stage stage;
     private World world;
     private ResourceBundle bundle;
 
+    /**
+     *
+     * @param stage
+     * @param player1Name
+     * @param player1Character
+     * @param player2Name
+     * @param player2Character
+     * @param bundle
+     * @throws Exception
+     */
     public GamePage(Stage stage, String player1Name, String player1Character, String player2Name, String player2Character, ResourceBundle bundle) throws Exception {
         this.stage = stage;
         this.bundle = bundle;
@@ -76,11 +79,21 @@ public class GamePage {
 
     }
 
+    /**
+     *
+     * @param skin
+     * @param taille
+     */
     private void scale(Skin skin, int taille) {
         skin.getImageView().setFitHeight(taille);
         skin.getImageView().setFitWidth(taille);
     }
 
+    /**
+     *
+     * @param player
+     * @throws Exception
+     */
     private void updatePlayerPosition(Player player) throws Exception {
         int deltaX = 0;
 
@@ -137,6 +150,11 @@ public class GamePage {
         stage.setResizable(false);
     }
 
+    /**
+     *
+     * @param player1
+     * @param player2
+     */
     private void initializePositionFight(Player player1, Player player2) {
         player1.getHisFighter().getSkin().getImageView().setX(POS_X_PLAYER_1);
         player1.getHisFighter().getSkin().getImageView().setY(POS_Y_PLAYER_1);
@@ -144,6 +162,11 @@ public class GamePage {
         player2.getHisFighter().getSkin().getImageView().setY(POS_Y_PLAYER_2);
     }
 
+    /**
+     *
+     * @param barHpPlayer1
+     * @param barHpPlayer2
+     */
     private void initializeHealthBar(HealthBarController barHpPlayer1,HealthBarController barHpPlayer2) {
         barHpPlayer1.layoutXProperty().set(LAYOUT_X_HP_BAR_1);
         barHpPlayer2.layoutXProperty().set(LAYOUT_X_HP_BAR_2);
