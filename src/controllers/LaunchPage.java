@@ -5,11 +5,13 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -21,7 +23,7 @@ public class LaunchPage {
     private ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue");
 
     @FXML
-    TableColumn playerColumn, numberColumn, statColumn, bestColumn;
+    TableColumn<String, String> playerColumn, numberColumn, statColumn, bestColumn;
 
     @FXML
     Button btn_play, btn_exit;
@@ -30,7 +32,11 @@ public class LaunchPage {
     ComboBox<Language> Cb_language;
 
     @FXML
+    TableView<String> tableView;
+
+    @FXML
     public void initialize() {
+        tableView.setPadding(new Insets(5));
         initializeText();
         Cb_language.getItems().addAll(
                 new Language("Default", Locale.getDefault()),
@@ -57,7 +63,7 @@ public class LaunchPage {
         btn_exit.setText(bundle.getString("Btn_exit"));
     }
 
-    public void onClickPlay(ActionEvent actionEvent) throws IOException {
+    public void onClickPlay(ActionEvent actionEvent) throws Exception {
         Stage primaryStage = new Stage();
         primaryStage.initModality(Modality.APPLICATION_MODAL);
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/chooseCharacter.fxml"));

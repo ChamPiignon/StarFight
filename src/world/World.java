@@ -30,9 +30,9 @@ public class World {
      * @param bundle
      * @throws Exception
      */
-    public World(String urlMap, String player1Name, String player1Character, String player2Name, String player2Character, ResourceBundle bundle) throws Exception {
-        this.player1 = new Player(new Fighter(player1Character), player1Name, 0, new KeyboardCommand(1));
-        this.player2 = new Player(new Fighter(player2Character), player2Name, 0, new KeyboardCommand(2));
+    public World(String urlMap, String player1Name, String player1Character, String player2Name, String player2Character, ResourceBundle bundle, KeyboardCommand p1Command, KeyboardCommand p2Command) throws Exception {
+        this.player1 = new Player(new Fighter(player1Character), player1Name, 0, p1Command);
+        this.player2 = new Player(new Fighter(player2Character), player2Name, 0, p2Command);
         listPlayers.add(this.player1);
         listPlayers.add(this.player2);
         this.map = new Image(urlMap);

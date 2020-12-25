@@ -25,7 +25,7 @@
                         <Font size="21.0"/>
                     </font>
                 </Label>
-                <TableView prefHeight="79.0" prefWidth="351.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                <TableView fx:id="tableView" prefHeight="79.0" prefWidth="351.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
                     <columns>
                         <TableColumn prefWidth="75.0" fx:id="playerColumn"/>
                         <TableColumn prefWidth="75.0" fx:id="numberColumn"/>

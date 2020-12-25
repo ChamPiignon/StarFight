@@ -41,9 +41,8 @@
                         <ImageView pickOnBounds="true" preserveRatio="true">
                             <Image url="/images/vs.png"/>
                         </ImageView>
-                        <ImageView pickOnBounds="true" preserveRatio="true" fitWidth="500">
-                            <Image url="/images/schema_control.png"/>
-                        </ImageView>
+                        <Pane fx:id="controlTable" GridPane.halignment="CENTER" GridPane.columnSpan="3" GridPane.rowIndex="1">
+                        </Pane>
                     </children>
                 </VBox>
                 <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1" alignment="CENTER">
