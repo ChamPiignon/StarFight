@@ -19,7 +19,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="70.0" text="Starfight"
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="70.0" fx:id="titleLabel"
                        textAlignment="CENTER" GridPane.columnSpan="3">
                     <font>
                         <Font size="21.0"/>

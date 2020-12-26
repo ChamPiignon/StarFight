@@ -8,14 +8,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -35,13 +31,21 @@ public class LaunchPage {
     TableView<String> tableView;
 
     @FXML
+    Label titleLabel;
+
+    @FXML
     public void initialize() {
         tableView.setPadding(new Insets(5));
         initializeText();
+        initializeLanguages();
+    }
+
+    private void initializeLanguages() {
         Cb_language.getItems().addAll(
                 new Language("Default", Locale.getDefault()),
                 new Language("English", Locale.ENGLISH),
-                new Language("French", Locale.FRENCH)
+                new Language("Français", Locale.FRENCH),
+                new Language("日本語", Locale.JAPANESE)
         );
         Cb_language.getSelectionModel().selectFirst();
         Cb_language.setOnAction(new EventHandler<ActionEvent>() {
@@ -61,6 +65,7 @@ public class LaunchPage {
         bestColumn.setText(bundle.getString("BestColumn"));
         btn_play.setText(bundle.getString("Btn_play"));
         btn_exit.setText(bundle.getString("Btn_exit"));
+        titleLabel.setText(bundle.getString("GameTitle"));
     }
 
     public void onClickPlay(ActionEvent actionEvent) throws Exception {

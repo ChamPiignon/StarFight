@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ResourceBundleManager">
+    <file url="file://$PROJECT_DIR$/src/domaine/properties/langue.properties" />
+    <file url="file://$PROJECT_DIR$/src/domaine/properties/langue_en.properties" />
+    <file url="file://$PROJECT_DIR$/src/domaine/properties/langue_fr.properties" />
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/src/domaine/properties/langue.properties" />
+      <file value="file://$PROJECT_DIR$/src/domaine/properties/langue_en.properties" />
+      <file value="file://$PROJECT_DIR$/src/domaine/properties/langue_fr.properties" />
+      <file value="file://$PROJECT_DIR$/src/domaine/properties/langue_ja.properties" />
+      <base-name>langue</base-name>
+    </custom-resource-bundle>
+    <custom-resource-bundle>
+      <file value="file://$PROJECT_DIR$/src/domaine/properties/langue.properties" />
+      <file value="file://$PROJECT_DIR$/src/domaine/properties/langue_en.properties" />
+      <file value="file://$PROJECT_DIR$/src/domaine/properties/langue_fr.properties" />
+      <base-name>langue</base-name>
+    </custom-resource-bundle>
+  </component>
+</project>
