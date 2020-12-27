@@ -1,17 +1,16 @@
 package command;
 
+import character.ListMove;
 import javafx.scene.input.KeyCode;
-
-import java.util.Locale;
 
 public class ControlList {
     private String controlString;
-    private final String control;
+    private final ListMove control;
     private String p1String, p2String;
     private KeyboardCommand p1;
     private KeyboardCommand p2;
 
-    public ControlList(String controlString, String control, KeyboardCommand p1, KeyboardCommand p2) {
+    public ControlList(String controlString, ListMove control, KeyboardCommand p1, KeyboardCommand p2) {
         this.controlString = controlString;
         this.control = control;
         this.p1 = p1;
@@ -40,15 +39,15 @@ public class ControlList {
 
     private KeyCode getKeyCode(KeyboardCommand command) {
         switch (control) {
-            case "left":
+            case LEFT:
                 return command.getLeft();
-            case "right":
+            case RIGHT:
                 return command.getRight();
-            case "jump":
+            case JUMP:
                 return command.getJump();
-            case "primAtk":
+            case PRIMATK:
                 return command.getPrimAtk();
-            case "sndAtk":
+            case SNDATK:
                 return command.getSndAtk();
             default:
                 return null;
@@ -57,15 +56,15 @@ public class ControlList {
 
     private String getStringKeyCode(KeyboardCommand command) {
         switch (control) {
-            case "left":
+            case LEFT:
                 return command.getLeft().toString();
-            case "right":
+            case RIGHT:
                 return command.getRight().toString();
-            case "jump":
+            case JUMP:
                 return command.getJump().toString();
-            case "primAtk":
+            case PRIMATK:
                 return command.getPrimAtk().toString();
-            case "sndAtk":
+            case SNDATK:
                 return command.getSndAtk().toString();
             default:
                 return null;
@@ -88,19 +87,19 @@ public class ControlList {
 
     private void setKeyCode(KeyboardCommand command, String newCommand) {
         switch (control) {
-            case "left":
+            case LEFT:
                 command.setLeft(KeyCode.getKeyCode((newCommand).toUpperCase()));
                 break;
-            case "right":
+            case RIGHT:
                 command.setRight(KeyCode.getKeyCode((newCommand).toUpperCase()));
                 break;
-            case "jump":
+            case JUMP:
                 command.setJump(KeyCode.getKeyCode((newCommand).toUpperCase()));
                 break;
-            case "primAtk":
+            case PRIMATK:
                 command.setPrimAtk(KeyCode.getKeyCode((newCommand).toUpperCase()));
                 break;
-            case "sndAtk":
+            case SNDATK:
                 command.setSndAtk(KeyCode.getKeyCode((newCommand).toUpperCase()));
                 break;
             default:

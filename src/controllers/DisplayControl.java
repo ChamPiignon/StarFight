@@ -1,5 +1,6 @@
 package controllers;
 
+import character.ListMove;
 import command.ControlList;
 import command.KeyboardCommand;
 import javafx.collections.FXCollections;
@@ -93,11 +94,11 @@ public class DisplayControl extends Pane {
     }
 
     private ObservableList<ControlList> getControlList() {
-        ControlList left = new ControlList(bundle.getString("Left"), "left", p1Command, p2Command);
-        ControlList right = new ControlList(bundle.getString("Right"), "right", p1Command, p2Command);
-        ControlList jump = new ControlList(bundle.getString("Jump"), "jump", p1Command, p2Command);
-        ControlList primary_attack = new ControlList(bundle.getString("PrimAtk"), "primAtk", p1Command, p2Command);
-        ControlList secondary_attack = new ControlList(bundle.getString("SndAtk"), "sndAtk", p1Command, p2Command);
+        ControlList left = new ControlList(bundle.getString("Left"), ListMove.LEFT, p1Command, p2Command);
+        ControlList right = new ControlList(bundle.getString("Right"), ListMove.RIGHT, p1Command, p2Command);
+        ControlList jump = new ControlList(bundle.getString("Jump"), ListMove.JUMP, p1Command, p2Command);
+        ControlList primary_attack = new ControlList(bundle.getString("PrimAtk"), ListMove.PRIMATK, p1Command, p2Command);
+        ControlList secondary_attack = new ControlList(bundle.getString("SndAtk"), ListMove.SNDATK, p1Command, p2Command);
 
         return FXCollections.observableArrayList(left, right, jump, primary_attack, secondary_attack);
     }
