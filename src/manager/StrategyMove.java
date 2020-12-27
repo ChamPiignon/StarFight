@@ -36,28 +36,6 @@ public class StrategyMove {
 
     }
 
-    public void moveDown(Fighter fighter, int yOrigin) {
-        skin.fall(fighter);
-        AnimationTimer fallTimer = new AnimationTimer() {
-            int gravity = 0;
-
-            @Override
-            public void handle(long now) {
-                fighter.getSkin().getImageView().setY(fighter.getSkin().getImageView().getY() + gravity);
-                gravity += 1;
-                System.out.println(fighter.getSkin().getImageView().getX() + " " + fighter.getSkin().getImageView().getY());
-
-                if (yOrigin <= fighter.getSkin().getImageView().getY()) {
-                    skin.idle(fighter);
-                    gravity = 0;
-                    fighter.getSkin().getImageView().setY(yOrigin);
-                    this.stop();
-                }
-            }
-        };
-        fallTimer.start();
-    }
-
     public void moveLeft(Fighter fighter, int deltaX) {        
         skin.mirror(fighter, -1);
         canRun(fighter);

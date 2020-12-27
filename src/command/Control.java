@@ -10,7 +10,5 @@ public interface Control {
     boolean isRequestingPrimAtk();
 
     boolean isRequestingSndAtk();
-
-    boolean isRequestingDown();
 }
 

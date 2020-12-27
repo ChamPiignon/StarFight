@@ -10,7 +10,6 @@ public class KeyboardCommand implements Control {
     private KeyCode right;
     private KeyCode primAtk;
     private KeyCode sndAtk;
-    private KeyCode down;
 
     public KeyCode getJump() {
         return jump;
@@ -52,14 +51,6 @@ public class KeyboardCommand implements Control {
         this.sndAtk = sndAtk;
     }
 
-    public KeyCode getDown() {
-        return down;
-    }
-
-    public void setDown(KeyCode down) {
-        this.down = down;
-    }
-
     public KeyboardCommand(int player) throws Exception {
         this.input = new Input();
         if (player == 1) {
@@ -78,7 +69,6 @@ public class KeyboardCommand implements Control {
         this.setRight(KeyCode.D);
         this.setPrimAtk(KeyCode.V);
         this.setSndAtk(KeyCode.B);
-        this.setDown(KeyCode.S);
     }
 
     /*
@@ -90,7 +80,6 @@ public class KeyboardCommand implements Control {
         this.setRight(KeyCode.RIGHT);
         this.setPrimAtk(KeyCode.NUMPAD0);
         this.setSndAtk(KeyCode.NUMPAD1);
-        this.setDown(KeyCode.DOWN);
     }
 
     @Override
@@ -116,11 +105,6 @@ public class KeyboardCommand implements Control {
     @Override
     public boolean isRequestingSndAtk() {
         return input.isPressed(sndAtk);
-    }
-
-    @Override
-    public boolean isRequestingDown() {
-        return input.isPressed(down);
     }
 
 }

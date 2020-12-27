@@ -98,10 +98,6 @@ public class GamePage {
     private void updatePlayerPosition(Player player) throws Exception {
         int deltaX = 0;
 
-        if (player.getControl().isRequestingDown()) {
-            world.getManagerFighter().move.moveDown(player.getHisFighter(), POS_Y_PLAYER_1);
-        }
-
         if (player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove() == StatMove.RUN || player.getHisFighter().isFalling || player.getHisFighter().isJumping) {
 
             if ((player.getHisFighter().isJumping || player.getHisFighter().isFalling ) || player.getControl().isRequestingJump() && !player.getControl().isRequestingPrimAtk() && !player.getControl().isRequestingSndAtk()) {
