@@ -106,4 +106,8 @@ public class ControlList {
                 break;
         }
     }
+
+    private KeyCode stringToKeyCode(String command){
+        return KeyCode.getKeyCode((command).toUpperCase());
+    }
 }
