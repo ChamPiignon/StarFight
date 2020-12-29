@@ -19,7 +19,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="70.0" fx:id="titleLabel"
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="150.0" fx:id="titleLabel"
                        textAlignment="CENTER" GridPane.columnSpan="3">
                     <font>
                         <Font size="21.0"/>
@@ -27,10 +27,10 @@
                 </Label>
                 <TableView fx:id="tableView" prefHeight="79.0" prefWidth="351.0" GridPane.columnSpan="3" GridPane.rowIndex="1">
                     <columns>
-                        <TableColumn prefWidth="75.0" fx:id="playerColumn"/>
-                        <TableColumn prefWidth="75.0" fx:id="numberColumn"/>
-                        <TableColumn prefWidth="75.0" fx:id="statColumn"/>
-                        <TableColumn prefWidth="75.0" fx:id="bestColumn"/>
+                        <TableColumn prefWidth="115.0" fx:id="playerColumn"/>
+                        <TableColumn prefWidth="125.0" fx:id="numberColumn"/>
+                        <TableColumn prefWidth="115.0" fx:id="statColumn"/>
+                        <TableColumn prefWidth="115.0" fx:id="bestColumn"/>
                     </columns>
                 </TableView>
                 <Button mnemonicParsing="false" fx:id="btn_play" GridPane.rowIndex="2" onAction="#onClickPlay"/>
