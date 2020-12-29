@@ -8,12 +8,11 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.control.TableCell;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
-import javafx.util.Callback;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
@@ -22,7 +21,7 @@ public class DisplayControl extends Pane {
     private final KeyboardCommand p1Command;
     private final KeyboardCommand p2Command;
     private final ResourceBundle bundle;
-    private static final int CELLHEIGHT = 31;
+    private static final int CELLHEIGHT = 40;
     private static final int CELLWIDTH = 100;
     private static final int COLUMNNUMBER = 3;
 
@@ -30,52 +29,33 @@ public class DisplayControl extends Pane {
     TableView<ControlList> tableView;
 
     @FXML
-    TableColumn<ControlList, String> controlColumn, p1Column, p2Column;
+    TableColumn<ControlList, String> controlColumn;
+    @FXML
+    TableColumn<ControlList, Button> p1Column, p2Column;
 
     @FXML
     public void initialize(){
+        ObservableList<ControlList> list = getControlList();
+        initTable(list);
+    }
+
+    private void initTable(ObservableList<ControlList> list){
         tableView.setPadding(new Insets(5));
-        tableView.setEditable(true);
+        initCols();
 
-        Callback<TableColumn<ControlList, String>, TableCell<ControlList, String>> cellFactory
-                = (TableColumn<ControlList, String> param) -> new EditingCell();
+        tableView.setItems(list);
+        tableView.setPrefSize(COLUMNNUMBER*CELLWIDTH, list.size()*CELLHEIGHT);
+        tableView.getColumns().addAll(controlColumn, p1Column, p2Column);
+    }
 
+    private void initCols(){
         controlColumn = new TableColumn<>(bundle.getString("ControlColumn"));
         p1Column = new TableColumn<>(bundle.getString("P1Column"));
         p2Column = new TableColumn<>(bundle.getString("P2Column"));
 
-        controlColumn.setEditable(false);
-        p1Column.setEditable(true);
-        p2Column.setEditable(true);
-
         controlColumn.setCellValueFactory(new PropertyValueFactory<>("controlString"));
-        p1Column.setCellValueFactory(new PropertyValueFactory<>("p1String"));
-        p2Column.setCellValueFactory(new PropertyValueFactory<>("p2String"));
-
-        p1Column.setCellFactory(cellFactory);
-        p2Column.setCellFactory(cellFactory);
-
-        p1Column.setOnEditCommit(
-                (TableColumn.CellEditEvent<ControlList, String> t) -> {
-                    t.getTableView().getItems()
-                            .get(t.getTablePosition().getRow())
-                            .setKey(t.getTablePosition().getColumn(),t.getNewValue());
-                }
-        );
-
-        p2Column.setOnEditCommit(
-                (TableColumn.CellEditEvent<ControlList, String> t) -> {
-                    t.getTableView().getItems()
-                            .get(t.getTablePosition().getRow())
-                            .setKey(t.getTablePosition().getColumn(),t.getNewValue());
-                }
-        );
-
-        ObservableList<ControlList> list = getControlList();
-        tableView.setItems(list);
-        tableView.setPrefSize(COLUMNNUMBER*CELLWIDTH, list.size()*CELLHEIGHT);
-        tableView.getColumns().addAll(controlColumn, p1Column, p2Column);
-
+        p1Column.setCellValueFactory(new PropertyValueFactory<>("p1Btn"));
+        p2Column.setCellValueFactory(new PropertyValueFactory<>("p2Btn"));
     }
 
     public DisplayControl(KeyboardCommand p1Command, KeyboardCommand p2Command, ResourceBundle bundle) {

@@ -1,12 +1,16 @@
 package command;
 
 import character.ListMove;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 
 public class ControlList {
-    private String controlString;
+    private final String controlString;
     private final ListMove control;
-    private String p1String, p2String;
+    private Button p1Btn, p2Btn;
+    private String p1ID, p2ID;
     private KeyboardCommand p1;
     private KeyboardCommand p2;
 
@@ -15,6 +19,20 @@ public class ControlList {
         this.control = control;
         this.p1 = p1;
         this.p2 = p2;
+        this.p1Btn = new Button(getP1String());
+        this.p2Btn = new Button(getP2String());
+        this.p1ID = this.p1Btn.getId();
+        this.p2ID = this.p2Btn.getId();
+        initBtn(p1Btn);
+        initBtn(p2Btn);
+    }
+
+    public Button getP1Btn() {
+        return p1Btn;
+    }
+
+    public Button getP2Btn() {
+        return p2Btn;
     }
 
     public String getControlString() {
@@ -71,17 +89,13 @@ public class ControlList {
         }
     }
 
-    public void setKey(int index, String command) {
-        System.out.println(index);
-        switch (index){
-            case 1:
-                setKeyCode(p1, command);
-                break;
-            case 2:
-                setKeyCode(p2, command);
-                break;
-            default:
-                break;
+    private void buttonAction(Button btn){
+        System.out.println("btn");
+        if (btn.getId().equals(p1ID)){
+            setKeyCode(p1,"TODO");
+        }
+        else if (btn.getId().equals(p2ID)){
+            setKeyCode(p2,"TODO");
         }
     }
 
@@ -107,7 +121,12 @@ public class ControlList {
         }
     }
 
-    private KeyCode stringToKeyCode(String command){
-        return KeyCode.getKeyCode((command).toUpperCase());
+    private void initBtn(Button btn){
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                buttonAction(btn);
+            }
+        });
     }
 }
