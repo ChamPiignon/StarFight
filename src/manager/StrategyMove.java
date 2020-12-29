@@ -59,7 +59,7 @@ public class StrategyMove {
     }
 
     private void canRun(Fighter fighter) {
-        if (fighter.getStatMove() != StatMove.RUN && (!fighter.isJumping || !fighter.isFalling)) {
+        if (fighter.getStatMove() != StatMove.RUN && (!fighter.isJumping && !fighter.isFalling)) {
             skin.run(fighter);
         }
     }
