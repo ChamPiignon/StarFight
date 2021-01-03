@@ -74,11 +74,11 @@ public class DisplayControl extends Pane {
     }
 
     private ObservableList<ControlList> getControlList() {
-        ControlList left = new ControlList(bundle.getString("Left"), ListMove.LEFT, p1Command, p2Command);
-        ControlList right = new ControlList(bundle.getString("Right"), ListMove.RIGHT, p1Command, p2Command);
-        ControlList jump = new ControlList(bundle.getString("Jump"), ListMove.JUMP, p1Command, p2Command);
-        ControlList primary_attack = new ControlList(bundle.getString("PrimAtk"), ListMove.PRIMATK, p1Command, p2Command);
-        ControlList secondary_attack = new ControlList(bundle.getString("SndAtk"), ListMove.SNDATK, p1Command, p2Command);
+        ControlList left = new ControlList(bundle.getString("Left"), ListMove.LEFT, p1Command, p2Command, bundle);
+        ControlList right = new ControlList(bundle.getString("Right"), ListMove.RIGHT, p1Command, p2Command, bundle);
+        ControlList jump = new ControlList(bundle.getString("Jump"), ListMove.JUMP, p1Command, p2Command, bundle);
+        ControlList primary_attack = new ControlList(bundle.getString("PrimAtk"), ListMove.PRIMATK, p1Command, p2Command, bundle);
+        ControlList secondary_attack = new ControlList(bundle.getString("SndAtk"), ListMove.SNDATK, p1Command, p2Command, bundle);
 
         return FXCollections.observableArrayList(left, right, jump, primary_attack, secondary_attack);
     }

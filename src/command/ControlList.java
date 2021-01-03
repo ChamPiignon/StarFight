@@ -1,30 +1,40 @@
 package command;
 
 import character.ListMove;
+import controllers.KeyChoiceDialog;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.input.KeyCode;
+
+import java.util.ResourceBundle;
 
 public class ControlList {
     private final String controlString;
     private final ListMove control;
-    private Button p1Btn, p2Btn;
-    private String p1ID, p2ID;
-    private KeyboardCommand p1;
-    private KeyboardCommand p2;
+    private final Button p1Btn;
+    private final Button p2Btn;
+    private final String p1ID;
+    private final String p2ID;
+    private final KeyboardCommand p1;
+    private final KeyboardCommand p2;
+    private final ResourceBundle bundle;
 
-    public ControlList(String controlString, ListMove control, KeyboardCommand p1, KeyboardCommand p2) {
+    public ControlList(String controlString, ListMove control, KeyboardCommand p1, KeyboardCommand p2, ResourceBundle bundle) {
         this.controlString = controlString;
         this.control = control;
         this.p1 = p1;
         this.p2 = p2;
         this.p1Btn = new Button(getP1String());
         this.p2Btn = new Button(getP2String());
+        this.p1Btn.setId("p1");
+        this.p2Btn.setId("p2");
         this.p1ID = this.p1Btn.getId();
         this.p2ID = this.p2Btn.getId();
         initBtn(p1Btn);
         initBtn(p2Btn);
+        this.bundle = bundle;
     }
 
     public Button getP1Btn() {
@@ -89,14 +99,27 @@ public class ControlList {
         }
     }
 
-    private void buttonAction(Button btn){
-        System.out.println("btn");
-        if (btn.getId().equals(p1ID)){
-            setKeyCode(p1,"TODO");
+    private void buttonAction(Button btn) {
+        if (btn.getId().equals(p1ID)) {
+            KeyChoiceDialog dialog = new KeyChoiceDialog(bundle, p1, KeyCode.getKeyCode(btn.getText()));
+            dialogEvent(dialog);
+
+        } else if (btn.getId().equals(p2ID)) {
+            KeyChoiceDialog dialog = new KeyChoiceDialog(bundle, p1, KeyCode.getKeyCode(btn.getText()));
+            dialogEvent(dialog);
         }
-        else if (btn.getId().equals(p2ID)){
-            setKeyCode(p2,"TODO");
-        }
+    }
+
+    private void dialogEvent(KeyChoiceDialog dialog) {
+        // action event
+        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>()
+        {
+            public void handle(ActionEvent e)
+            {
+                // show the dialog
+                dialog.show();
+            }
+        };
     }
 
     private void setKeyCode(KeyboardCommand command, String newCommand) {
@@ -121,12 +144,7 @@ public class ControlList {
         }
     }
 
-    private void initBtn(Button btn){
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                buttonAction(btn);
-            }
-        });
+    private void initBtn(Button btn) {
+        btn.setOnAction(actionEvent -> buttonAction(btn));
     }
 }
