@@ -72,9 +72,9 @@ public class KeyChoiceDialog extends ChoiceDialog<KeyCode> {
 
         Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image("images/tux.png"));
-        dialog.setTitle("Choice Dialog");
-        dialog.setHeaderText("Look, a Choice Dialog");
-        dialog.setContentText("Choose your letter:");
+        dialog.setTitle(bundle.getString("ChoiceDialogTitle"));
+        dialog.setHeaderText(bundle.getString("ChoiceDialogInfo"));
+        dialog.setContentText(bundle.getString("ChoiceDialogKey"));
 
         Optional<KeyCode> result = dialog.showAndWait();
 
