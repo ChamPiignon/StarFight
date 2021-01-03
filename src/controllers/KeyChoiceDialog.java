@@ -12,7 +12,9 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class KeyChoiceDialog extends ChoiceDialog<KeyCode> {
-    public KeyChoiceDialog(ResourceBundle bundle, KeyboardCommand keyboardCommand, KeyCode oldKey) {
+    private KeyCode key;
+
+    public KeyChoiceDialog(ResourceBundle bundle, KeyboardCommand keyboardCommand, String oldKey) {
         List<KeyCode> choices = new ArrayList<>();
         choices.add(KeyCode.A);
         choices.add(KeyCode.Z);
@@ -67,8 +69,12 @@ public class KeyChoiceDialog extends ChoiceDialog<KeyCode> {
         choices.add(KeyCode.NUMPAD7);
         choices.add(KeyCode.NUMPAD8);
         choices.add(KeyCode.NUMPAD9);
+        choices.add(KeyCode.UP);
+        choices.add(KeyCode.DOWN);
+        choices.add(KeyCode.LEFT);
+        choices.add(KeyCode.RIGHT);
 
-        ChoiceDialog<KeyCode> dialog = new ChoiceDialog<>(oldKey, choices);
+        ChoiceDialog<KeyCode> dialog = new ChoiceDialog<>(KeyCode.getKeyCode(oldKey), choices);
 
         Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image("images/tux.png"));
@@ -78,6 +84,10 @@ public class KeyChoiceDialog extends ChoiceDialog<KeyCode> {
 
         Optional<KeyCode> result = dialog.showAndWait();
 
-        result.ifPresent(keyCode -> System.out.println("Your choice: " + keyCode));
+        result.ifPresent(keyCode -> {System.out.println("Your choice: " + keyCode); this.key = keyCode;});
+    }
+
+    public KeyCode getKey() {
+        return key;
     }
 }

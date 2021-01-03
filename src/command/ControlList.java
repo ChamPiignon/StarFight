@@ -101,16 +101,16 @@ public class ControlList {
 
     private void buttonAction(Button btn) {
         if (btn.getId().equals(p1ID)) {
-            KeyChoiceDialog dialog = new KeyChoiceDialog(bundle, p1, KeyCode.getKeyCode(btn.getText()));
-            dialogEvent(dialog);
+            KeyChoiceDialog dialog = new KeyChoiceDialog(bundle, p1, btn.getText());
+            dialogEvent(dialog, p1, btn);
 
         } else if (btn.getId().equals(p2ID)) {
-            KeyChoiceDialog dialog = new KeyChoiceDialog(bundle, p1, KeyCode.getKeyCode(btn.getText()));
-            dialogEvent(dialog);
+            KeyChoiceDialog dialog = new KeyChoiceDialog(bundle, p1, btn.getText());
+            dialogEvent(dialog, p2, btn);
         }
     }
 
-    private void dialogEvent(KeyChoiceDialog dialog) {
+    private void dialogEvent(KeyChoiceDialog dialog, KeyboardCommand keyboardCommand, Button btn) {
         // action event
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>()
         {
@@ -120,24 +120,26 @@ public class ControlList {
                 dialog.show();
             }
         };
+        setKeyCode(keyboardCommand, dialog.getKey());
+        btn.setText(dialog.getKey().toString());
     }
 
-    private void setKeyCode(KeyboardCommand command, String newCommand) {
+    private void setKeyCode(KeyboardCommand command, KeyCode newCommand) {
         switch (control) {
             case LEFT:
-                command.setLeft(KeyCode.getKeyCode((newCommand).toUpperCase()));
+                command.setLeft(newCommand);
                 break;
             case RIGHT:
-                command.setRight(KeyCode.getKeyCode((newCommand).toUpperCase()));
+                command.setRight(newCommand);
                 break;
             case JUMP:
-                command.setJump(KeyCode.getKeyCode((newCommand).toUpperCase()));
+                command.setJump(newCommand);
                 break;
             case PRIMATK:
-                command.setPrimAtk(KeyCode.getKeyCode((newCommand).toUpperCase()));
+                command.setPrimAtk(newCommand);
                 break;
             case SNDATK:
-                command.setSndAtk(KeyCode.getKeyCode((newCommand).toUpperCase()));
+                command.setSndAtk(newCommand);
                 break;
             default:
                 break;
