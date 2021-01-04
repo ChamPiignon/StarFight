@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 public class KeyChoiceDialog extends ChoiceDialog<KeyCode> {
     private KeyCode key;
 
-    public KeyChoiceDialog(ResourceBundle bundle, KeyboardCommand keyboardCommand, String oldKey) {
+    public KeyChoiceDialog(ResourceBundle bundle, KeyCode oldKey) {
         List<KeyCode> choices = new ArrayList<>();
         choices.add(KeyCode.A);
         choices.add(KeyCode.Z);
@@ -74,7 +74,9 @@ public class KeyChoiceDialog extends ChoiceDialog<KeyCode> {
         choices.add(KeyCode.LEFT);
         choices.add(KeyCode.RIGHT);
 
-        ChoiceDialog<KeyCode> dialog = new ChoiceDialog<>(KeyCode.getKeyCode(oldKey), choices);
+        System.out.println(oldKey);
+        this.key = oldKey;
+        ChoiceDialog<KeyCode> dialog = new ChoiceDialog<>(key, choices);
 
         Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
         stage.getIcons().add(new Image("images/tux.png"));

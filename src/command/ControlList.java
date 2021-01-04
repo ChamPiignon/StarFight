@@ -101,12 +101,10 @@ public class ControlList {
 
     private void buttonAction(Button btn) {
         if (btn.getId().equals(p1ID)) {
-            KeyChoiceDialog dialog = new KeyChoiceDialog(bundle, p1, btn.getText());
-            dialogEvent(dialog, p1, btn);
+            dialogEvent(new KeyChoiceDialog(bundle, KeyCode.valueOf(btn.getText())), p1, btn);
 
         } else if (btn.getId().equals(p2ID)) {
-            KeyChoiceDialog dialog = new KeyChoiceDialog(bundle, p1, btn.getText());
-            dialogEvent(dialog, p2, btn);
+            dialogEvent(new KeyChoiceDialog(bundle, KeyCode.valueOf(btn.getText())), p2, btn);
         }
     }
 
