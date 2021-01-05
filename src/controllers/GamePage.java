@@ -64,15 +64,11 @@ public class GamePage {
                 stage.getScene().setOnKeyReleased(Input::keyReleased);
                 //moving player / attack player
                 try {
-                    updatePlayerPosition(world.player1);
-                    updatePlayerPosition(world.player2);
+                    updatePlayerPosition(world.player1,world.player2);
+                    updatePlayerPosition(world.player2,world.player1);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
-                //collision player
-                //heath actualisation
-                if(world.player1.getHisFighter().getCurrentHP().get()!=0)
-                    world.player1.getHisFighter().getCurrentHP().set(world.player1.getHisFighter().getCurrentHP().get()-1);
             }
         };
 
@@ -92,42 +88,42 @@ public class GamePage {
 
     /**
      *
-     * @param player
+     * @param player1
      * @throws Exception
      */
-    private void updatePlayerPosition(Player player) throws Exception {
+    private void updatePlayerPosition(Player player1,Player player2) throws Exception {
         int deltaX = 0;
 
-        if (player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove() == StatMove.RUN || player.getHisFighter().isFalling || player.getHisFighter().isJumping) {
+        if (player1.getHisFighter().getStatMove() == StatMove.IDLE || player1.getHisFighter().getStatMove() == StatMove.RUN || player1.getHisFighter().isFalling || player1.getHisFighter().isJumping) {
 
-            if ((player.getHisFighter().isJumping || player.getHisFighter().isFalling ) || player.getControl().isRequestingJump() && !player.getControl().isRequestingPrimAtk() && !player.getControl().isRequestingSndAtk()) {
+            if ((player1.getHisFighter().isJumping || player1.getHisFighter().isFalling ) || player1.getControl().isRequestingJump() && !player1.getControl().isRequestingPrimAtk() && !player1.getControl().isRequestingSndAtk()) {
                 System.out.println("jump");
-                System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.jump(player.getHisFighter(), POS_Y_PLAYER_1);
+                System.out.println(player1.getHisFighter().getSkin().getImageView().getX() + " " + player1.getHisFighter().getSkin().getImageView().getY());
+                world.getManagerFighter().move.jump(player1.getHisFighter(), POS_Y_PLAYER_1);
             }
 
-            if (player.getControl().isRequestingLeft()) {
+            if (player1.getControl().isRequestingLeft()) {
                 System.out.println("left");
                 deltaX -= SPEED_INCREMENTATTION_POSITION_X;
-                System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.moveLeft(player.getHisFighter(), deltaX);
+                System.out.println(player1.getHisFighter().getSkin().getImageView().getX() + " " + player1.getHisFighter().getSkin().getImageView().getY());
+                world.getManagerFighter().move.moveLeft(player1.getHisFighter(), deltaX);
             }
 
-            if (player.getControl().isRequestingRight()) {
+            if (player1.getControl().isRequestingRight()) {
                 System.out.println("right");
                 deltaX += SPEED_INCREMENTATTION_POSITION_X;
-                System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.moveRight(player.getHisFighter(), deltaX);
+                System.out.println(player1.getHisFighter().getSkin().getImageView().getX() + " " + player1.getHisFighter().getSkin().getImageView().getY());
+                world.getManagerFighter().move.moveRight(player1.getHisFighter(), deltaX);
             }
 
-            if (player.getControl().isRequestingPrimAtk()) {
+            if (player1.getControl().isRequestingPrimAtk()) {
                 System.out.println("primAtk");
-                world.getManagerFighter().fight.secondaryAttack(player.getHisFighter());//donner collision
+                world.getManagerFighter().fight.secondaryAttack(player1.getHisFighter(),player2.getHisFighter());//donner collision
             }
 
-            if (player.getControl().isRequestingSndAtk()) {
+            if (player1.getControl().isRequestingSndAtk()) {
                 System.out.println("sndAtk");
-                world.getManagerFighter().fight.primaryAttack(player.getHisFighter());//donner collision
+                world.getManagerFighter().fight.primaryAttack(player1.getHisFighter(),player2.getHisFighter());//donner collision
             }
 
         }
