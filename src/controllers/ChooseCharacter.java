@@ -103,7 +103,7 @@ public class ChooseCharacter {
     }
 
     private void launchGame() throws Exception {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/GamePage.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/gamePage.fxml"));
         loader.setController(new GamePage(myStage,player1Name, player1Character, player2Name, player2Character, bundle, p1Command, p2Command));
         Parent root = loader.load();
         Scene gameScene= new Scene(root);
