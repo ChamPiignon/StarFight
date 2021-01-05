@@ -49,7 +49,7 @@ public class StrategySkin
 
     public void takeHit(Fighter fighter)
     {
-        updateAnimation(fighter,-1,StatMove.TAKEHIT);
+        updateAnimation(fighter,1,StatMove.TAKEHIT);
         fighter.setStatMove(StatMove.TAKEHIT);
     }
 

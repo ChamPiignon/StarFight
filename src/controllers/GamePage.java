@@ -57,15 +57,12 @@ public class GamePage {
                 stage.getScene().setOnKeyReleased(Input::keyReleased);
                 //moving player / attack player
                 try {
-                    updatePlayerPosition(world.player1);
-                    updatePlayerPosition(world.player2);
+                    updatePlayerPosition(world.player1,world.player2);
+                    updatePlayerPosition(world.player2,world.player1);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
                 //collision player
-                //heath actualisation
-                if(world.player1.getHisFighter().getCurrentHP().get()!=0)
-                    world.player1.getHisFighter().getCurrentHP().set(world.player1.getHisFighter().getCurrentHP().get()-1);
             }
         };
 
@@ -78,7 +75,7 @@ public class GamePage {
         skin.getImageView().setFitWidth(taille);
     }
 
-    private void updatePlayerPosition(Player player) throws Exception {
+    private void updatePlayerPosition(Player player,Player otherPlayer) throws Exception {
         int deltaX = 0;
 
         if (player.getControl().isRequestingDown()) {
@@ -117,12 +114,12 @@ public class GamePage {
 
             if (player.getControl().isRequestingPrimAtk()) {
                 System.out.println("primAtk");
-                world.getManagerFighter().fight.secondaryAttack(player.getHisFighter());//donner collision
+                world.getManagerFighter().fight.secondaryAttack(player.getHisFighter(),otherPlayer.getHisFighter());//donner collision
             }
 
             if (player.getControl().isRequestingSndAtk()) {
                 System.out.println("sndAtk");
-                world.getManagerFighter().fight.primaryAttack(player.getHisFighter());//donner collision
+                world.getManagerFighter().fight.primaryAttack(player.getHisFighter(),otherPlayer.getHisFighter());//donner collision
             }
 
         }
