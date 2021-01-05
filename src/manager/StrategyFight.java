@@ -2,8 +2,6 @@ package manager;
 
 import character.Fighter;
 
-import static java.lang.Thread.sleep;
-
 public class StrategyFight {
     private StrategySkin skin = new StrategySkin();
     private final static int DAMAGE = 10;

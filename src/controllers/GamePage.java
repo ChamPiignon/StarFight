@@ -4,19 +4,15 @@ import character.Player;
 import character.Skin;
 import character.StatMove;
 import command.Input;
+import command.KeyboardCommand;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import world.World;
-
-import java.io.IOException;
+import java.util.ResourceBundle;
 
 public class GamePage {
     @FXML
@@ -37,13 +33,24 @@ public class GamePage {
     private static final int POS_Y_PLAYER_2 = 300;
     private static final int SPEED_INCREMENTATTION_POSITION_X = 6;
     private static final int SIZE_FIGHTER = 450;
-    private final double maxY = 275.0;
     private final Stage stage;
     private World world;
+    private ResourceBundle bundle;
 
-    public GamePage(Stage stage, String player1Name, String player1Character, String player2Name, String player2Character) throws Exception {
+    /**
+     *
+     * @param stage
+     * @param player1Name
+     * @param player1Character
+     * @param player2Name
+     * @param player2Character
+     * @param bundle
+     * @throws Exception
+     */
+    public GamePage(Stage stage, String player1Name, String player1Character, String player2Name, String player2Character, ResourceBundle bundle, KeyboardCommand p1Command, KeyboardCommand p2Command) throws Exception {
         this.stage = stage;
-        world = new World("images/background.gif",player1Name, player1Character, player2Name, player2Character);
+        this.bundle = bundle;
+        world = new World("images/background.gif",player1Name, player1Character, player2Name, player2Character, bundle, p1Command, p2Command);
     }
 
     @FXML
@@ -57,12 +64,15 @@ public class GamePage {
                 stage.getScene().setOnKeyReleased(Input::keyReleased);
                 //moving player / attack player
                 try {
-                    updatePlayerPosition(world.player1,world.player2);
-                    updatePlayerPosition(world.player2,world.player1);
+                    updatePlayerPosition(world.player1);
+                    updatePlayerPosition(world.player2);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
                 //collision player
+                //heath actualisation
+                if(world.player1.getHisFighter().getCurrentHP().get()!=0)
+                    world.player1.getHisFighter().getCurrentHP().set(world.player1.getHisFighter().getCurrentHP().get()-1);
             }
         };
 
@@ -70,32 +80,30 @@ public class GamePage {
 
     }
 
+    /**
+     *
+     * @param skin
+     * @param taille
+     */
     private void scale(Skin skin, int taille) {
         skin.getImageView().setFitHeight(taille);
         skin.getImageView().setFitWidth(taille);
     }
 
-    private void updatePlayerPosition(Player player,Player otherPlayer) throws Exception {
+    /**
+     *
+     * @param player
+     * @throws Exception
+     */
+    private void updatePlayerPosition(Player player) throws Exception {
         int deltaX = 0;
 
-        if (player.getControl().isRequestingDown()) {
-            world.getManagerFighter().move.moveDown(player.getHisFighter(), POS_Y_PLAYER_1);
-        }
+        if (player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove() == StatMove.RUN || player.getHisFighter().isFalling || player.getHisFighter().isJumping) {
 
-        if (player.getHisFighter().getStatMove() == StatMove.IDLE || player.getHisFighter().getStatMove() == StatMove.RUN) {
-
-            if (player.getControl().isRequestingJump() && !player.getControl().isRequestingPrimAtk() && !player.getControl().isRequestingSndAtk()) {
+            if ((player.getHisFighter().isJumping || player.getHisFighter().isFalling ) || player.getControl().isRequestingJump() && !player.getControl().isRequestingPrimAtk() && !player.getControl().isRequestingSndAtk()) {
                 System.out.println("jump");
-                if (player.getControl().isRequestingLeft()) {
-                    System.out.println("jump-left");
-                    deltaX -= SPEED_INCREMENTATTION_POSITION_X;
-                }
-                if (player.getControl().isRequestingRight()) {
-                    System.out.println("jump-right");
-                    deltaX += SPEED_INCREMENTATTION_POSITION_X;
-                }
                 System.out.println(player.getHisFighter().getSkin().getImageView().getX() + " " + player.getHisFighter().getSkin().getImageView().getY());
-                world.getManagerFighter().move.jump(player, deltaX, POS_Y_PLAYER_1);
+                world.getManagerFighter().move.jump(player.getHisFighter(), POS_Y_PLAYER_1);
             }
 
             if (player.getControl().isRequestingLeft()) {
@@ -114,12 +122,12 @@ public class GamePage {
 
             if (player.getControl().isRequestingPrimAtk()) {
                 System.out.println("primAtk");
-                world.getManagerFighter().fight.secondaryAttack(player.getHisFighter(),otherPlayer.getHisFighter());//donner collision
+                world.getManagerFighter().fight.secondaryAttack(player.getHisFighter());//donner collision
             }
 
             if (player.getControl().isRequestingSndAtk()) {
                 System.out.println("sndAtk");
-                world.getManagerFighter().fight.primaryAttack(player.getHisFighter(),otherPlayer.getHisFighter());//donner collision
+                world.getManagerFighter().fight.primaryAttack(player.getHisFighter());//donner collision
             }
 
         }
@@ -139,6 +147,11 @@ public class GamePage {
         stage.setResizable(false);
     }
 
+    /**
+     *
+     * @param player1
+     * @param player2
+     */
     private void initializePositionFight(Player player1, Player player2) {
         player1.getHisFighter().getSkin().getImageView().setX(POS_X_PLAYER_1);
         player1.getHisFighter().getSkin().getImageView().setY(POS_Y_PLAYER_1);
@@ -146,6 +159,11 @@ public class GamePage {
         player2.getHisFighter().getSkin().getImageView().setY(POS_Y_PLAYER_2);
     }
 
+    /**
+     *
+     * @param barHpPlayer1
+     * @param barHpPlayer2
+     */
     private void initializeHealthBar(HealthBarController barHpPlayer1,HealthBarController barHpPlayer2) {
         barHpPlayer1.layoutXProperty().set(LAYOUT_X_HP_BAR_1);
         barHpPlayer2.layoutXProperty().set(LAYOUT_X_HP_BAR_2);
