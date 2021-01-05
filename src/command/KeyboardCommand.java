@@ -3,7 +3,9 @@ package command;
 
 import javafx.scene.input.KeyCode;
 
-public class KeyboardCommand implements Control {
+import java.io.Serializable;
+
+public class KeyboardCommand implements Control, Serializable {
     private final Input input;
     private KeyCode jump;
     private KeyCode left;
