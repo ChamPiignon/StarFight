@@ -70,7 +70,7 @@ public class ChooseCharacter {
         btn_right.setText(bundle.getString("Btn_ready2"));
         player2Name = nameInputPlayer2.getText();
         player2IsReady = true;
-        if (player1IsReady && player2IsReady)
+        if (player1IsReady)
             launchGame();
     }
 
@@ -78,7 +78,7 @@ public class ChooseCharacter {
         btn_left.setText(bundle.getString("Btn_ready2"));
         player1Name = nameInputPlayer1.getText();
         player1IsReady = true;
-        if(player1IsReady && player2IsReady)
+        if(player2IsReady)
             launchGame();
     }
 
