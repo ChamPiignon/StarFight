@@ -4,6 +4,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
+<?import javafx.scene.Parent?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             minHeight="580.0" minWidth="1300.0"
@@ -81,16 +82,12 @@
                         </Button>
                     </children>
                 </HBox>
-                <ImageView fx:id="selectionP1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
-                           GridPane.rowIndex="2"
-                           GridPane.valignment="CENTER" GridPane.halignment="CENTER">
-                    <Image url="/images/Fighters/Ninja/choose.png"/>
-                </ImageView>
-                <ImageView fx:id="selectionP2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
-                           GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER"
-                           GridPane.halignment="CENTER">
-                    <Image url="/images/Fighters/Samourai/choose.png"/>
-                </ImageView>
+                <Pane fx:id="selectionP1"
+                        GridPane.rowIndex="2"
+                        GridPane.valignment="CENTER" GridPane.halignment="LEFT"/>
+                <Pane fx:id="selectionP2" pickOnBounds="true"
+                GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER"
+                GridPane.halignment="RIGHT"/>
                 <Button mnemonicParsing="false" fx:id="btn_left" GridPane.rowIndex="3" GridPane.valignment="CENTER"
                         GridPane.halignment="CENTER" onAction="#setReadyPlayer1"/>
                 <Button mnemonicParsing="false" fx:id="btn_right" GridPane.columnIndex="2" GridPane.rowIndex="3"

@@ -1,5 +1,6 @@
 package controllers;
 
+import character.Fighter;
 import command.KeyboardCommand;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,6 +30,8 @@ public class ChooseCharacter {
     private KeyboardCommand p1Command, p2Command;
     private final String defaultNameP1  = "Florent";
     private final String defaultNameP2  = "Raphael";
+    private Fighter fighter1 = new Fighter("ninja");
+    private Fighter fighter2 = new Fighter("samourai");
 
     @FXML
     Text namePlayer1, namePlayer2;
@@ -40,7 +43,7 @@ public class ChooseCharacter {
     Button btn_left, btn_right;
 
     @FXML
-    ImageView selectionP1, selectionP2;
+    Pane selectionP1, selectionP2;
 
     @FXML
     Pane controlTable;
@@ -54,6 +57,12 @@ public class ChooseCharacter {
         namePlayer2.setText(bundle.getString("NamePlayer2"));
         btn_left.setText(bundle.getString("Btn_ready"));
         btn_right.setText(bundle.getString("Btn_ready"));
+
+        fighter2.getSkin().skinAnimation.play();
+        fighter1.getSkin().skinAnimation.play();
+        selectionP2.getChildren().add(fighter2.getSkin());
+        selectionP1.getChildren().add(fighter1.getSkin());
+
 
         nameInputPlayer1.setText(defaultNameP1);
         nameInputPlayer2.setText(defaultNameP2);
@@ -91,23 +100,28 @@ public class ChooseCharacter {
     }
 
     public void selectSamouraiP1(ActionEvent actionEvent){
-        selectionP1.setImage(new Image("/images/Fighters/Samourai/choose.png"));
-        player1Character = "Samourai";
+        refreshSelectionAnimation(fighter1,selectionP1,"Samourai");
     }
 
     public void selectNinjaP1(ActionEvent actionEvent){
-        selectionP1.setImage(new Image("/images/Fighters/Ninja/choose.png"));
-        player1Character = "Ninja";
+        refreshSelectionAnimation(fighter1,selectionP1,"Ninja");
     }
 
     public void selectSamouraiP2(ActionEvent actionEvent){
-        selectionP2.setImage(new Image("/images/Fighters/Samourai/choose.png"));
-        player2Character = "Samourai";
+        refreshSelectionAnimation(fighter2,selectionP2,"Samourai");
     }
 
     public void selectNinjaP2(ActionEvent actionEvent){
-        selectionP2.setImage(new Image("/images/Fighters/Ninja/choose.png"));
-        player2Character = "Ninja";
+        refreshSelectionAnimation(fighter2,selectionP2,"Ninja");
+    }
+
+
+
+    private void refreshSelectionAnimation(Fighter fighter, Pane paneSelectionAnimation,String typePerso)
+    {
+        fighter = new Fighter(typePerso);
+        fighter.getSkin().skinAnimation.play();
+        paneSelectionAnimation.getChildren().set(0,fighter.getSkin());
     }
 
     private void launchGame() throws Exception {
