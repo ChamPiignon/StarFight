@@ -2,6 +2,7 @@ package command;
 
 
 import javafx.scene.input.KeyCode;
+import persist.CommandSerializer;
 
 import java.io.Serializable;
 

@@ -5,12 +5,13 @@ import command.KeyboardCommand;
 import java.io.*;
 
 public class CommandSerializer {
+    private final static String extension = ".ser";
 
     public static void save(final String player, KeyboardCommand keyboardCommand){
 
         ObjectOutputStream oos = null;
         try{
-            final FileOutputStream file = new FileOutputStream(player+".bak");
+            final FileOutputStream file = new FileOutputStream(player + extension);
             oos = new ObjectOutputStream(file);
             oos.writeObject(keyboardCommand);
             oos.flush();
@@ -32,10 +33,10 @@ public class CommandSerializer {
         ObjectInputStream ois = null;
         KeyboardCommand keyboardCommand = null;
         try{
-            final FileInputStream file = new FileInputStream(player+".bak");
+            final FileInputStream file = new FileInputStream(player + extension);
             ois = new ObjectInputStream(file);
-//            keyboardCommand = (KeyboardCommand)ois.readObject();
-        } catch (final IOException e){
+            keyboardCommand = (KeyboardCommand) ois.readObject();
+        } catch (final IOException | ClassNotFoundException e){
             e.printStackTrace();
         } finally {
             try {
@@ -47,5 +48,11 @@ public class CommandSerializer {
             }
         }
         return keyboardCommand;
+    }
+
+    public static Boolean isSaved(final String player){
+        String fileName = player + extension;
+
+        return false;
     }
 }

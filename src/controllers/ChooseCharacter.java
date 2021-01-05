@@ -15,6 +15,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import persist.CommandSerializer;
+
 import java.util.ResourceBundle;
 
 public class ChooseCharacter {
@@ -62,8 +64,14 @@ public class ChooseCharacter {
     public ChooseCharacter(Stage myStage, ResourceBundle bundle) throws Exception {
         this.myStage = myStage;
         this.bundle = bundle;
-        p1Command = new KeyboardCommand(1);
-        p2Command = new KeyboardCommand(2);
+        if (CommandSerializer.isSaved("player1")){
+            p1Command = CommandSerializer.load("player1");
+        }
+        else p1Command = new KeyboardCommand(1);
+        if (CommandSerializer.isSaved("player2")){
+            p2Command = CommandSerializer.load("player2");
+        }
+        else p2Command = new KeyboardCommand(2);
     }
 
     public void setReadyPlayer2(ActionEvent actionEvent) throws Exception {
@@ -103,6 +111,8 @@ public class ChooseCharacter {
     }
 
     private void launchGame() throws Exception {
+        CommandSerializer.save("player1",p1Command);
+        CommandSerializer.save("player2",p2Command);
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/gamePage.fxml"));
         loader.setController(new GamePage(myStage,player1Name, player1Character, player2Name, player2Character, bundle, p1Command, p2Command));
         Parent root = loader.load();
