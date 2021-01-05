@@ -4,41 +4,33 @@ import character.Fighter;
 
 public class StrategyFight {
     private StrategySkin skin = new StrategySkin();
+    private final static int DAMAGE = 10;
 
 
 
-    public void primaryAttack(Fighter fighter)
+    public void primaryAttack(Fighter attacker, Fighter defender)
     {
-        skin.primaryAttack(fighter);
+        skin.primaryAttack(attacker);
         //PROBLEM CONCEPTION COLLIDE
-        /*ArrayList<Fighter> ListFighterCollide = isCollideWithFighter(fighter);
-        if(ListFighterCollide.size()!=0)
+        if(attacker.getSkin().intersects(defender.getSkin().getLayoutBounds()))
         {
-            for( Fighter fighterHit : ListFighterCollide)
-            {
-                receiveAttack(fighterHit);
-            }
-        }*/
-
-        fighter.getSkin().skinAnimation.setOnFinished( event -> {
-            skin.idle(fighter);
+            receiveAttack(defender);
+        }
+        attacker.getSkin().skinAnimation.setOnFinished( event -> {
+            skin.idle(attacker);
         });
     }
 
-    public void secondaryAttack(Fighter fighter)
+    public void secondaryAttack(Fighter attacker, Fighter defender)
     {
-        skin.secondaryAttack(fighter);
+        skin.secondaryAttack(attacker);
         //PROBLEM CONCEPTION COLLIDE
-        /*ArrayList<Fighter> ListFighterCollide = isCollideWithFighter(fighter);
-        if(ListFighterCollide.size()!=0)
+        if(attacker.getSkin().intersects(defender.getSkin().getLayoutBounds()))
         {
-            for( Fighter fighterHit : ListFighterCollide)
-            {
-                receiveAttack(fighterHit);
-            }
-        }*/
-        fighter.getSkin().skinAnimation.setOnFinished( event -> {
-            skin.idle(fighter);
+                receiveAttack(defender);
+        }
+        attacker.getSkin().skinAnimation.setOnFinished( event -> {
+            skin.idle(attacker);
         });
     }
 
@@ -48,27 +40,32 @@ public class StrategyFight {
         if(!isDead(fighter))
         {
             skin.takeHit(fighter);
+            fighter.getSkin().skinAnimation.setOnFinished( event -> {
+                skin.idle(fighter);
+            });
         }
         else
         {
             skin.death(fighter);
         }
-        fighter.getSkin().skinAnimation.setOnFinished( event -> {
-            skin.idle(fighter);
-        });
+
     }
 
     private void receiveDamage(Fighter fighter)
     {
-        //fighter.setCurrentHP(fighter.getCurrentHP()-1);
+        fighter.getCurrentHP().set(fighter.getCurrentHP().get()-DAMAGE);
+        if(fighter.getCurrentHP().get()<=0) {
+            fighter.getCurrentHP().set(0);
+        }
     }
 
     private boolean isDead(Fighter fighter)
     {
-//        if(fighter.getCurrentHP()==0)
-//        {
-//            return true;
-//        }
+        if(fighter.getCurrentHP().get()<=0)
+        {
+
+            return true;
+        }
        return false;
     }
 }

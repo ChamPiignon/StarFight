@@ -10,6 +10,8 @@ import javafx.util.Duration;
 
 public class SkinAnimation extends Transition {
 
+
+
     private final ImageView image;
     private final Duration DURATION=Duration.millis(400);
     private final int COUNT;
@@ -31,21 +33,6 @@ public class SkinAnimation extends Transition {
 
         this.image.setViewport(new Rectangle2D(offSetX,offSetY,WIDTH,HEIGHT));
     }
-
-    public void setOffSetX(int offSetX) {
-        this.offSetX = offSetX;
-    }
-
-    public void setOffSetY(int offSetY) {
-        this.offSetY = offSetY;
-    }
-
-    public Duration getDURATION() {
-        return DURATION;
-    }
-    public void setIndefiniteCycle(){setCycleCount(Animation.INDEFINITE);}
-    public void setNCycle(int n){setCycleCount(n);}
-
     @Override
     protected void interpolate(double v)
     {
@@ -54,4 +41,7 @@ public class SkinAnimation extends Transition {
         int yIndex=0;
         image.setViewport(new Rectangle2D(xIndex,yIndex,WIDTH,HEIGHT));
     }
+
+    public void setIndefiniteCycle(){setCycleCount(Animation.INDEFINITE);}
+    public void setNCycle(int n){setCycleCount(n);}
 }
