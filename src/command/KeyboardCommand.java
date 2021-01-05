@@ -7,7 +7,6 @@ import persist.CommandSerializer;
 import java.io.Serializable;
 
 public class KeyboardCommand implements Control, Serializable {
-    private final Input input;
     private KeyCode jump;
     private KeyCode left;
     private KeyCode right;
@@ -55,7 +54,7 @@ public class KeyboardCommand implements Control, Serializable {
     }
 
     public KeyboardCommand(int player) throws Exception {
-        this.input = new Input();
+//        this.input = new Input();
         if (player == 1) {
             setPlayer1();
         } else if (player == 2) {
