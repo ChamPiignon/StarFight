@@ -7,8 +7,8 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            minHeight="580.0" minWidth="1300.0"
-            prefHeight="580.0" prefWidth="1300.0">
+            minHeight="600" minWidth="800"
+            prefHeight="-Infinity" prefWidth="-Infinity">
 <!--    <GridPane AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0"
               AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
         <columnConstraints>
@@ -24,62 +24,66 @@
         </rowConstraints>-->
 
     <center>
-        <VBox alignment="CENTER">
-            <ImageView pickOnBounds="true" preserveRatio="true">
-                <Image url="/images/vs.png"/>
-            </ImageView>
-            <Pane fx:id="controlTable" >
-            </Pane>
+        <VBox  alignment="TOP_CENTER">
+            <VBox>
+                <ImageView pickOnBounds="true" preserveRatio="true">
+                    <Image url="/images/vs.png"/>
+                </ImageView>
+                <Pane fx:id="controlTable">
+                </Pane>
+            </VBox>
         </VBox>
     </center>
     <left>
-        <VBox >
-            <Text fx:id="namePlayer1"/>
-            <TextField fx:id="nameInputPlayer1"/>
+        <VBox alignment="TOP_CENTER">
+            <VBox >
+                <Text fx:id="namePlayer1"/>
+                <TextField fx:id="nameInputPlayer1"/>
+            </VBox>
+            <HBox alignment="CENTER">
+                <Button onAction="#selectSamouraiP1">
+                    <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                            <Image url="/images/Fighters/Samourai/choose.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button onAction="#selectNinjaP1">
+                    <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                            <Image url="/images/Fighters/Ninja/choose.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+            <Pane fx:id="selectionP1"/>
+            <Button mnemonicParsing="false" fx:id="btn_left" onAction="#setReadyPlayer1"/>
         </VBox>
-        <HBox alignment="CENTER">
-            <Button onAction="#selectSamouraiP1">
-                <graphic>
-                    <ImageView pickOnBounds="true" preserveRatio="true">
-                        <Image url="/images/Fighters/Samourai/choose.png"/>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button onAction="#selectNinjaP1">
-                <graphic>
-                    <ImageView pickOnBounds="true" preserveRatio="true">
-                        <Image url="/images/Fighters/Ninja/choose.png"/>
-                    </ImageView>
-                </graphic>
-            </Button>
-        </HBox>
-        <Pane fx:id="selectionP1"/>
     </left>
     <right>
-        <VBox >
-            <Text fx:id="namePlayer2"/>
-            <TextField fx:id="nameInputPlayer2"/>
+        <VBox alignment="TOP_CENTER">
+            <VBox>
+                <Text fx:id="namePlayer2"/>
+                <TextField fx:id="nameInputPlayer2"/>
+            </VBox>
+            <HBox alignment="CENTER">
+                <Button onAction="#selectSamouraiP2">
+                    <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                            <Image url="/images/Fighters/Samourai/choose.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button onAction="#selectNinjaP2">
+                    <graphic>
+                        <ImageView pickOnBounds="true" preserveRatio="true">
+                            <Image url="/images/Fighters/Ninja/choose.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </HBox>
+            <Pane fx:id="selectionP2" pickOnBounds="true"/>
+            <Button mnemonicParsing="false" fx:id="btn_right" onAction="#setReadyPlayer2"/>
         </VBox>
-        <HBox alignment="CENTER">
-            <Button onAction="#selectSamouraiP2">
-                <graphic>
-                    <ImageView pickOnBounds="true" preserveRatio="true">
-                        <Image url="/images/Fighters/Samourai/choose.png"/>
-                    </ImageView>
-                </graphic>
-            </Button>
-            <Button onAction="#selectNinjaP2">
-                <graphic>
-                    <ImageView pickOnBounds="true" preserveRatio="true">
-                        <Image url="/images/Fighters/Ninja/choose.png"/>
-                    </ImageView>
-                </graphic>
-            </Button>
-        </HBox>
-        <Pane fx:id="selectionP2" pickOnBounds="true"/>
     </right>
-        <bottom>
-        <Button mnemonicParsing="false" fx:id="btn_left" onAction="#setReadyPlayer1"/>
-        <Button mnemonicParsing="false" fx:id="btn_right" onAction="#setReadyPlayer2"/>
-        </bottom>
 </BorderPane>

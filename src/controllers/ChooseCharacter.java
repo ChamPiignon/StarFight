@@ -8,11 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -50,9 +47,9 @@ public class ChooseCharacter {
 
     @FXML
     public void initialize() {
+
         displayControl = new DisplayControl(p1Command, p2Command,bundle);
         controlTable.getChildren().add(displayControl);
-
         namePlayer1.setText(bundle.getString("NamePlayer1"));
         namePlayer2.setText(bundle.getString("NamePlayer2"));
         btn_left.setText(bundle.getString("Btn_ready"));
@@ -133,6 +130,9 @@ public class ChooseCharacter {
         loader.setController(new GamePage(myStage,player1Name, fighter1, player2Name, fighter2, bundle, p1Command, p2Command));
         Parent root = loader.load();
         Scene gameScene= new Scene(root);
+
+        myStage.setFullScreen(true);
+
         myStage.setTitle(bundle.getString("GameTitleGame"));
         myStage.getIcons().add(new Image("images/tux.png"));
         myStage.setScene(gameScene);

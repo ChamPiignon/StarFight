@@ -42,7 +42,6 @@ public class DisplayControl extends Pane {
     private void initTable(ObservableList<ControlList> list){
         tableView.setPadding(new Insets(5));
         initCols();
-
         tableView.setItems(list);
         tableView.setPrefSize(COLUMNNUMBER*CELLWIDTH, list.size()*CELLHEIGHT);
         tableView.getColumns().addAll(controlColumn, p1Column, p2Column);
