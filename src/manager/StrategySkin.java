@@ -23,7 +23,7 @@ public class StrategySkin
 
     public void run(Fighter fighter)
     {
-        setStatMove(fighter,StatMove.FALL,1);
+        setStatMove(fighter,StatMove.RUN,1);
     }
 
     public void fall(Fighter fighter)
