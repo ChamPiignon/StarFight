@@ -35,12 +35,10 @@ public class GamePage {
     private CheckerLimit checkerLimit;
     private final Stage stage;
     private World world;
-    private ResourceBundle bundle;
 
 
     public GamePage(Stage stage, String player1Name, Fighter fighter1, String player2Name, Fighter fighter2, ResourceBundle bundle, KeyboardCommand p1Command, KeyboardCommand p2Command) throws Exception {
         this.stage = stage;
-        this.bundle = bundle;
         world = new World("images/background.gif",player1Name, fighter1, player2Name, fighter2, bundle, p1Command, p2Command);
         checkerLimit = new CheckerLimit(LIMIT_LEFT,LIMIT_RIGHT);
     }
