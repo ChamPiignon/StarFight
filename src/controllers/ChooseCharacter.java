@@ -65,7 +65,9 @@ public class ChooseCharacter {
 
 
         nameInputPlayer1.setText(defaultNameP1);
+        nameInputPlayer1.setPrefWidth(myStage.getWidth()/3);
         nameInputPlayer2.setText(defaultNameP2);
+        nameInputPlayer2.setPrefWidth(myStage.getWidth()/3);
         player2Character = "Samourai";
         player1Character = "Ninja";
     }

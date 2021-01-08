@@ -16,6 +16,9 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class LaunchPage {
+    private final Stage stage;
+    private double stageWidth;
+    private double stageHeight;
     private ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue");
 
     @FXML
@@ -35,9 +38,20 @@ public class LaunchPage {
 
     @FXML
     public void initialize() {
-        tableView.setPadding(new Insets(5));
+//        tableView.setPrefWidth(stageWidth);
+//        tableView.setPrefHeight(stageHeight);
         initializeText();
         initializeLanguages();
+    }
+
+    public LaunchPage(Stage myStage) {
+        this.stage = myStage;
+        stage.widthProperty().addListener(e ->{
+            this.stageWidth = stage.getWidth();
+        });
+        stage.heightProperty().addListener(e ->{
+            this.stageHeight = stage.getHeight();
+        });
     }
 
     private void initializeLanguages() {
