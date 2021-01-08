@@ -5,7 +5,6 @@ import controllers.KeyChoiceDialog;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceDialog;
 import javafx.scene.input.KeyCode;
 
 import java.util.ResourceBundle;

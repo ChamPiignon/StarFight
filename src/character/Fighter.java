@@ -26,7 +26,7 @@ public class Fighter extends Character {
             skin = new Skin(skinsMap);
             statMove = StatMove.IDLE;
         } catch (Exception e) {
-            System.out.printf(e.getMessage());
+            e.printStackTrace();
         }
 
     }

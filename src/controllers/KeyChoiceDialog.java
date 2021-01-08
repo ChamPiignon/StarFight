@@ -1,6 +1,5 @@
 package controllers;
 
-import command.KeyboardCommand;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
@@ -16,6 +15,28 @@ public class KeyChoiceDialog extends ChoiceDialog<KeyCode> {
 
     public KeyChoiceDialog(ResourceBundle bundle, KeyCode oldKey) {
         List<KeyCode> choices = new ArrayList<>();
+        initializeChoices(choices);
+
+        System.out.println(oldKey);
+        this.key = oldKey;
+        ChoiceDialog<KeyCode> dialog = new ChoiceDialog<>(key, choices);
+
+        Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
+        stage.getIcons().add(new Image("images/tux.png"));
+        dialog.setTitle(bundle.getString("ChoiceDialogTitle"));
+        dialog.setHeaderText(bundle.getString("ChoiceDialogInfo"));
+        dialog.setContentText(bundle.getString("ChoiceDialogKey"));
+
+        Optional<KeyCode> result = dialog.showAndWait();
+
+        result.ifPresent(keyCode -> {System.out.println("Your choice: " + keyCode); this.key = keyCode;});
+    }
+
+    public KeyCode getKey() {
+        return key;
+    }
+
+    private void initializeChoices(List<KeyCode> choices){
         choices.add(KeyCode.A);
         choices.add(KeyCode.Z);
         choices.add(KeyCode.E);
@@ -73,23 +94,5 @@ public class KeyChoiceDialog extends ChoiceDialog<KeyCode> {
         choices.add(KeyCode.DOWN);
         choices.add(KeyCode.LEFT);
         choices.add(KeyCode.RIGHT);
-
-        System.out.println(oldKey);
-        this.key = oldKey;
-        ChoiceDialog<KeyCode> dialog = new ChoiceDialog<>(key, choices);
-
-        Stage stage = (Stage) dialog.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("images/tux.png"));
-        dialog.setTitle(bundle.getString("ChoiceDialogTitle"));
-        dialog.setHeaderText(bundle.getString("ChoiceDialogInfo"));
-        dialog.setContentText(bundle.getString("ChoiceDialogKey"));
-
-        Optional<KeyCode> result = dialog.showAndWait();
-
-        result.ifPresent(keyCode -> {System.out.println("Your choice: " + keyCode); this.key = keyCode;});
-    }
-
-    public KeyCode getKey() {
-        return key;
     }
 }

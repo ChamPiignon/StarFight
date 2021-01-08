@@ -2,7 +2,6 @@ package command;
 
 
 import javafx.scene.input.KeyCode;
-import persist.CommandSerializer;
 
 import java.io.Serializable;
 
@@ -54,7 +53,6 @@ public class KeyboardCommand implements Control, Serializable {
     }
 
     public KeyboardCommand(int player) throws Exception {
-//        this.input = new Input();
         if (player == 1) {
             setPlayer1();
         } else if (player == 2) {

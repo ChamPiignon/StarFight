@@ -31,7 +31,7 @@ public class Main extends Application {
             stage.show();
 
         }catch (Exception ex){
-            System.out.println(ex.getMessage());
+            ex.printStackTrace();
         }
 
     }

@@ -9,8 +9,6 @@ import java.util.Map;
 
 public class Skin extends Pane
 {
-//    private int xPosition;
-//    private int yPosition;
 private Position position;
 
     public Map<StatMove, ImageView> images;
