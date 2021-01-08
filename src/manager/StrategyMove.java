@@ -65,7 +65,6 @@ public class StrategyMove {
     }
 
     public void noMove(Fighter fighter) {
-        //skin.mirror(fighter) retourne le skin sur l'axe y
         if (fighter.getStatMove() != StatMove.IDLE) {
             skin.idle(fighter);
         }
