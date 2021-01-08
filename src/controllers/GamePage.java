@@ -1,5 +1,6 @@
 package controllers;
 
+import character.Fighter;
 import character.Player;
 import character.Skin;
 import character.StatMove;
@@ -37,20 +38,11 @@ public class GamePage {
     private World world;
     private ResourceBundle bundle;
 
-    /**
-     *
-     * @param stage
-     * @param player1Name
-     * @param player1Character
-     * @param player2Name
-     * @param player2Character
-     * @param bundle
-     * @throws Exception
-     */
-    public GamePage(Stage stage, String player1Name, String player1Character, String player2Name, String player2Character, ResourceBundle bundle, KeyboardCommand p1Command, KeyboardCommand p2Command) throws Exception {
+
+    public GamePage(Stage stage, String player1Name, Fighter fighter1, String player2Name, Fighter fighter2, ResourceBundle bundle, KeyboardCommand p1Command, KeyboardCommand p2Command) throws Exception {
         this.stage = stage;
         this.bundle = bundle;
-        world = new World("images/background.gif",player1Name, player1Character, player2Name, player2Character, bundle, p1Command, p2Command);
+        world = new World("images/background.gif",player1Name, fighter1, player2Name, fighter2, bundle, p1Command, p2Command);
     }
 
     @FXML

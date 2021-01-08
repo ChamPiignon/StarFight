@@ -8,50 +8,51 @@ public class StrategySkin
 {
     public void jump(Fighter fighter)
     {
-        updateAnimation(fighter,-1, StatMove.JUMP);
-        fighter.setStatMove(StatMove.JUMP);
+        setStatMove(fighter,StatMove.JUMP,-1);
     }
 
     public void primaryAttack(Fighter fighter)
     {
-        updateAnimation(fighter,1,StatMove.ATTACK1);
-        fighter.setStatMove(StatMove.ATTACK1);
+        setStatMove(fighter,StatMove.ATTACK1,1);
     }
 
     public void secondaryAttack(Fighter fighter)
     {
-        updateAnimation(fighter,1,StatMove.ATTACK2);
-        fighter.setStatMove(StatMove.ATTACK2);
+        setStatMove(fighter,StatMove.ATTACK2,1);
     }
 
     public void run(Fighter fighter)
     {
-        updateAnimation(fighter,1,StatMove.RUN);
-        fighter.setStatMove(StatMove.RUN);
+        setStatMove(fighter,StatMove.FALL,1);
     }
 
     public void fall(Fighter fighter)
     {
-        updateAnimation(fighter,-1,StatMove.FALL);
-        fighter.setStatMove(StatMove.FALL);
+        setStatMove(fighter,StatMove.FALL,-1);
     }
 
     public void takeHit(Fighter fighter)
     {
-        updateAnimation(fighter,1,StatMove.TAKEHIT);
-        fighter.setStatMove(StatMove.TAKEHIT);
+        setStatMove(fighter,StatMove.TAKEHIT,1);
     }
 
     public void idle(Fighter fighter)
     {
-        updateAnimation(fighter,-1,StatMove.IDLE);
-        fighter.setStatMove(StatMove.IDLE);
+        setStatMove(fighter,StatMove.IDLE,-1);
     }
 
     public void death(Fighter fighter)
     {
+        setStatMove(fighter,StatMove.DEATH,1);
+
         updateAnimation(fighter,1,StatMove.DEATH);
         fighter.setStatMove(StatMove.DEATH);
+    }
+
+    public void setStatMove(Fighter fighter,StatMove name, int nBoucleAnimation)
+    {
+        updateAnimation(fighter,nBoucleAnimation,name);
+        fighter.setStatMove(name);
     }
 
     public void mirror(Fighter fighter,int xOrientation)

@@ -20,19 +20,9 @@ public class World {
     public HealthBarController barHpPlayer1;
     public HealthBarController barHpPlayer2;
 
-    /**
-     *
-     * @param urlMap
-     * @param player1Name
-     * @param player1Character
-     * @param player2Name
-     * @param player2Character
-     * @param bundle
-     * @throws Exception
-     */
-    public World(String urlMap, String player1Name, String player1Character, String player2Name, String player2Character, ResourceBundle bundle, KeyboardCommand p1Command, KeyboardCommand p2Command) throws Exception {
-        this.player1 = new Player(new Fighter(player1Character), player1Name, 0, p1Command);
-        this.player2 = new Player(new Fighter(player2Character), player2Name, 0, p2Command);
+    public World(String urlMap, String player1Name, Fighter fighter1, String player2Name, Fighter fighter2, ResourceBundle bundle, KeyboardCommand p1Command, KeyboardCommand p2Command) throws Exception {
+        this.player1 = new Player(fighter1, player1Name, 0, p1Command);
+        this.player2 = new Player(fighter2, player2Name, 0, p2Command);
         listPlayers.add(this.player1);
         listPlayers.add(this.player2);
         this.map = new Image(urlMap);

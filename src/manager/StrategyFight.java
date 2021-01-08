@@ -11,23 +11,20 @@ public class StrategyFight {
     public void primaryAttack(Fighter attacker, Fighter defender)
     {
         skin.primaryAttack(attacker);
-        //PROBLEM CONCEPTION COLLIDE
-        if(attacker.getSkin().intersects(defender.getSkin().getLayoutBounds()))
-        {
-            receiveAttack(defender);
-        }
-        attacker.getSkin().skinAnimation.setOnFinished( event -> {
-            skin.idle(attacker);
-        });
+        collision(attacker,defender);
     }
 
     public void secondaryAttack(Fighter attacker, Fighter defender)
     {
         skin.secondaryAttack(attacker);
-        //PROBLEM CONCEPTION COLLIDE
+        collision(attacker,defender);
+    }
+
+    private void collision(Fighter attacker, Fighter defender)
+    {
         if(attacker.getSkin().intersects(defender.getSkin().getLayoutBounds()))
         {
-                receiveAttack(defender);
+            receiveAttack(defender);
         }
         attacker.getSkin().skinAnimation.setOnFinished( event -> {
             skin.idle(attacker);
@@ -63,7 +60,6 @@ public class StrategyFight {
     {
         if(fighter.getCurrentHP().get()<=0)
         {
-
             return true;
         }
        return false;
