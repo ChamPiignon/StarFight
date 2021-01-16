@@ -37,7 +37,7 @@ public class GamePage {
     private OneVersusOne oneVersusOne;
 
 
-    public GamePage(Stage stage, String player1Name, Fighter fighter1, String player2Name, Fighter fighter2, ResourceBundle bundle, KeyboardCommand p1Command, KeyboardCommand p2Command) throws Exception {
+    public GamePage(Stage stage, String player1Name, Fighter fighter1, String player2Name, Fighter fighter2,KeyboardCommand p1Command, KeyboardCommand p2Command) throws Exception {
         this.stage = stage;
         oneVersusOne = new OneVersusOne("images/background.gif",player1Name, fighter1, player2Name, fighter2, p1Command, p2Command);
         checkerLimit = new CheckerLimit(LIMIT_LEFT,LIMIT_RIGHT);
