@@ -5,7 +5,7 @@ import javafx.scene.input.KeyCode;
 
 import java.io.Serializable;
 
-public class KeyboardCommand implements Control, Serializable {
+public class KeyboardCommand extends Control implements Serializable {
     private KeyCode jump;
     private KeyCode left;
     private KeyCode right;
@@ -53,6 +53,7 @@ public class KeyboardCommand implements Control, Serializable {
     }
 
     public KeyboardCommand(int player) throws Exception {
+
         if (player == 1) {
             setPlayer1();
         } else if (player == 2) {

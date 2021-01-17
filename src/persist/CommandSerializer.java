@@ -5,7 +5,7 @@ import command.KeyboardCommand;
 import java.io.*;
 
 public class CommandSerializer {
-    private final static String extension = ".ser";
+    private final static String extension = ".txt";
 
     public static void save(final String player, KeyboardCommand keyboardCommand){
 
@@ -36,6 +36,7 @@ public class CommandSerializer {
             final FileInputStream file = new FileInputStream(player + extension);
             ois = new ObjectInputStream(file);
             keyboardCommand = (KeyboardCommand) ois.readObject();
+            keyboardCommand.initInput();
         } catch (final IOException | ClassNotFoundException e){
             e.printStackTrace();
         } finally {

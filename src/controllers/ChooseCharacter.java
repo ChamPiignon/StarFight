@@ -24,7 +24,7 @@ public class ChooseCharacter {
     public ResourceBundle bundle;
     boolean player1IsReady = false;
     boolean player2IsReady = false;
-    private String player1Character, player2Character, player1Name, player2Name;
+    private String player1Name, player2Name;
     private final Stage myStage;
     private DisplayControl displayControl;
     private KeyboardCommand p1Command, p2Command;
@@ -80,8 +80,6 @@ public class ChooseCharacter {
         nameInputPlayer1.setPrefWidth(myStage.getWidth() / 3);
         nameInputPlayer2.setText(defaultNameP2);
         nameInputPlayer2.setPrefWidth(myStage.getWidth() / 3);
-        player2Character = "Samourai";
-        player1Character = "Ninja";
     }
 
     public ChooseCharacter(Stage myStage, ResourceBundle bundle) throws Exception {

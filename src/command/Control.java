@@ -1,17 +1,23 @@
 package command;
 
-public interface Control {
+public abstract class Control {
 
-    Input input = new Input();
 
-    boolean isRequestingJump();
+    protected Input input = new Input();
 
-    boolean isRequestingLeft();
+    public abstract boolean isRequestingJump();
 
-    boolean isRequestingRight();
+    public abstract boolean isRequestingLeft();
 
-    boolean isRequestingPrimAtk();
+    public abstract boolean isRequestingRight();
 
-    boolean isRequestingSndAtk();
+    public abstract boolean isRequestingPrimAtk();
+
+    public abstract boolean isRequestingSndAtk();
+
+    public void initInput(){
+        this.input= new Input();
+    }
+
 }
 
