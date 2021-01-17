@@ -7,11 +7,16 @@ import character.StatMove;
 import command.Input;
 import command.KeyboardCommand;
 import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import world.OneVersusOne;
+
+import java.sql.SQLOutput;
 import java.util.ResourceBundle;
 
 public class GamePage {
@@ -32,6 +37,7 @@ public class GamePage {
     private static final int SIZE_FIGHTER = 450;
     private static final double LIMIT_LEFT = -190;
     private static final double LIMIT_RIGHT = 685;
+    private static final long TIME_THREAD = 14_000_000;
     private CheckerLimit checkerLimit;
     private final Stage stage;
     private OneVersusOne oneVersusOne;
@@ -48,19 +54,23 @@ public class GamePage {
         initializeStage();
         initializeGame();
         AnimationTimer gameThread = new AnimationTimer() {
+            private long now;
             @Override
-            public void handle(long gameTimer) {
-                stage.getScene().setOnKeyPressed(Input::keyPressed);
-                stage.getScene().setOnKeyReleased(Input::keyReleased);
-                try {
-                    updatePlayerPosition(oneVersusOne.player1, oneVersusOne.player2);
-                    updatePlayerPosition(oneVersusOne.player2, oneVersusOne.player1);
-                } catch (Exception e) {
-                    e.printStackTrace();
+            public void handle(long time) {
+                if (time - now > TIME_THREAD) {
+                    stage.getScene().setOnKeyPressed(Input::keyPressed);
+                    stage.getScene().setOnKeyReleased(Input::keyReleased);
+                    try {
+                        win(oneVersusOne.player1, oneVersusOne.player2,this);
+                        updatePlayerPosition(oneVersusOne.player1, oneVersusOne.player2);
+                        updatePlayerPosition(oneVersusOne.player2, oneVersusOne.player1);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    now = time;
                 }
             }
         };
-
         gameThread.start();
 
     }
@@ -73,6 +83,36 @@ public class GamePage {
     private void scale(Skin skin, int taille) {
         skin.getImageView().setFitHeight(taille);
         skin.getImageView().setFitWidth(taille);
+    }
+
+    private boolean isDead(Player player) {
+        if(player.getHisFighter().getStatMove() == StatMove.DEATH) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean win(Player player1,Player player2,AnimationTimer thread) {
+        if(isDead(player1)) {
+            msgWin(player1,thread);
+            return true;
+        }
+        else if (isDead(player2)) {
+            msgWin(player1,thread);
+            return true;
+        }
+        return false;
+    }
+
+    private void msgWin(Player player,AnimationTimer thread)
+    {
+        thread.stop();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Fin de la partie");
+        alert.setContentText("Felicitation victoire de "+player.getName());
+        alert.setHeaderText(null);
+        alert.setOnHidden(evt -> Platform.exit());
+        alert.show();
     }
 
     private void updatePlayerPosition(Player player1,Player player2){
