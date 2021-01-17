@@ -13,6 +13,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import world.OneVersusOne;
 
@@ -24,6 +27,8 @@ public class GamePage {
     AnchorPane root;
     @FXML
     ImageView background;
+    @FXML
+    Pane pane;
 
     private static final int STAGE_MAX_WIDHT = 960;
     private static final int STAGE_MAX_HEIGHT = 640;
@@ -155,8 +160,8 @@ public class GamePage {
 
     private void initializeStage()
     {
-        stage.setWidth(STAGE_MAX_WIDHT);
-        stage.setHeight(STAGE_MAX_HEIGHT);
+        stage.setMinWidth(STAGE_MAX_WIDHT);
+        stage.setMinHeight(STAGE_MAX_HEIGHT);
         stage.setResizable(false);
     }
 
