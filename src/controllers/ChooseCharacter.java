@@ -142,7 +142,7 @@ public class ChooseCharacter {
         CommandSerializer.save("player1",p1Command);
         CommandSerializer.save("player2",p2Command);
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/view/gamePage.fxml"));
-        loader.setController(new GamePage(myStage,player1Name, fighter1, player2Name, fighter2,p1Command, p2Command));
+        loader.setController(new GamePage(myStage,player1Name, fighter1, player2Name, fighter2,p1Command, p2Command, bundle));
         Parent root = loader.load();
         Scene gameScene= new Scene(root);
 

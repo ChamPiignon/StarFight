@@ -45,14 +45,16 @@ public class GamePage {
     private static final double LIMIT_LEFT = -190;
     private static final double LIMIT_RIGHT = 685;
     private static final long TIME_THREAD = 14_000_000;
+    private ResourceBundle bundle;
     private CheckerLimit checkerLimit;
     private final Stage stage;
     private OneVersusOne oneVersusOne;
 
-    public GamePage(Stage stage, String player1Name, Fighter fighter1, String player2Name, Fighter fighter2,KeyboardCommand p1Command, KeyboardCommand p2Command) throws Exception {
+    public GamePage(Stage stage, String player1Name, Fighter fighter1, String player2Name, Fighter fighter2,KeyboardCommand p1Command, KeyboardCommand p2Command,ResourceBundle bundle) throws Exception {
         this.stage = stage;
         oneVersusOne = new OneVersusOne("images/background.gif",player1Name, fighter1, player2Name, fighter2, p1Command, p2Command);
         checkerLimit = new CheckerLimit(LIMIT_LEFT,LIMIT_RIGHT);
+        this.bundle=bundle;
 
     }
 
@@ -182,6 +184,8 @@ public class GamePage {
         hitBox.yProperty().bind(player.getHisFighter().getSkin().getImageView().yProperty().add(OFF_SET_HITBOX));
         hitBox.setWidth(WIDHT_HITBOX);
         hitBox.setHeight(HEIGHT_HITBOX);
+        hitBox.setFill(Color.TRANSPARENT);
+        hitBox.setStroke(Color.RED);
         player.getHisFighter().setHitbox(hitBox);
     }
 
@@ -199,6 +203,6 @@ public class GamePage {
         initializePositionFight(oneVersusOne.player2, POS_X_PLAYER_2,POS_Y_PLAYER_2);
         initializeHealthBar(oneVersusOne.barHpPlayer1, LAYOUT_X_HP_BAR_1);
         initializeHealthBar(oneVersusOne.barHpPlayer2, LAYOUT_X_HP_BAR_2);
-        root.getChildren().addAll(oneVersusOne.player2.getHisFighter().getSkin(), oneVersusOne.player1.getHisFighter().getSkin(), oneVersusOne.barHpPlayer1, oneVersusOne.barHpPlayer2);
+        root.getChildren().addAll(oneVersusOne.player2.getHisFighter().getSkin(), oneVersusOne.player1.getHisFighter().getSkin(), oneVersusOne.barHpPlayer1, oneVersusOne.barHpPlayer2, oneVersusOne.player1.getHisFighter().getHitbox(), oneVersusOne.player2.getHisFighter().getHitbox());
     }
 }
