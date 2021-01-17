@@ -36,7 +36,7 @@ public class OneVersusOne extends World{
     public HealthBarController barHpPlayer2;
 
     /**
-     * Instantiates a new One versus one.
+     * Instantiates a new One versus one mode game.
      *
      * @param urlMap      the url map
      * @param player1Name the player 1 name

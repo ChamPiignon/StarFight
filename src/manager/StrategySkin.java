@@ -112,7 +112,7 @@ public class StrategySkin
     }
 
     /**
-     * Mirror.
+     * Mirror. Not working for the hitbox
      *
      * @param fighter      the fighter
      * @param xOrientation the x orientation
@@ -120,6 +120,9 @@ public class StrategySkin
     public void mirror(Fighter fighter,int xOrientation)
     {
         fighter.getSkin().getImageView().setScaleX(xOrientation);
+        if(fighter.getHitbox() != null) {
+            fighter.getHitbox().setX(xOrientation);
+        }
     }
 
     /**
