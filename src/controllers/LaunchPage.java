@@ -5,15 +5,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
-import javafx.scene.transform.Scale;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -100,7 +99,7 @@ public class LaunchPage {
     }
 
     /**
-     *
+     * initialize the languages choice comboBox
      */
     private void initializeLanguages() {
         Cb_language.getItems().addAll(
@@ -121,7 +120,7 @@ public class LaunchPage {
     }
 
     /**
-     *
+     * initialize all text
      */
     private void initializeText() {
         playerColumn.setText(bundle.getString("PlayerColumn"));

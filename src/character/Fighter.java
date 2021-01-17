@@ -3,6 +3,7 @@ package character;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.image.ImageView;
+
 import java.util.Map;
 import java.util.TreeMap;
 

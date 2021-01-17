@@ -4,11 +4,9 @@ import character.Fighter;
 import character.Player;
 import command.KeyboardCommand;
 import controllers.HealthBarController;
-import javafx.scene.image.Image;
-import manager.ManagerFighter;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 
 /**

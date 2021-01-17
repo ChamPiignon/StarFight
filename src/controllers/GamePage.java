@@ -7,10 +7,8 @@ import character.StatMove;
 import command.Input;
 import command.KeyboardCommand;
 import javafx.animation.AnimationTimer;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -18,7 +16,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import world.OneVersusOne;
 
-import java.sql.SQLOutput;
 import java.util.ResourceBundle;
 
 /**

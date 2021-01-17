@@ -4,8 +4,6 @@ package command;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-import java.io.Serializable;
-
 /**
  * The type Input.
  */

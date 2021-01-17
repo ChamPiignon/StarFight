@@ -2,7 +2,6 @@ package manager;
 
 import character.Fighter;
 import character.StatMove;
-import javafx.animation.AnimationTimer;
 
 
 /**
