@@ -14,10 +14,18 @@ public class Main extends Application {
 
     private final ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue");
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch(args);
     }
 
+    /**
+     *
+     * @param stage
+     */
     @Override
     public void start(Stage stage){
 

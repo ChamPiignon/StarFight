@@ -14,14 +14,27 @@ public class Input {
         pressed = new boolean[255];
     }
 
+    /**
+     *
+     * @param e
+     */
     public static void keyPressed(KeyEvent e) {
         pressed[e.getCode().getCode()] = true;
     }
 
+    /**
+     *
+     * @param e
+     */
     public static void keyReleased(KeyEvent e) {
         pressed[e.getCode().getCode()] = false;
     }
 
+    /**
+     *
+     * @param keyCode
+     * @return
+     */
     public boolean isPressed(KeyCode keyCode) {
         return pressed[keyCode.getCode()];
     }

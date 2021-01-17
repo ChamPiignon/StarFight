@@ -20,6 +20,14 @@ public class ControlList {
     private final KeyboardCommand p2;
     private final ResourceBundle bundle;
 
+    /**
+     *
+     * @param controlString
+     * @param control
+     * @param p1
+     * @param p2
+     * @param bundle
+     */
     public ControlList(String controlString, ListMove control, KeyboardCommand p1, KeyboardCommand p2, ResourceBundle bundle) {
         this.controlString = controlString;
         this.control = control;
@@ -36,34 +44,67 @@ public class ControlList {
         this.bundle = bundle;
     }
 
+    /**
+     *
+     * @return
+     */
     public Button getP1Btn() {
         return p1Btn;
     }
 
+    /**
+     *
+     * @return
+     */
     public Button getP2Btn() {
         return p2Btn;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getControlString() {
         return controlString;
     }
 
+    /**
+     *
+     * @return
+     */
     public KeyCode getP1() {
         return getKeyCode(p1);
     }
 
+    /**
+     *
+     * @return
+     */
     public KeyCode getP2() {
         return getKeyCode(p2);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getP1String() {
         return getStringKeyCode(p1);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getP2String() {
         return getStringKeyCode(p2);
     }
 
+    /**
+     *
+     * @param command
+     * @return
+     */
     private KeyCode getKeyCode(KeyboardCommand command) {
         switch (control) {
             case LEFT:
@@ -81,6 +122,11 @@ public class ControlList {
         }
     }
 
+    /**
+     *
+     * @param command
+     * @return
+     */
     private String getStringKeyCode(KeyboardCommand command) {
         switch (control) {
             case LEFT:
@@ -98,6 +144,10 @@ public class ControlList {
         }
     }
 
+    /**
+     *
+     * @param btn
+     */
     private void buttonAction(Button btn) {
         if (btn.getId().equals(p1ID)) {
             dialogEvent(new KeyChoiceDialog(bundle, KeyCode.valueOf(btn.getText())), p1, btn);
@@ -107,6 +157,12 @@ public class ControlList {
         }
     }
 
+    /**
+     *
+     * @param dialog
+     * @param keyboardCommand
+     * @param btn
+     */
     private void dialogEvent(KeyChoiceDialog dialog, KeyboardCommand keyboardCommand, Button btn) {
         // action event
         EventHandler<ActionEvent> event = new EventHandler<ActionEvent>()
@@ -121,6 +177,11 @@ public class ControlList {
         btn.setText(dialog.getKey().toString());
     }
 
+    /**
+     *
+     * @param command
+     * @param newCommand
+     */
     private void setKeyCode(KeyboardCommand command, KeyCode newCommand) {
         switch (control) {
             case LEFT:
@@ -143,6 +204,10 @@ public class ControlList {
         }
     }
 
+    /**
+     *
+     * @param btn
+     */
     private void initBtn(Button btn) {
         btn.setOnAction(actionEvent -> buttonAction(btn));
     }

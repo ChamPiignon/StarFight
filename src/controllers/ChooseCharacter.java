@@ -54,6 +54,9 @@ public class ChooseCharacter {
     @FXML
     BorderPane root;
 
+    /**
+     *
+     */
     @FXML
     public void initialize() {
 
@@ -82,6 +85,12 @@ public class ChooseCharacter {
         nameInputPlayer2.setPrefWidth(myStage.getWidth() / 3);
     }
 
+    /**
+     *
+     * @param myStage
+     * @param bundle
+     * @throws Exception
+     */
     public ChooseCharacter(Stage myStage, ResourceBundle bundle) throws Exception {
         this.myStage = myStage;
         this.bundle = bundle;
@@ -95,6 +104,11 @@ public class ChooseCharacter {
         else p2Command = new KeyboardCommand(2);
     }
 
+    /**
+     *
+     * @param actionEvent
+     * @throws Exception
+     */
     public void setReadyPlayer2(ActionEvent actionEvent) throws Exception {
         btn_right.setText(bundle.getString("Btn_ready2"));
         player2Name = nameInputPlayer2.getText();
@@ -103,6 +117,11 @@ public class ChooseCharacter {
             launchGame();
     }
 
+    /**
+     *
+     * @param actionEvent
+     * @throws Exception
+     */
     public void setReadyPlayer1(ActionEvent actionEvent) throws Exception {
         btn_left.setText(bundle.getString("Btn_ready2"));
         player1Name = nameInputPlayer1.getText();
@@ -111,24 +130,45 @@ public class ChooseCharacter {
             launchGame();
     }
 
+    /**
+     *
+     * @param actionEvent
+     */
     public void selectSamouraiP1(ActionEvent actionEvent){
         fighter1=refreshSelectionAnimation(selectionP1,"Samourai");
     }
 
+    /**
+     *
+     * @param actionEvent
+     */
     public void selectNinjaP1(ActionEvent actionEvent){
         fighter1=refreshSelectionAnimation(selectionP1,"Ninja");
     }
 
+    /**
+     *
+     * @param actionEvent
+     */
     public void selectSamouraiP2(ActionEvent actionEvent){
         fighter2=refreshSelectionAnimation(selectionP2,"Samourai");
     }
 
+    /**
+     *
+     * @param actionEvent
+     */
     public void selectNinjaP2(ActionEvent actionEvent){
         fighter2=refreshSelectionAnimation(selectionP2,"Ninja");
     }
 
 
-
+    /**
+     *
+     * @param paneSelectionAnimation
+     * @param typePerso
+     * @return
+     */
     private Fighter refreshSelectionAnimation(Pane paneSelectionAnimation,String typePerso)
     {
         Fighter fighter = new Fighter(typePerso);
@@ -137,6 +177,10 @@ public class ChooseCharacter {
         return fighter;
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     private void launchGame() throws Exception {
         CommandSerializer.save("player1",p1Command);
         CommandSerializer.save("player2",p2Command);

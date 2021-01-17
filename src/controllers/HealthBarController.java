@@ -21,6 +21,10 @@ public class HealthBarController extends VBox {
     @FXML
     private Label playerLabel;
 
+    /**
+     *
+     * @param player
+     */
     public HealthBarController(Player player)
     {
         this.player = player;
@@ -37,6 +41,9 @@ public class HealthBarController extends VBox {
 
     }
 
+    /**
+     *
+     */
     @FXML
     public void initialize()
     {

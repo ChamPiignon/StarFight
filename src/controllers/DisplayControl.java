@@ -33,12 +33,19 @@ public class DisplayControl extends Pane {
     @FXML
     TableColumn<ControlList, Button> p1Column, p2Column;
 
+    /**
+     *
+     */
     @FXML
     public void initialize(){
         ObservableList<ControlList> list = getControlList();
         initTable(list);
     }
 
+    /**
+     *
+     * @param list
+     */
     private void initTable(ObservableList<ControlList> list){
         tableView.setPadding(new Insets(5));
         initCols();
@@ -47,6 +54,9 @@ public class DisplayControl extends Pane {
         tableView.getColumns().addAll(controlColumn, p1Column, p2Column);
     }
 
+    /**
+     *
+     */
     private void initCols(){
         controlColumn = new TableColumn<>(bundle.getString("ControlColumn"));
         p1Column = new TableColumn<>(bundle.getString("P1Column"));
@@ -57,6 +67,12 @@ public class DisplayControl extends Pane {
         p2Column.setCellValueFactory(new PropertyValueFactory<>("p2Btn"));
     }
 
+    /**
+     *
+     * @param p1Command
+     * @param p2Command
+     * @param bundle
+     */
     public DisplayControl(KeyboardCommand p1Command, KeyboardCommand p2Command, ResourceBundle bundle) {
         this.p1Command = p1Command;
         this.p2Command = p2Command;
@@ -72,6 +88,10 @@ public class DisplayControl extends Pane {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     private ObservableList<ControlList> getControlList() {
         ControlList left = new ControlList(bundle.getString("Left"), ListMove.LEFT, p1Command, p2Command, bundle);
         ControlList right = new ControlList(bundle.getString("Right"), ListMove.RIGHT, p1Command, p2Command, bundle);

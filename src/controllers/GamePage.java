@@ -58,6 +58,9 @@ public class GamePage {
 
     }
 
+    /**
+     *
+     */
     @FXML
     public void initialize(){
         initializeStage();
@@ -91,6 +94,11 @@ public class GamePage {
         skin.getImageView().setFitWidth(taille);
     }
 
+    /**
+     *
+     * @param player
+     * @return
+     */
     private boolean isDead(Player player) {
         if(player.getHisFighter().getStatMove() == StatMove.DEATH) {
             return true;
@@ -98,6 +106,13 @@ public class GamePage {
         return false;
     }
 
+    /**
+     *
+     * @param player1
+     * @param player2
+     * @param thread
+     * @return
+     */
     private boolean win(Player player1,Player player2,AnimationTimer thread) {
         if(isDead(player1)) {
             msgWin(player2,thread);
@@ -110,6 +125,11 @@ public class GamePage {
         return false;
     }
 
+    /**
+     *
+     * @param player
+     * @param thread
+     */
     private void msgWin(Player player,AnimationTimer thread)
     {
         thread.stop();
@@ -121,6 +141,11 @@ public class GamePage {
         alert.show();
     }
 
+    /**
+     *
+     * @param player1
+     * @param player2
+     */
     private void updatePlayerPosition(Player player1,Player player2){
         int deltaX = 0;
 
@@ -165,6 +190,9 @@ public class GamePage {
         }
     }
 
+    /**
+     *
+     */
     private void initializeStage()
     {
         stage.setWidth(STAGE_MAX_WIDHT);
@@ -172,11 +200,21 @@ public class GamePage {
         stage.setResizable(false);
     }
 
+    /**
+     *
+     * @param player
+     * @param x
+     * @param y
+     */
     private void initializePositionFight(Player player, int x, int y) {
         player.getHisFighter().getSkin().getImageView().setX(x);
         player.getHisFighter().getSkin().getImageView().setY(y);
     }
 
+    /**
+     *
+     * @param player
+     */
     private void initializeHitBox(Player player)
     {
         Rectangle hitBox = new Rectangle();
@@ -189,10 +227,18 @@ public class GamePage {
         player.getHisFighter().setHitbox(hitBox);
     }
 
+    /**
+     *
+     * @param barHpPlayer
+     * @param x
+     */
     private void initializeHealthBar(HealthBarController barHpPlayer,int x) {
         barHpPlayer.layoutXProperty().set(x);
     }
 
+    /**
+     *
+     */
     private void initializeGame(){
         background.setImage(oneVersusOne.getMap());
         scale(oneVersusOne.player1.getHisFighter().getSkin(), SIZE_FIGHTER);

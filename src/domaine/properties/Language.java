@@ -16,10 +16,18 @@ public class Language {
         this.language = language;
     }
 
+    /**
+     *
+     * @return language
+     */
     public Locale getLanguage() {
         return language;
     }
 
+    /**
+     *
+     * @return name
+     */
     @Override
     public String toString() {
         return name;

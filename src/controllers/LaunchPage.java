@@ -41,6 +41,9 @@ public class LaunchPage {
     @FXML
     StackPane root;
 
+    /**
+     *
+     */
     @FXML
     public void initialize() {
 
@@ -48,6 +51,10 @@ public class LaunchPage {
         initializeLanguages();
     }
 
+    /**
+     *
+     * @param myStage
+     */
     public LaunchPage(Stage myStage) {
         this.stage = myStage;
         stage.widthProperty().addListener(e ->{
@@ -58,6 +65,9 @@ public class LaunchPage {
         });
     }
 
+    /**
+     *
+     */
     private void initializeLanguages() {
         Cb_language.getItems().addAll(
                 new Language("Default", Locale.getDefault()),
@@ -76,6 +86,9 @@ public class LaunchPage {
         });
     }
 
+    /**
+     *
+     */
     private void initializeText() {
         playerColumn.setText(bundle.getString("PlayerColumn"));
         numberColumn.setText(bundle.getString("NumberColumn"));
@@ -86,6 +99,11 @@ public class LaunchPage {
         titleLabel.setText(bundle.getString("GameTitle"));
     }
 
+    /**
+     *
+     * @param actionEvent
+     * @throws Exception
+     */
     public void onClickPlay(ActionEvent actionEvent) throws Exception {
         Stage primaryStage = new Stage();
         primaryStage.initModality(Modality.APPLICATION_MODAL);
@@ -101,15 +119,27 @@ public class LaunchPage {
         primaryStage.show();
     }
 
+    /**
+     *
+     * @param actionEvent
+     */
     public void onClickExit(ActionEvent actionEvent) {
         Stage stage = (Stage) btn_exit.getScene().getWindow();
         stage.close();
     }
 
+    /**
+     *
+     * @return
+     */
     public ResourceBundle getBundle() {
         return bundle;
     }
 
+    /**
+     *
+     * @param bundle
+     */
     public void setBundle(ResourceBundle bundle) {
         this.bundle = bundle;
         initializeText();

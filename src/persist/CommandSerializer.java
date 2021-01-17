@@ -7,6 +7,11 @@ import java.io.*;
 public class CommandSerializer {
     private final static String extension = ".txt";
 
+    /**
+     *
+     * @param player
+     * @param keyboardCommand
+     */
     public static void save(final String player, KeyboardCommand keyboardCommand){
 
         ObjectOutputStream oos = null;
@@ -29,6 +34,11 @@ public class CommandSerializer {
         }
     }
 
+    /**
+     *
+     * @param player
+     * @return
+     */
     public static KeyboardCommand load(final String player){
         ObjectInputStream ois = null;
         KeyboardCommand keyboardCommand = null;
@@ -51,6 +61,11 @@ public class CommandSerializer {
         return keyboardCommand;
     }
 
+    /**
+     *
+     * @param player
+     * @return boolean
+     */
     public static Boolean isSaved(final String player){
         String fileName = player + extension;
         File f = new File(fileName);

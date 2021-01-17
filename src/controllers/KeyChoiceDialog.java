@@ -13,6 +13,11 @@ import java.util.ResourceBundle;
 public class KeyChoiceDialog extends ChoiceDialog<KeyCode> {
     private KeyCode key;
 
+    /**
+     *
+     * @param bundle
+     * @param oldKey
+     */
     public KeyChoiceDialog(ResourceBundle bundle, KeyCode oldKey) {
         List<KeyCode> choices = new ArrayList<>();
         initializeChoices(choices);
@@ -32,10 +37,18 @@ public class KeyChoiceDialog extends ChoiceDialog<KeyCode> {
         result.ifPresent(keyCode -> {System.out.println("Your choice: " + keyCode); this.key = keyCode;});
     }
 
+    /**
+     *
+     * @return
+     */
     public KeyCode getKey() {
         return key;
     }
 
+    /**
+     *
+     * @param choices
+     */
     private void initializeChoices(List<KeyCode> choices){
         choices.add(KeyCode.A);
         choices.add(KeyCode.Z);

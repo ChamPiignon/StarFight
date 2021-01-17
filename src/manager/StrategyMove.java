@@ -10,7 +10,11 @@ public class StrategyMove {
     private final int jumpSize = 20;
     private final double maxY = 40.0;
 
-
+    /**
+     *
+     * @param fighter
+     * @param yOrigin
+     */
     public void jump(Fighter fighter, int yOrigin) {        
 
         if (!fighter.isFalling) {
@@ -36,6 +40,11 @@ public class StrategyMove {
 
     }
 
+    /**
+     *
+     * @param fighter
+     * @param deltaX
+     */
     public void moveLeft(Fighter fighter, int deltaX) {        
         skin.mirror(fighter, -1);
         canRun(fighter);
@@ -47,6 +56,11 @@ public class StrategyMove {
         }
     }
 
+    /**
+     *
+     * @param fighter
+     * @param deltaX
+     */
     public void moveRight(Fighter fighter, int deltaX) {
         skin.mirror(fighter, 1);
         canRun(fighter);
@@ -58,12 +72,20 @@ public class StrategyMove {
         }
     }
 
+    /**
+     *
+     * @param fighter
+     */
     private void canRun(Fighter fighter) {
         if (fighter.getStatMove() != StatMove.RUN && (!fighter.isJumping && !fighter.isFalling)) {
             skin.run(fighter);
         }
     }
 
+    /**
+     *
+     * @param fighter
+     */
     public void noMove(Fighter fighter) {
         if (fighter.getStatMove() != StatMove.IDLE) {
             skin.idle(fighter);

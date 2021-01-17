@@ -7,19 +7,33 @@ public class StrategyFight {
     private final static int DAMAGE = 10;
 
 
-
+    /**
+     *
+     * @param attacker
+     * @param defender
+     */
     public void primaryAttack(Fighter attacker, Fighter defender)
     {
         skin.primaryAttack(attacker);
         collision(attacker,defender);
     }
 
+    /**
+     *
+     * @param attacker
+     * @param defender
+     */
     public void secondaryAttack(Fighter attacker, Fighter defender)
     {
         skin.secondaryAttack(attacker);
         collision(attacker,defender);
     }
 
+    /**
+     *
+     * @param attacker
+     * @param defender
+     */
     private void collision(Fighter attacker, Fighter defender)
     {
         if(attacker.getHitbox().intersects(defender.getHitbox().getLayoutBounds()))
@@ -31,6 +45,10 @@ public class StrategyFight {
         });
     }
 
+    /**
+     *
+     * @param fighter
+     */
     private void receiveAttack(Fighter fighter)
     {
         receiveDamage(fighter);
@@ -48,6 +66,10 @@ public class StrategyFight {
 
     }
 
+    /**
+     *
+     * @param fighter
+     */
     private void receiveDamage(Fighter fighter)
     {
         fighter.getCurrentHP().set(fighter.getCurrentHP().get()-DAMAGE);
@@ -56,6 +78,11 @@ public class StrategyFight {
         }
     }
 
+    /**
+     *
+     * @param fighter
+     * @return boolean
+     */
     private boolean isDead(Fighter fighter)
     {
         if(fighter.getCurrentHP().get()<=0)
