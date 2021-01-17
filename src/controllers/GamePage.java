@@ -104,6 +104,7 @@ public class GamePage {
     }
 
     /**
+     * scale player
      *
      * @param skin
      * @param taille
@@ -114,6 +115,7 @@ public class GamePage {
     }
 
     /**
+     * is Dead or not ?
      *
      * @param player
      * @return
@@ -145,6 +147,7 @@ public class GamePage {
     }
 
     /**
+     * Alert message for the winner Player
      *
      * @param player
      * @param thread
@@ -210,7 +213,7 @@ public class GamePage {
     }
 
     /**
-     *
+     * initialize the stage
      */
     private void initializeStage()
     {
@@ -220,6 +223,7 @@ public class GamePage {
     }
 
     /**
+     * Initilize position
      *
      * @param player
      * @param x
@@ -247,6 +251,7 @@ public class GamePage {
     }
 
     /**
+     * initialize healthbar
      *
      * @param barHpPlayer
      * @param x
@@ -256,6 +261,7 @@ public class GamePage {
     }
 
     /**
+     * initilize the game
      *
      */
     private void initializeGame(){
