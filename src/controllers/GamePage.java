@@ -114,8 +114,8 @@ public class GamePage {
     {
         thread.stop();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Fin de la partie");
-        alert.setContentText("Felicitation victoire de "+player.getName());
+        alert.setTitle(bundle.getString("msgWinTitle"));
+        alert.setContentText(bundle.getString("msgWinText")+player.getName());
         alert.setHeaderText(null);
         alert.setOnHidden(evt -> stage.close());
         alert.show();

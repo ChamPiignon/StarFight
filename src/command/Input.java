@@ -4,6 +4,8 @@ package command;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
+import java.io.Serializable;
+
 public class Input {
 
     private static boolean[] pressed;
