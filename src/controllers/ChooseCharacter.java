@@ -20,9 +20,21 @@ import persist.CommandSerializer;
 
 import java.util.ResourceBundle;
 
+/**
+ * The type Choose character.
+ */
 public class ChooseCharacter {
+    /**
+     * The Bundle.
+     */
     public ResourceBundle bundle;
+    /**
+     * The Player 1 is ready.
+     */
     boolean player1IsReady = false;
+    /**
+     * The Player 2 is ready.
+     */
     boolean player2IsReady = false;
     private String player1Name, player2Name;
     private final Stage myStage;
@@ -33,29 +45,68 @@ public class ChooseCharacter {
     private Fighter fighter1 = new Fighter("ninja");
     private Fighter fighter2 = new Fighter("samourai");
 
+    /**
+     * The Name player 1.
+     */
     @FXML
-    Text namePlayer1, namePlayer2;
+    Text namePlayer1, /**
+     * The Name player 2.
+     */
+    namePlayer2;
 
+    /**
+     * The Name input player 1.
+     */
     @FXML
-    TextField nameInputPlayer1, nameInputPlayer2;
+    TextField nameInputPlayer1, /**
+     * The Name input player 2.
+     */
+    nameInputPlayer2;
 
+    /**
+     * The Btn left.
+     */
     @FXML
-    Button btn_left, btn_right;
+    Button btn_left, /**
+     * The Btn right.
+     */
+    btn_right;
 
+    /**
+     * The Selection p 1.
+     */
     @FXML
-    Pane selectionP1, selectionP2, controlTable;
+    Pane selectionP1, /**
+     * The Selection p 2.
+     */
+    selectionP2, /**
+     * The Control table.
+     */
+    controlTable;
 
+    /**
+     * The Left box.
+     */
     @FXML
-    VBox leftBox, rightBox;
+    VBox leftBox, /**
+     * The Right box.
+     */
+    rightBox;
 
+    /**
+     * The Center box.
+     */
     @FXML
     HBox centerBox;
 
+    /**
+     * The Root.
+     */
     @FXML
     BorderPane root;
 
     /**
-     *
+     * Initialize.
      */
     @FXML
     public void initialize() {
@@ -86,10 +137,11 @@ public class ChooseCharacter {
     }
 
     /**
+     * Instantiates a new Choose character.
      *
-     * @param myStage
-     * @param bundle
-     * @throws Exception
+     * @param myStage the my stage
+     * @param bundle  the bundle
+     * @throws Exception the exception
      */
     public ChooseCharacter(Stage myStage, ResourceBundle bundle) throws Exception {
         this.myStage = myStage;
@@ -105,9 +157,10 @@ public class ChooseCharacter {
     }
 
     /**
+     * Sets ready player 2.
      *
-     * @param actionEvent
-     * @throws Exception
+     * @param actionEvent the action event
+     * @throws Exception the exception
      */
     public void setReadyPlayer2(ActionEvent actionEvent) throws Exception {
         btn_right.setText(bundle.getString("Btn_ready2"));
@@ -118,9 +171,10 @@ public class ChooseCharacter {
     }
 
     /**
+     * Sets ready player 1.
      *
-     * @param actionEvent
-     * @throws Exception
+     * @param actionEvent the action event
+     * @throws Exception the exception
      */
     public void setReadyPlayer1(ActionEvent actionEvent) throws Exception {
         btn_left.setText(bundle.getString("Btn_ready2"));
@@ -131,32 +185,36 @@ public class ChooseCharacter {
     }
 
     /**
+     * Select samourai p 1.
      *
-     * @param actionEvent
+     * @param actionEvent the action event
      */
     public void selectSamouraiP1(ActionEvent actionEvent){
         fighter1=refreshSelectionAnimation(selectionP1,"Samourai");
     }
 
     /**
+     * Select ninja p 1.
      *
-     * @param actionEvent
+     * @param actionEvent the action event
      */
     public void selectNinjaP1(ActionEvent actionEvent){
         fighter1=refreshSelectionAnimation(selectionP1,"Ninja");
     }
 
     /**
+     * Select samourai p 2.
      *
-     * @param actionEvent
+     * @param actionEvent the action event
      */
     public void selectSamouraiP2(ActionEvent actionEvent){
         fighter2=refreshSelectionAnimation(selectionP2,"Samourai");
     }
 
     /**
+     * Select ninja p 2.
      *
-     * @param actionEvent
+     * @param actionEvent the action event
      */
     public void selectNinjaP2(ActionEvent actionEvent){
         fighter2=refreshSelectionAnimation(selectionP2,"Ninja");

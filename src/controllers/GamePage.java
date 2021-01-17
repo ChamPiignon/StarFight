@@ -21,9 +21,18 @@ import world.OneVersusOne;
 import java.sql.SQLOutput;
 import java.util.ResourceBundle;
 
+/**
+ * The type Game page.
+ */
 public class GamePage {
+    /**
+     * The Root.
+     */
     @FXML
     AnchorPane root;
+    /**
+     * The Background.
+     */
     @FXML
     ImageView background;
 
@@ -50,6 +59,19 @@ public class GamePage {
     private final Stage stage;
     private OneVersusOne oneVersusOne;
 
+    /**
+     * Instantiates a new Game page.
+     *
+     * @param stage       the stage
+     * @param player1Name the player 1 name
+     * @param fighter1    the fighter 1
+     * @param player2Name the player 2 name
+     * @param fighter2    the fighter 2
+     * @param p1Command   the p 1 command
+     * @param p2Command   the p 2 command
+     * @param bundle      the bundle
+     * @throws Exception the exception
+     */
     public GamePage(Stage stage, String player1Name, Fighter fighter1, String player2Name, Fighter fighter2,KeyboardCommand p1Command, KeyboardCommand p2Command,ResourceBundle bundle) throws Exception {
         this.stage = stage;
         oneVersusOne = new OneVersusOne("images/background.gif",player1Name, fighter1, player2Name, fighter2, p1Command, p2Command);
@@ -59,7 +81,7 @@ public class GamePage {
     }
 
     /**
-     *
+     * Initialize.
      */
     @FXML
     public void initialize(){

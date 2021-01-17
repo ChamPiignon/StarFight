@@ -2,15 +2,19 @@ package manager;
 
 import character.Fighter;
 
+/**
+ * The type Strategy fight.
+ */
 public class StrategyFight {
     private StrategySkin skin = new StrategySkin();
     private final static int DAMAGE = 10;
 
 
     /**
+     * Primary attack.
      *
-     * @param attacker
-     * @param defender
+     * @param attacker the attacker
+     * @param defender the defender
      */
     public void primaryAttack(Fighter attacker, Fighter defender)
     {
@@ -19,9 +23,10 @@ public class StrategyFight {
     }
 
     /**
+     * Secondary attack.
      *
-     * @param attacker
-     * @param defender
+     * @param attacker the attacker
+     * @param defender the defender
      */
     public void secondaryAttack(Fighter attacker, Fighter defender)
     {

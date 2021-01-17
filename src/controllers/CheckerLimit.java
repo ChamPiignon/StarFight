@@ -1,14 +1,18 @@
 package controllers;
 
+/**
+ * The type Checker limit.
+ */
 public class CheckerLimit
 {
     private final double LEFT_LIMIT;
     private final double RIGHT_LIMIT;
 
     /**
+     * Instantiates a new Checker limit.
      *
-     * @param leftLimit
-     * @param rightLimit
+     * @param leftLimit  the left limit
+     * @param rightLimit the right limit
      */
     public CheckerLimit(double leftLimit, double rightLimit) {
         this.LEFT_LIMIT = leftLimit;
@@ -16,9 +20,10 @@ public class CheckerLimit
     }
 
     /**
+     * Is left limit boolean.
      *
-     * @param currentPosition
-     * @return
+     * @param currentPosition the current position
+     * @return boolean
      */
     public boolean isLeftLimit(double currentPosition)
     {
@@ -28,9 +33,10 @@ public class CheckerLimit
     }
 
     /**
+     * Is right limit boolean.
      *
-     * @param currentPosition
-     * @return
+     * @param currentPosition the current position
+     * @return boolean
      */
     public boolean isRightLimit(double currentPosition)
     {

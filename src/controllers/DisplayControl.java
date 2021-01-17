@@ -17,6 +17,9 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
+/**
+ * The type Display control.
+ */
 public class DisplayControl extends Pane {
     private final KeyboardCommand p1Command;
     private final KeyboardCommand p2Command;
@@ -25,16 +28,28 @@ public class DisplayControl extends Pane {
     private static final int CELLWIDTH = 100;
     private static final int COLUMNNUMBER = 3;
 
+    /**
+     * The Table view.
+     */
     @FXML
     TableView<ControlList> tableView;
 
+    /**
+     * The Control column.
+     */
     @FXML
     TableColumn<ControlList, String> controlColumn;
+    /**
+     * The P 1 column.
+     */
     @FXML
-    TableColumn<ControlList, Button> p1Column, p2Column;
+    TableColumn<ControlList, Button> p1Column, /**
+     * The P 2 column.
+     */
+    p2Column;
 
     /**
-     *
+     * Initialize.
      */
     @FXML
     public void initialize(){
@@ -68,10 +83,11 @@ public class DisplayControl extends Pane {
     }
 
     /**
+     * Instantiates a new Display control.
      *
-     * @param p1Command
-     * @param p2Command
-     * @param bundle
+     * @param p1Command the p 1 command
+     * @param p2Command the p 2 command
+     * @param bundle    the bundle
      */
     public DisplayControl(KeyboardCommand p1Command, KeyboardCommand p2Command, ResourceBundle bundle) {
         this.p1Command = p1Command;

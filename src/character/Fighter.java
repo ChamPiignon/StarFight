@@ -6,10 +6,18 @@ import javafx.scene.image.ImageView;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * The type Fighter.
+ */
 public class Fighter extends Character {
     private Skin skin;
     private StatMove statMove;
 
+    /**
+     * Instantiates a new Fighter.
+     *
+     * @param name the name
+     */
     public Fighter(String name) {
         super(new SimpleIntegerProperty(100),name);
         try {
@@ -31,14 +39,29 @@ public class Fighter extends Character {
 
     }
 
+    /**
+     * Sets stat move.
+     *
+     * @param statMove the stat move
+     */
     public void setStatMove(StatMove statMove) {
         this.statMove = statMove;
     }
 
+    /**
+     * Gets stat move.
+     *
+     * @return the stat move
+     */
     public StatMove getStatMove() {
         return statMove;
     }
 
+    /**
+     * Gets skin.
+     *
+     * @return the skin
+     */
     public Skin getSkin() {
         return skin;
     }

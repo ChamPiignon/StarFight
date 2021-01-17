@@ -11,10 +11,16 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 
+/**
+ * The type Health bar controller.
+ */
 public class HealthBarController extends VBox {
     private int maxHP;
     private Player player;
     private DoubleProperty currentHP = new SimpleDoubleProperty();
+    /**
+     * The Health bar.
+     */
     @FXML
     public ProgressBar healthBar;
 
@@ -22,8 +28,9 @@ public class HealthBarController extends VBox {
     private Label playerLabel;
 
     /**
+     * Instantiates a new Health bar controller.
      *
-     * @param player
+     * @param player the player
      */
     public HealthBarController(Player player)
     {
@@ -42,7 +49,7 @@ public class HealthBarController extends VBox {
     }
 
     /**
-     *
+     * Initialize.
      */
     @FXML
     public void initialize()

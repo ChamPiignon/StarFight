@@ -17,32 +17,65 @@ import javafx.stage.Stage;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * The type Launch page.
+ */
 public class LaunchPage {
     private final Stage stage;
     private double stageWidth;
     private double stageHeight;
     private ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue");
 
+    /**
+     * The Player column.
+     */
     @FXML
-    TableColumn<String, String> playerColumn, numberColumn, statColumn, bestColumn;
+    TableColumn<String, String> playerColumn, /**
+     * The Number column.
+     */
+    numberColumn, /**
+     * The Stat column.
+     */
+    statColumn, /**
+     * The Best column.
+     */
+    bestColumn;
 
+    /**
+     * The Btn play.
+     */
     @FXML
-    Button btn_play, btn_exit;
+    Button btn_play, /**
+     * The Btn exit.
+     */
+    btn_exit;
 
+    /**
+     * The Cb language.
+     */
     @FXML
     ComboBox<Language> Cb_language;
 
+    /**
+     * The Table view.
+     */
     @FXML
     TableView<String> tableView;
 
+    /**
+     * The Title label.
+     */
     @FXML
     Label titleLabel;
 
+    /**
+     * The Root.
+     */
     @FXML
     StackPane root;
 
     /**
-     *
+     * Initialize.
      */
     @FXML
     public void initialize() {
@@ -52,8 +85,9 @@ public class LaunchPage {
     }
 
     /**
+     * Instantiates a new Launch page.
      *
-     * @param myStage
+     * @param myStage the my stage
      */
     public LaunchPage(Stage myStage) {
         this.stage = myStage;
@@ -100,9 +134,10 @@ public class LaunchPage {
     }
 
     /**
+     * On click play.
      *
-     * @param actionEvent
-     * @throws Exception
+     * @param actionEvent the action event
+     * @throws Exception the exception
      */
     public void onClickPlay(ActionEvent actionEvent) throws Exception {
         Stage primaryStage = new Stage();
@@ -120,8 +155,9 @@ public class LaunchPage {
     }
 
     /**
+     * On click exit.
      *
-     * @param actionEvent
+     * @param actionEvent the action event
      */
     public void onClickExit(ActionEvent actionEvent) {
         Stage stage = (Stage) btn_exit.getScene().getWindow();
@@ -129,16 +165,18 @@ public class LaunchPage {
     }
 
     /**
+     * Gets bundle.
      *
-     * @return
+     * @return bundle
      */
     public ResourceBundle getBundle() {
         return bundle;
     }
 
     /**
+     * Sets bundle.
      *
-     * @param bundle
+     * @param bundle the bundle
      */
     public void setBundle(ResourceBundle bundle) {
         this.bundle = bundle;

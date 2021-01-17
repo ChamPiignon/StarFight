@@ -4,13 +4,17 @@ import command.KeyboardCommand;
 
 import java.io.*;
 
+/**
+ * The type Command serializer.
+ */
 public class CommandSerializer {
     private final static String extension = ".txt";
 
     /**
+     * Save.
      *
-     * @param player
-     * @param keyboardCommand
+     * @param player          the player
+     * @param keyboardCommand the keyboard command
      */
     public static void save(final String player, KeyboardCommand keyboardCommand){
 
@@ -35,9 +39,10 @@ public class CommandSerializer {
     }
 
     /**
+     * Load keyboard command.
      *
-     * @param player
-     * @return
+     * @param player the player
+     * @return keyboard command
      */
     public static KeyboardCommand load(final String player){
         ObjectInputStream ois = null;
@@ -62,9 +67,10 @@ public class CommandSerializer {
     }
 
     /**
+     * Is saved boolean.
      *
-     * @param player
-     * @return boolean
+     * @param player the player
+     * @return boolean boolean
      */
     public static Boolean isSaved(final String player){
         String fileName = player + extension;

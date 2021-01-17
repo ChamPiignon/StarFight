@@ -11,12 +11,42 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 
+/**
+ * The type One versus one.
+ */
 public class OneVersusOne extends World{
+    /**
+     * The List players.
+     */
     public List<Player> listPlayers = new ArrayList<>();
-    public Player player1, player2;
+    /**
+     * The Player 1.
+     */
+    public Player player1, /**
+     * The Player 2.
+     */
+    player2;
+    /**
+     * The Bar hp player 1.
+     */
     public HealthBarController barHpPlayer1;
+    /**
+     * The Bar hp player 2.
+     */
     public HealthBarController barHpPlayer2;
 
+    /**
+     * Instantiates a new One versus one.
+     *
+     * @param urlMap      the url map
+     * @param player1Name the player 1 name
+     * @param fighter1    the fighter 1
+     * @param player2Name the player 2 name
+     * @param fighter2    the fighter 2
+     * @param p1Command   the p 1 command
+     * @param p2Command   the p 2 command
+     * @throws Exception the exception
+     */
     public OneVersusOne(String urlMap, String player1Name, Fighter fighter1, String player2Name, Fighter fighter2,KeyboardCommand p1Command, KeyboardCommand p2Command) throws Exception {
         super(urlMap);
         this.player1 = new Player(fighter1, player1Name, 0, p1Command);

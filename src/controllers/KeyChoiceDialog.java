@@ -10,13 +10,17 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+/**
+ * The type Key choice dialog.
+ */
 public class KeyChoiceDialog extends ChoiceDialog<KeyCode> {
     private KeyCode key;
 
     /**
+     * Instantiates a new Key choice dialog.
      *
-     * @param bundle
-     * @param oldKey
+     * @param bundle the bundle
+     * @param oldKey the old key
      */
     public KeyChoiceDialog(ResourceBundle bundle, KeyCode oldKey) {
         List<KeyCode> choices = new ArrayList<>();
@@ -38,8 +42,9 @@ public class KeyChoiceDialog extends ChoiceDialog<KeyCode> {
     }
 
     /**
+     * Gets key.
      *
-     * @return
+     * @return key
      */
     public KeyCode getKey() {
         return key;

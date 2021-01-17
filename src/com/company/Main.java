@@ -10,13 +10,17 @@ import javafx.stage.Stage;
 
 import java.util.ResourceBundle;
 
+/**
+ * The type Main.
+ */
 public class Main extends Application {
 
     private final ResourceBundle bundle = ResourceBundle.getBundle("domaine/properties/langue");
 
     /**
+     * The entry point of application.
      *
-     * @param args
+     * @param args the input arguments
      */
     public static void main(String[] args) {
         launch(args);

@@ -10,11 +10,15 @@ import javafx.scene.transform.Scale;
 import static javafx.geometry.NodeOrientation.LEFT_TO_RIGHT;
 import static javafx.geometry.NodeOrientation.RIGHT_TO_LEFT;
 
+/**
+ * The type Strategy skin.
+ */
 public class StrategySkin
 {
     /**
+     * Jump.
      *
-     * @param fighter
+     * @param fighter the fighter
      */
     public void jump(Fighter fighter)
     {
@@ -22,8 +26,9 @@ public class StrategySkin
     }
 
     /**
+     * Primary attack.
      *
-     * @param fighter
+     * @param fighter the fighter
      */
     public void primaryAttack(Fighter fighter)
     {
@@ -31,8 +36,9 @@ public class StrategySkin
     }
 
     /**
+     * Secondary attack.
      *
-     * @param fighter
+     * @param fighter the fighter
      */
     public void secondaryAttack(Fighter fighter)
     {
@@ -40,8 +46,9 @@ public class StrategySkin
     }
 
     /**
+     * Run.
      *
-     * @param fighter
+     * @param fighter the fighter
      */
     public void run(Fighter fighter)
     {
@@ -49,8 +56,9 @@ public class StrategySkin
     }
 
     /**
+     * Fall.
      *
-     * @param fighter
+     * @param fighter the fighter
      */
     public void fall(Fighter fighter)
     {
@@ -58,8 +66,9 @@ public class StrategySkin
     }
 
     /**
+     * Take hit.
      *
-     * @param fighter
+     * @param fighter the fighter
      */
     public void takeHit(Fighter fighter)
     {
@@ -67,8 +76,9 @@ public class StrategySkin
     }
 
     /**
+     * Idle.
      *
-     * @param fighter
+     * @param fighter the fighter
      */
     public void idle(Fighter fighter)
     {
@@ -76,8 +86,9 @@ public class StrategySkin
     }
 
     /**
+     * Death.
      *
-     * @param fighter
+     * @param fighter the fighter
      */
     public void death(Fighter fighter)
     {
@@ -88,10 +99,11 @@ public class StrategySkin
     }
 
     /**
+     * Sets stat move.
      *
-     * @param fighter
-     * @param name
-     * @param nBoucleAnimation
+     * @param fighter          the fighter
+     * @param name             the name
+     * @param nBoucleAnimation the n boucle animation
      */
     public void setStatMove(Fighter fighter,StatMove name, int nBoucleAnimation)
     {
@@ -100,9 +112,10 @@ public class StrategySkin
     }
 
     /**
+     * Mirror.
      *
-     * @param fighter
-     * @param xOrientation
+     * @param fighter      the fighter
+     * @param xOrientation the x orientation
      */
     public void mirror(Fighter fighter,int xOrientation)
     {
@@ -110,9 +123,10 @@ public class StrategySkin
     }
 
     /**
+     * Get sprite image view.
      *
-     * @param fighter
-     * @return
+     * @param fighter the fighter
+     * @return image view
      */
     public ImageView getSprite(Fighter fighter){ return fighter.getSkin().getImageView(); }
 

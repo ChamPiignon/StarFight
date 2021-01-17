@@ -5,6 +5,9 @@ import javafx.scene.input.KeyCode;
 
 import java.io.Serializable;
 
+/**
+ * The type Keyboard command.
+ */
 public class KeyboardCommand extends Control implements Serializable {
     private KeyCode jump;
     private KeyCode left;
@@ -13,89 +16,100 @@ public class KeyboardCommand extends Control implements Serializable {
     private KeyCode sndAtk;
 
     /**
+     * Gets jump.
      *
-     * @return
+     * @return jump
      */
     public KeyCode getJump() {
         return jump;
     }
 
     /**
+     * Sets jump.
      *
-     * @param jump
+     * @param jump the jump
      */
     public void setJump(KeyCode jump) {
         this.jump = jump;
     }
 
     /**
+     * Gets left.
      *
-     * @return
+     * @return left
      */
     public KeyCode getLeft() {
         return left;
     }
 
     /**
+     * Sets left.
      *
-     * @param left
+     * @param left the left
      */
     public void setLeft(KeyCode left) {
         this.left = left;
     }
 
     /**
+     * Gets right.
      *
-     * @return
+     * @return right
      */
     public KeyCode getRight() {
         return right;
     }
 
     /**
+     * Sets right.
      *
-     * @param right
+     * @param right the right
      */
     public void setRight(KeyCode right) {
         this.right = right;
     }
 
     /**
+     * Gets prim atk.
      *
-     * @return
+     * @return prim atk
      */
     public KeyCode getPrimAtk() {
         return primAtk;
     }
 
     /**
+     * Sets prim atk.
      *
-     * @param primAtk
+     * @param primAtk the prim atk
      */
     public void setPrimAtk(KeyCode primAtk) {
         this.primAtk = primAtk;
     }
 
     /**
+     * Gets snd atk.
      *
-     * @return
+     * @return snd atk
      */
     public KeyCode getSndAtk() {
         return sndAtk;
     }
 
     /**
+     * Sets snd atk.
      *
-     * @param sndAtk
+     * @param sndAtk the snd atk
      */
     public void setSndAtk(KeyCode sndAtk) {
         this.sndAtk = sndAtk;
     }
 
     /**
+     * Instantiates a new Keyboard command.
      *
-     * @param player
-     * @throws Exception
+     * @param player the player
+     * @throws Exception the exception
      */
     public KeyboardCommand(int player) throws Exception {
 

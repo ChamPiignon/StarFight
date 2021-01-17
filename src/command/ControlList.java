@@ -9,6 +9,9 @@ import javafx.scene.input.KeyCode;
 
 import java.util.ResourceBundle;
 
+/**
+ * The type Control list.
+ */
 public class ControlList {
     private final String controlString;
     private final ListMove control;
@@ -21,12 +24,13 @@ public class ControlList {
     private final ResourceBundle bundle;
 
     /**
+     * Instantiates a new Control list.
      *
-     * @param controlString
-     * @param control
-     * @param p1
-     * @param p2
-     * @param bundle
+     * @param controlString the control string
+     * @param control       the control
+     * @param p1            the p 1
+     * @param p2            the p 2
+     * @param bundle        the bundle
      */
     public ControlList(String controlString, ListMove control, KeyboardCommand p1, KeyboardCommand p2, ResourceBundle bundle) {
         this.controlString = controlString;
@@ -45,56 +49,63 @@ public class ControlList {
     }
 
     /**
+     * Gets p 1 btn.
      *
-     * @return
+     * @return p 1 btn
      */
     public Button getP1Btn() {
         return p1Btn;
     }
 
     /**
+     * Gets p 2 btn.
      *
-     * @return
+     * @return p 2 btn
      */
     public Button getP2Btn() {
         return p2Btn;
     }
 
     /**
+     * Gets control string.
      *
-     * @return
+     * @return control string
      */
     public String getControlString() {
         return controlString;
     }
 
     /**
+     * Gets p 1.
      *
-     * @return
+     * @return p 1
      */
     public KeyCode getP1() {
         return getKeyCode(p1);
     }
 
     /**
+     * Gets p 2.
      *
-     * @return
+     * @return p 2
      */
     public KeyCode getP2() {
         return getKeyCode(p2);
     }
 
     /**
+     * Gets p 1 string.
      *
-     * @return
+     * @return p 1 string
      */
     public String getP1String() {
         return getStringKeyCode(p1);
     }
 
     /**
+     * Gets p 2 string.
      *
-     * @return
+     * @return p 2 string
      */
     public String getP2String() {
         return getStringKeyCode(p2);

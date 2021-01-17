@@ -5,17 +5,21 @@ import character.StatMove;
 import javafx.animation.AnimationTimer;
 
 
+/**
+ * The type Strategy move.
+ */
 public class StrategyMove {
     private static final StrategySkin skin = new StrategySkin();
     private final int jumpSize = 20;
     private final double maxY = 40.0;
 
     /**
+     * Jump.
      *
-     * @param fighter
-     * @param yOrigin
+     * @param fighter the fighter
+     * @param yOrigin the y origin
      */
-    public void jump(Fighter fighter, int yOrigin) {        
+    public void jump(Fighter fighter, int yOrigin) {
 
         if (!fighter.isFalling) {
             fighter.isJumping = true;
@@ -41,11 +45,12 @@ public class StrategyMove {
     }
 
     /**
+     * Move left.
      *
-     * @param fighter
-     * @param deltaX
+     * @param fighter the fighter
+     * @param deltaX  the delta x
      */
-    public void moveLeft(Fighter fighter, int deltaX) {        
+    public void moveLeft(Fighter fighter, int deltaX) {
         skin.mirror(fighter, -1);
         canRun(fighter);
         fighter.getSkin().getImageView().setX(fighter.getSkin().getImageView().getX() + deltaX);
@@ -57,9 +62,10 @@ public class StrategyMove {
     }
 
     /**
+     * Move right.
      *
-     * @param fighter
-     * @param deltaX
+     * @param fighter the fighter
+     * @param deltaX  the delta x
      */
     public void moveRight(Fighter fighter, int deltaX) {
         skin.mirror(fighter, 1);
@@ -83,8 +89,9 @@ public class StrategyMove {
     }
 
     /**
+     * No move.
      *
-     * @param fighter
+     * @param fighter the fighter
      */
     public void noMove(Fighter fighter) {
         if (fighter.getStatMove() != StatMove.IDLE) {

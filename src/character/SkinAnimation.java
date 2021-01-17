@@ -8,6 +8,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
+/**
+ * The type Skin animation.
+ */
 public class SkinAnimation extends Transition {
 
 
@@ -22,6 +25,11 @@ public class SkinAnimation extends Transition {
     private int offSetX=0;
     private int offSetY=0;
 
+    /**
+     * Instantiates a new Skin animation.
+     *
+     * @param image the image
+     */
     public SkinAnimation(ImageView image) {
         this.image = image;
         this.COLUMNS = (int)(image.getImage().getWidth()/WIDTH);
@@ -42,6 +50,15 @@ public class SkinAnimation extends Transition {
         image.setViewport(new Rectangle2D(xIndex,yIndex,WIDTH,HEIGHT));
     }
 
+    /**
+     * Set indefinite cycle.
+     */
     public void setIndefiniteCycle(){setCycleCount(Animation.INDEFINITE);}
+
+    /**
+     * Set n cycle.
+     *
+     * @param n the n
+     */
     public void setNCycle(int n){setCycleCount(n);}
 }

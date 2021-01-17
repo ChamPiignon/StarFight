@@ -2,14 +2,18 @@ package domaine.properties;
 
 import java.util.Locale;
 
+/**
+ * The type Language.
+ */
 public class Language {
     private String name;
     private Locale language;
 
     /**
+     * Instantiates a new Language.
      *
-     * @param name
-     * @param language
+     * @param name     the name
+     * @param language the language
      */
     public Language(String name, Locale language) {
         this.name = name;
@@ -17,8 +21,9 @@ public class Language {
     }
 
     /**
+     * Gets language.
      *
-     * @return language
+     * @return language language
      */
     public Locale getLanguage() {
         return language;
