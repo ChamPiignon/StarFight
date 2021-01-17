@@ -10,7 +10,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import persist.CommandSerializer;
@@ -25,8 +28,8 @@ public class ChooseCharacter {
     private final Stage myStage;
     private DisplayControl displayControl;
     private KeyboardCommand p1Command, p2Command;
-    private final String defaultNameP1  = "Florent";
-    private final String defaultNameP2  = "Raphael";
+    private final String defaultNameP1 = "Florent";
+    private final String defaultNameP2 = "Raphael";
     private Fighter fighter1 = new Fighter("ninja");
     private Fighter fighter2 = new Fighter("samourai");
 
@@ -40,10 +43,16 @@ public class ChooseCharacter {
     Button btn_left, btn_right;
 
     @FXML
-    Pane selectionP1, selectionP2;
+    Pane selectionP1, selectionP2, controlTable;
 
     @FXML
-    Pane controlTable;
+    VBox leftBox, rightBox;
+
+    @FXML
+    HBox centerBox;
+
+    @FXML
+    BorderPane root;
 
     @FXML
     public void initialize() {
@@ -60,11 +69,17 @@ public class ChooseCharacter {
         selectionP2.getChildren().add(fighter2.getSkin());
         selectionP1.getChildren().add(fighter1.getSkin());
 
+        leftBox.scaleXProperty().bind(myStage.widthProperty().divide(750));
+        leftBox.scaleYProperty().bind(myStage.heightProperty().divide(500));
+        rightBox.scaleXProperty().bind(myStage.widthProperty().divide(750));
+        rightBox.scaleYProperty().bind(myStage.heightProperty().divide(500));
+        centerBox.scaleXProperty().bind(myStage.widthProperty().divide(750));
+        centerBox.scaleYProperty().bind(myStage.heightProperty().divide(500));
 
         nameInputPlayer1.setText(defaultNameP1);
-        nameInputPlayer1.setPrefWidth(myStage.getWidth()/3);
+        nameInputPlayer1.setPrefWidth(myStage.getWidth() / 3);
         nameInputPlayer2.setText(defaultNameP2);
-        nameInputPlayer2.setPrefWidth(myStage.getWidth()/3);
+        nameInputPlayer2.setPrefWidth(myStage.getWidth() / 3);
         player2Character = "Samourai";
         player1Character = "Ninja";
     }
@@ -130,8 +145,6 @@ public class ChooseCharacter {
         loader.setController(new GamePage(myStage,player1Name, fighter1, player2Name, fighter2,p1Command, p2Command));
         Parent root = loader.load();
         Scene gameScene= new Scene(root);
-
-        myStage.setFullScreen(true);
 
         myStage.setTitle(bundle.getString("GameTitleGame"));
         myStage.getIcons().add(new Image("images/tux.png"));

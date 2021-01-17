@@ -30,6 +30,8 @@ public class Main extends Application {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.getIcons().add(new Image("images/tux.png"));
+            stage.setMinWidth(300);
+            stage.setMinHeight(200);
             stage.show();
 
         }catch (Exception ex){

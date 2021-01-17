@@ -10,6 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
+import javafx.scene.transform.Scale;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.util.Locale;
@@ -37,9 +39,11 @@ public class LaunchPage {
     Label titleLabel;
 
     @FXML
+    StackPane root;
+
+    @FXML
     public void initialize() {
-//        tableView.setPrefWidth(stageWidth);
-//        tableView.setPrefHeight(stageHeight);
+
         initializeText();
         initializeLanguages();
     }
@@ -92,6 +96,8 @@ public class LaunchPage {
         primaryStage.setTitle(bundle.getString("GameTitleGame"));
         primaryStage.setScene(gameScene);
         primaryStage.getIcons().add(new Image("images/tux.png"));
+        primaryStage.setMinHeight(500);
+        primaryStage.setMinWidth(750);
         primaryStage.show();
     }
 
