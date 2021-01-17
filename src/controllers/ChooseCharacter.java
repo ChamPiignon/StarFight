@@ -114,28 +114,29 @@ public class ChooseCharacter {
     }
 
     public void selectSamouraiP1(ActionEvent actionEvent){
-        refreshSelectionAnimation(fighter1,selectionP1,"Samourai");
+        fighter1=refreshSelectionAnimation(selectionP1,"Samourai");
     }
 
     public void selectNinjaP1(ActionEvent actionEvent){
-        refreshSelectionAnimation(fighter1,selectionP1,"Ninja");
+        fighter1=refreshSelectionAnimation(selectionP1,"Ninja");
     }
 
     public void selectSamouraiP2(ActionEvent actionEvent){
-        refreshSelectionAnimation(fighter2,selectionP2,"Samourai");
+        fighter2=refreshSelectionAnimation(selectionP2,"Samourai");
     }
 
     public void selectNinjaP2(ActionEvent actionEvent){
-        refreshSelectionAnimation(fighter2,selectionP2,"Ninja");
+        fighter2=refreshSelectionAnimation(selectionP2,"Ninja");
     }
 
 
 
-    private void refreshSelectionAnimation(Fighter fighter, Pane paneSelectionAnimation,String typePerso)
+    private Fighter refreshSelectionAnimation(Pane paneSelectionAnimation,String typePerso)
     {
-        fighter = new Fighter(typePerso);
+        Fighter fighter = new Fighter(typePerso);
         fighter.getSkin().skinAnimation.play();
         paneSelectionAnimation.getChildren().set(0,fighter.getSkin());
+        return fighter;
     }
 
     private void launchGame() throws Exception {

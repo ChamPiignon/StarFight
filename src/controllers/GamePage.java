@@ -66,7 +66,7 @@ public class GamePage {
             private long now;
             @Override
             public void handle(long time) {
-                stage.getScene().setOnKeyReleased(Input::keyReleased);
+
                 if (TIME_THREAD < time - now) {
                     win(oneVersusOne.player1, oneVersusOne.player2,this);
                     stage.getScene().setOnKeyPressed(Input::keyPressed);
