@@ -274,6 +274,6 @@ public class GamePage {
         initializePositionFight(oneVersusOne.player2, POS_X_PLAYER_2,POS_Y_PLAYER_2);
         initializeHealthBar(oneVersusOne.barHpPlayer1, LAYOUT_X_HP_BAR_1);
         initializeHealthBar(oneVersusOne.barHpPlayer2, LAYOUT_X_HP_BAR_2);
-        root.getChildren().addAll(oneVersusOne.player2.getHisFighter().getSkin(), oneVersusOne.player1.getHisFighter().getSkin(), oneVersusOne.barHpPlayer1, oneVersusOne.barHpPlayer2, oneVersusOne.player1.getHisFighter().getHitbox(), oneVersusOne.player2.getHisFighter().getHitbox());
+        root.getChildren().addAll(oneVersusOne.player2.getHisFighter().getSkin(), oneVersusOne.player1.getHisFighter().getSkin(), oneVersusOne.barHpPlayer1, oneVersusOne.barHpPlayer2);
     }
 }

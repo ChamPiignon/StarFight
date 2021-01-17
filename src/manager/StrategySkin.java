@@ -115,7 +115,7 @@ public class StrategySkin
     {
         fighter.getSkin().getImageView().setScaleX(xOrientation);
         if(fighter.getHitbox() != null) {
-            fighter.getHitbox().setX(xOrientation);
+            fighter.getHitbox().setScaleX(xOrientation);
         }
     }
 
