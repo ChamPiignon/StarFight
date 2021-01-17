@@ -22,7 +22,7 @@ public class StrategyFight {
 
     private void collision(Fighter attacker, Fighter defender)
     {
-        if(attacker.getSkin().intersects(defender.getSkin().getLayoutBounds()))
+        if(attacker.getHitbox().intersects(defender.getHitbox().getLayoutBounds()))
         {
             receiveAttack(defender);
         }

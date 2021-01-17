@@ -3,6 +3,12 @@ package manager;
 import character.Fighter;
 import character.StatMove;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.transform.Rotate;
+import javafx.scene.transform.Scale;
+
+import static javafx.geometry.NodeOrientation.LEFT_TO_RIGHT;
+import static javafx.geometry.NodeOrientation.RIGHT_TO_LEFT;
 
 public class StrategySkin
 {
@@ -58,6 +64,7 @@ public class StrategySkin
     public void mirror(Fighter fighter,int xOrientation)
     {
         fighter.getSkin().getImageView().setScaleX(xOrientation);
+        fighter.getHitbox().setScaleX(xOrientation);
     }
 
     public ImageView getSprite(Fighter fighter){ return fighter.getSkin().getImageView(); }

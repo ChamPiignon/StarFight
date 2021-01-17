@@ -1,13 +1,14 @@
 package character;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.scene.shape.Rectangle;
 
 public abstract class Character
 {
 
     private IntegerProperty currentHP;
     private String name;
-
+    private Rectangle hitbox;
     public boolean isJumping = false;
     public boolean isFalling = false;
     public int gravity = 0;
@@ -30,6 +31,12 @@ public abstract class Character
 
 
 
+    public Rectangle getHitbox() {
+        return hitbox;
+    }
+    public void setHitbox(Rectangle hitbox) {
+        this.hitbox = hitbox;
+    }
     public IntegerProperty getCurrentHP()
     {
         return currentHP;
