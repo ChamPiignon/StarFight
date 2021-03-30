@@ -1,5 +1,8 @@
 # StarFight
+![Alt text](documentation\png\pres.png)
 
-projet javaFx 2020, il s'agit d'un petit jeu de combat inspiré de Street Fighter.
-Raphaël Hacques
-Florent Chaplais
+Projet javaFx 2020, Little game like streetfighter
+
+
+# Video
+![Alt text](documentation\png\starfight.gif)
